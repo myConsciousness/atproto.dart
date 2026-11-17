@@ -11,10 +11,13 @@
 import 'package:args/command_runner.dart';
 
 // Project imports:
+import 'inbox/ack_push_notifications.dart';
 import 'inbox/appeal_actioned_subject.dart';
+import 'inbox/claim_push_notifications.dart';
 import 'inbox/get_account_status.dart';
 import 'inbox/get_actioned_subject.dart';
 import 'inbox/get_notification_preferences.dart';
+import 'inbox/get_push_preference.dart';
 import 'inbox/get_report.dart';
 import 'inbox/get_unread_count.dart';
 import 'inbox/list_actioned_subjects.dart';
@@ -29,10 +32,13 @@ import 'inbox/update_seen.dart';
 
 final class ToolsOzoneInboxCommand extends Command<void> {
   ToolsOzoneInboxCommand() {
+    addSubcommand(AckPushNotificationsCommand());
     addSubcommand(AppealActionedSubjectCommand());
+    addSubcommand(ClaimPushNotificationsCommand());
     addSubcommand(GetAccountStatusCommand());
     addSubcommand(GetActionedSubjectCommand());
     addSubcommand(GetNotificationPreferencesCommand());
+    addSubcommand(GetPushPreferenceCommand());
     addSubcommand(GetReportCommand());
     addSubcommand(GetUnreadCountCommand());
     addSubcommand(ListActionedSubjectsCommand());

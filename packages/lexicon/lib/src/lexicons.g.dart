@@ -20093,6 +20093,53 @@ const toolsOzoneHostingGetAccountHistory = <String, dynamic>{
   },
 };
 
+/// `tools.ozone.inbox.ackPushNotifications`
+const toolsOzoneInboxAckPushNotifications = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.ackPushNotifications",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["items"],
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#item"},
+              "minLength": 1,
+              "maxLength": 100,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["acknowledged"],
+          "properties": {
+            "acknowledged": {
+              "type": "array",
+              "items": {"type": "integer"},
+            },
+          },
+        },
+      },
+    },
+    "item": {
+      "type": "object",
+      "required": ["id", "leaseToken"],
+      "properties": {
+        "id": {"type": "integer"},
+        "leaseToken": {"type": "string", "maxLength": 64},
+      },
+    },
+  },
+};
+
 /// `tools.ozone.inbox.appealActionedSubject`
 const toolsOzoneInboxAppealActionedSubject = <String, dynamic>{
   "lexicon": 1,
@@ -20182,6 +20229,78 @@ const toolsOzoneInboxAppealActionedSubject = <String, dynamic>{
       },
     },
     "takedownRef": {"type": "object", "properties": {}},
+  },
+};
+
+/// `tools.ozone.inbox.claimPushNotifications`
+const toolsOzoneInboxClaimPushNotifications = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.claimPushNotifications",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 100,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["notifications", "processed", "expired", "suppressed"],
+          "properties": {
+            "processed": {"type": "integer", "minimum": 0, "maximum": 100},
+            "expired": {"type": "integer", "minimum": 0, "maximum": 100},
+            "suppressed": {"type": "integer", "minimum": 0, "maximum": 100},
+            "notifications": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#item"},
+            },
+          },
+        },
+      },
+    },
+    "item": {
+      "type": "object",
+      "required": [
+        "id",
+        "leaseToken",
+        "recipientDid",
+        "reason",
+        "target",
+        "createdAt",
+        "category",
+      ],
+      "properties": {
+        "id": {"type": "integer"},
+        "leaseToken": {"type": "string"},
+        "recipientDid": {"type": "string", "format": "did"},
+        "reason": {"type": "string"},
+        "category": {
+          "type": "string",
+          "knownValues": ["reports", "account", "labels"],
+        },
+        "target": {
+          "type": "union",
+          "refs": [
+            "tools.ozone.inbox.defs#reportRef",
+            "tools.ozone.inbox.defs#subjectRef",
+            "tools.ozone.inbox.defs#standingRef",
+          ],
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+      },
+    },
   },
 };
 
@@ -20687,6 +20806,38 @@ const toolsOzoneInboxGetNotificationPreferences = <String, dynamic>{
               "type": "ref",
               "ref": "tools.ozone.inbox.defs#notificationPreferences",
             },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `tools.ozone.inbox.getPushPreference`
+const toolsOzoneInboxGetPushPreference = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.inbox.getPushPreference",
+  "defs": {
+    "main": {
+      "type": "query",
+      "parameters": {
+        "type": "params",
+        "required": ["recipientDid", "category"],
+        "properties": {
+          "recipientDid": {"type": "string", "format": "did"},
+          "category": {
+            "type": "string",
+            "enum": ["reports", "account", "labels"],
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["enabled"],
+          "properties": {
+            "enabled": {"type": "boolean"},
           },
         },
       },
@@ -22596,6 +22747,158 @@ const toolsOzoneModerationEmitEvent = <String, dynamic>{
   },
 };
 
+/// `tools.ozone.moderation.emitEvents`
+const toolsOzoneModerationEmitEvents = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.moderation.emitEvents",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Take a moderation action on multiple subjects at once. Each subject is processed independently; failures are listed in failedEvents. Only the listed event types are supported.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["event", "subjects", "createdBy"],
+          "properties": {
+            "event": {
+              "type": "union",
+              "refs": [
+                "tools.ozone.moderation.defs#modEventTakedown",
+                "tools.ozone.moderation.defs#modEventAcknowledge",
+                "tools.ozone.moderation.defs#modEventLabel",
+                "tools.ozone.moderation.defs#modEventReport",
+                "tools.ozone.moderation.defs#modEventReverseTakedown",
+                "tools.ozone.moderation.defs#modEventResolveAppeal",
+                "tools.ozone.moderation.defs#modEventEmail",
+                "tools.ozone.moderation.defs#modEventTag",
+                "tools.ozone.moderation.defs#revokeAccountCredentialsEvent",
+              ],
+            },
+            "subjects": {
+              "type": "array",
+              "description":
+                  "Array of subjects to apply the moderation event to.",
+              "items": {"type": "ref", "ref": "#subjectEntry"},
+              "maxLength": 100,
+            },
+            "createdBy": {"type": "string", "format": "did"},
+            "modTool": {
+              "type": "ref",
+              "ref": "tools.ozone.moderation.defs#modTool",
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["events", "failedEvents"],
+          "properties": {
+            "events": {
+              "type": "array",
+              "description": "Successfully processed moderation events.",
+              "items": {
+                "type": "ref",
+                "ref": "tools.ozone.moderation.defs#modEventView",
+              },
+            },
+            "failedEvents": {
+              "type": "array",
+              "description": "Events that failed to process.",
+              "items": {"type": "ref", "ref": "#failedEvent"},
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "InvalidLabel",
+          "description": "One or more labels contain invalid characters.",
+        },
+        {
+          "name": "DuplicateSubjects",
+          "description": "The subjects array contains duplicate entries.",
+        },
+        {
+          "name": "EmptySubjects",
+          "description": "The subjects array is empty.",
+        },
+        {
+          "name": "UnsupportedEvent",
+          "description":
+              "The event type is not supported by this bulk endpoint.",
+        },
+      ],
+    },
+    "subjectEntry": {
+      "type": "object",
+      "description":
+          "A subject with optional blob CIDs, external event ID, and report-level targeting. Report targeting applies only to this entry.",
+      "required": ["subject"],
+      "properties": {
+        "subject": {
+          "type": "union",
+          "refs": [
+            "com.atproto.admin.defs#repoRef",
+            "com.atproto.repo.strongRef",
+          ],
+        },
+        "subjectBlobCids": {
+          "type": "array",
+          "items": {"type": "string", "format": "cid"},
+        },
+        "externalId": {
+          "type": "string",
+          "description":
+              "Deduplicate events of this type for this subject using an external ID.",
+        },
+        "reportAction": {
+          "type": "ref",
+          "description":
+              "Optional report-level targeting for this subject. Links the event to matching reports and may notify reporters.",
+          "ref": "tools.ozone.moderation.emitEvent#reportAction",
+        },
+      },
+    },
+    "failedEvent": {
+      "type": "object",
+      "description": "An event that failed to process.",
+      "required": ["error", "subject"],
+      "properties": {
+        "error": {
+          "type": "string",
+          "description": "Error message describing the reason for failure.",
+        },
+        "errorName": {
+          "type": "string",
+          "description":
+              "Typed error identifier for programmatic handling. Omitted when the error is unexpected/uncategorized.",
+          "knownValues": [
+            "InvalidSubject",
+            "SubjectHasAction",
+            "AlreadyTakendown",
+            "NotTakendown",
+            "DuplicateExternalId",
+            "InvalidConfiguration",
+            "InvalidRequest",
+          ],
+        },
+        "subject": {
+          "type": "union",
+          "description": "The subject from the failed event input.",
+          "refs": [
+            "com.atproto.admin.defs#repoRef",
+            "com.atproto.repo.strongRef",
+          ],
+        },
+      },
+    },
+  },
+};
+
 /// `tools.ozone.moderation.getAccountPreferences`
 const toolsOzoneModerationGetAccountPreferences = <String, dynamic>{
   "lexicon": 1,
@@ -24388,7 +24691,7 @@ const toolsOzoneReportCloseReports = <String, dynamic>{
     "main": {
       "type": "procedure",
       "description":
-          "Close eligible reports on a subject matching the given criteria, optionally linking an existing moderation action. Assigned, escalated, and actively assigned reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently.",
+          "Close eligible reports on a subject matching the given criteria, optionally linking an existing moderation action. Assigned, escalated, and actively assigned reports are excluded unless explicitly targeted by reportId. Reports whose current status does not permit a transition to closed are skipped silently.",
       "input": {
         "encoding": "application/json",
         "schema": {
@@ -24407,10 +24710,16 @@ const toolsOzoneReportCloseReports = <String, dynamic>{
                   "If true, also close reports on all subjects owned by the account, including records, messages, and conversations. Only valid when subject is an account DID.",
               "default": false,
             },
+            "reportId": {
+              "type": "integer",
+              "description":
+                  "An explicitly targeted report in the requested subject scope. It is included even if assigned, escalated, or not in reportTypes; excludedReportTypes still applies.",
+              "minimum": 1,
+            },
             "reportTypes": {
               "type": "array",
               "description":
-                  "If nonempty, only reports of the given report types (fully qualified reason NSIDs) are closed. When omitted or empty, all eligible reports in the requested subject scope are targeted, except excludedReportTypes. Assigned and escalated reports are always excluded.",
+                  "If nonempty, eligible reports of the given report types (fully qualified reason NSIDs) are closed, in addition to reportId. When omitted or empty, all eligible reports in the requested subject scope are targeted, except excludedReportTypes. Assigned, escalated, and actively assigned reports are excluded unless explicitly targeted by reportId.",
               "items": {"type": "string"},
             },
             "excludedReportTypes": {
@@ -28145,11 +28454,14 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneCommunicationListTemplates,
   toolsOzoneCommunicationUpdateTemplate,
   toolsOzoneHostingGetAccountHistory,
+  toolsOzoneInboxAckPushNotifications,
   toolsOzoneInboxAppealActionedSubject,
+  toolsOzoneInboxClaimPushNotifications,
   toolsOzoneInboxDefs,
   toolsOzoneInboxGetAccountStatus,
   toolsOzoneInboxGetActionedSubject,
   toolsOzoneInboxGetNotificationPreferences,
+  toolsOzoneInboxGetPushPreference,
   toolsOzoneInboxGetReport,
   toolsOzoneInboxGetUnreadCount,
   toolsOzoneInboxListActionedSubjects,
@@ -28160,6 +28472,7 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneModerationCancelScheduledActions,
   toolsOzoneModerationDefs,
   toolsOzoneModerationEmitEvent,
+  toolsOzoneModerationEmitEvents,
   toolsOzoneModerationGetAccountPreferences,
   toolsOzoneModerationGetAccountTimeline,
   toolsOzoneModerationGetEvent,

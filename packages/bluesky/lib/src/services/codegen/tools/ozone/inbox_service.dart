@@ -15,12 +15,16 @@ import 'package:atproto_core/internals.dart' show protected;
 
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
+import 'inbox/ackPushNotifications/item.dart';
+import 'inbox/ackPushNotifications/output.dart';
 import 'inbox/appealActionedSubject/union_main_action.dart';
 import 'inbox/appealActionedSubject/union_main_subject.dart';
+import 'inbox/claimPushNotifications/output.dart';
 import 'inbox/defs/subject_view.dart';
 import 'inbox/defs/subject_view_detail.dart';
 import 'inbox/getAccountStatus/output.dart';
 import 'inbox/getNotificationPreferences/output.dart';
+import 'inbox/getPushPreference/output.dart';
 import 'inbox/getReport/output.dart';
 import 'inbox/getUnreadCount/main_section.dart';
 import 'inbox/getUnreadCount/output.dart';
@@ -36,6 +40,24 @@ import 'inbox/updateSeen/output.dart';
 // **************************************************************************
 // LexGenerator
 // **************************************************************************
+
+Future<XRPCResponse<InboxAckPushNotificationsOutput>>
+toolsOzoneInboxAckPushNotifications({
+  required List<Item> items,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneInboxAckPushNotifications,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'items': items.map((e) => const ItemConverter().toJson(e)).toList(),
+  },
+  to: const InboxAckPushNotificationsOutputConverter().fromJson,
+);
 
 /// Appeal a moderation action affecting the user's account or content.
 Future<XRPCResponse<SubjectView>> toolsOzoneInboxAppealActionedSubject({
@@ -59,6 +81,20 @@ Future<XRPCResponse<SubjectView>> toolsOzoneInboxAppealActionedSubject({
     if (modTool != null) 'modTool': const ModToolConverter().toJson(modTool),
   },
   to: const SubjectViewConverter().fromJson,
+);
+Future<XRPCResponse<InboxClaimPushNotificationsOutput>>
+toolsOzoneInboxClaimPushNotifications({
+  int? limit,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneInboxClaimPushNotifications,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {...?$unknown, if (limit != null) 'limit': limit},
+  to: const InboxClaimPushNotificationsOutputConverter().fromJson,
 );
 
 /// Get the authenticated account's current standing with this moderation service.
@@ -115,6 +151,25 @@ toolsOzoneInboxGetNotificationPreferences({
   headers: $headers,
   parameters: {...?$unknown, if (did != null) 'did': did},
   to: const InboxGetNotificationPreferencesOutputConverter().fromJson,
+);
+Future<XRPCResponse<InboxGetPushPreferenceOutput>>
+toolsOzoneInboxGetPushPreference({
+  required String recipientDid,
+  required String category,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneInboxGetPushPreference,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'recipientDid': recipientDid,
+    'category': category,
+  },
+  to: const InboxGetPushPreferenceOutputConverter().fromJson,
 );
 
 /// Get a moderation report submitted by the authenticated account to this moderation service.
@@ -283,6 +338,19 @@ base class InboxService {
 
   InboxService(this.ctx);
 
+  Future<XRPCResponse<InboxAckPushNotificationsOutput>> ackPushNotifications({
+    required List<Item> items,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneInboxAckPushNotifications(
+    items: items,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
   /// Appeal a moderation action affecting the user's account or content.
   Future<XRPCResponse<SubjectView>> appealActionedSubject({
     UInboxAppealActionedSubjectAction? action,
@@ -297,6 +365,19 @@ base class InboxService {
     subject: subject,
     reason: reason,
     modTool: modTool,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+  Future<XRPCResponse<InboxClaimPushNotificationsOutput>>
+  claimPushNotifications({
+    int? limit,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneInboxClaimPushNotifications(
+    limit: limit,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
@@ -346,6 +427,20 @@ base class InboxService {
     Map<String, String>? $unknown,
   }) async => await toolsOzoneInboxGetNotificationPreferences(
     did: did,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+  Future<XRPCResponse<InboxGetPushPreferenceOutput>> getPushPreference({
+    required String recipientDid,
+    required String category,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneInboxGetPushPreference(
+    recipientDid: recipientDid,
+    category: category,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

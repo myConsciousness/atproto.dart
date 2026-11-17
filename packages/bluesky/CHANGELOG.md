@@ -1,5 +1,20 @@
 # Release Note
 
+## v2.18.1
+
+- feat: added `tools.ozone.inbox.ackPushNotifications#item`
+- feat: added `tools.ozone.inbox.ackPushNotifications`
+- feat: added `tools.ozone.inbox.claimPushNotifications#item`
+- feat: added `tools.ozone.inbox.claimPushNotifications`
+- feat: added `tools.ozone.inbox.getPushPreference`
+- feat: added `tools.ozone.moderation.emitEvents#failedEvent`
+- feat: added `tools.ozone.moderation.emitEvents`
+- feat: added `tools.ozone.moderation.emitEvents#subjectEntry`
+- chore: updated `tools.ozone.report.closeReports`
+- feat: added `tools.ozone.report.closeReports.input.reportId`
+- chore: updated `tools.ozone.report.closeReports.input.reportTypes`
+- chore: regenerated from synced lexicons
+
 ## v2.18.0
 
 - fix!: removed `app.bsky.feed.hydrateFeedSkeleton` (BREAKING)

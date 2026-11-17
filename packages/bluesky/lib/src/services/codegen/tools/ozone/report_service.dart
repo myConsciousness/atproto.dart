@@ -59,10 +59,11 @@ Future<XRPCResponse<AssignmentView>> toolsOzoneReportAssignModerator({
   to: const AssignmentViewConverter().fromJson,
 );
 
-/// Close eligible reports on a subject matching the given criteria, optionally linking an existing moderation action. Assigned, escalated, and actively assigned reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently.
+/// Close eligible reports on a subject matching the given criteria, optionally linking an existing moderation action. Assigned, escalated, and actively assigned reports are excluded unless explicitly targeted by reportId. Reports whose current status does not permit a transition to closed are skipped silently.
 Future<XRPCResponse<ReportCloseReportsOutput>> toolsOzoneReportCloseReports({
   required String subject,
   bool? includeAllOwned,
+  int? reportId,
   List<String>? reportTypes,
   List<String>? excludedReportTypes,
   int? actionEventId,
@@ -81,6 +82,7 @@ Future<XRPCResponse<ReportCloseReportsOutput>> toolsOzoneReportCloseReports({
     ...?$unknown,
     'subject': subject,
     if (includeAllOwned != null) 'includeAllOwned': includeAllOwned,
+    if (reportId != null) 'reportId': reportId,
     if (reportTypes != null) 'reportTypes': reportTypes,
     if (excludedReportTypes != null) 'excludedReportTypes': excludedReportTypes,
     if (actionEventId != null) 'actionEventId': actionEventId,
@@ -444,10 +446,11 @@ base class ReportService {
     $unknown: $unknown,
   );
 
-  /// Close eligible reports on a subject matching the given criteria, optionally linking an existing moderation action. Assigned, escalated, and actively assigned reports are excluded. Reports whose current status does not permit a transition to closed are skipped silently.
+  /// Close eligible reports on a subject matching the given criteria, optionally linking an existing moderation action. Assigned, escalated, and actively assigned reports are excluded unless explicitly targeted by reportId. Reports whose current status does not permit a transition to closed are skipped silently.
   Future<XRPCResponse<ReportCloseReportsOutput>> closeReports({
     required String subject,
     bool? includeAllOwned,
+    int? reportId,
     List<String>? reportTypes,
     List<String>? excludedReportTypes,
     int? actionEventId,
@@ -460,6 +463,7 @@ base class ReportService {
   }) async => await toolsOzoneReportCloseReports(
     subject: subject,
     includeAllOwned: includeAllOwned,
+    reportId: reportId,
     reportTypes: reportTypes,
     excludedReportTypes: excludedReportTypes,
     actionEventId: actionEventId,

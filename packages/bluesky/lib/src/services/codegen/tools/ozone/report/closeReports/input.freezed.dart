@@ -17,7 +17,8 @@ mixin _$ReportCloseReportsInput {
 
 /// Subject DID (account-level reports) or AT-URI (record-level reports) whose reports should be closed.
  String get subject;/// If true, also close reports on all subjects owned by the account, including records, messages, and conversations. Only valid when subject is an account DID.
- bool get includeAllOwned; List<String>? get reportTypes; List<String>? get excludedReportTypes;/// Optional existing moderation event that closes reports. It must target the exact subject or its owning account; account-wide closure requires an account event. The event is linked to each closed report and may predate the report. The link does not imply the action is still in effect.
+ bool get includeAllOwned;/// An explicitly targeted report in the requested subject scope. It is included even if assigned, escalated, or not in reportTypes; excludedReportTypes still applies.
+ int? get reportId; List<String>? get reportTypes; List<String>? get excludedReportTypes;/// Optional existing moderation event that closes reports. It must target the exact subject or its owning account; account-wide closure requires an account event. The event is linked to each closed report and may predate the report. The link does not imply the action is still in effect.
  int? get actionEventId;/// Optional moderator-only note recorded on each close activity. Not visible to reporters.
  String? get internalNote;/// Set true when this action is triggered by an automated process. Defaults to false.
  bool get isAutomated; Map<String, dynamic>? get meta; Map<String, dynamic>? get $unknown;
@@ -33,16 +34,16 @@ $ReportCloseReportsInputCopyWith<ReportCloseReportsInput> get copyWith => _$Repo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReportCloseReportsInput&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.includeAllOwned, includeAllOwned) || other.includeAllOwned == includeAllOwned)&&const DeepCollectionEquality().equals(other.reportTypes, reportTypes)&&const DeepCollectionEquality().equals(other.excludedReportTypes, excludedReportTypes)&&(identical(other.actionEventId, actionEventId) || other.actionEventId == actionEventId)&&(identical(other.internalNote, internalNote) || other.internalNote == internalNote)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&const DeepCollectionEquality().equals(other.meta, meta)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReportCloseReportsInput&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.includeAllOwned, includeAllOwned) || other.includeAllOwned == includeAllOwned)&&(identical(other.reportId, reportId) || other.reportId == reportId)&&const DeepCollectionEquality().equals(other.reportTypes, reportTypes)&&const DeepCollectionEquality().equals(other.excludedReportTypes, excludedReportTypes)&&(identical(other.actionEventId, actionEventId) || other.actionEventId == actionEventId)&&(identical(other.internalNote, internalNote) || other.internalNote == internalNote)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&const DeepCollectionEquality().equals(other.meta, meta)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,subject,includeAllOwned,const DeepCollectionEquality().hash(reportTypes),const DeepCollectionEquality().hash(excludedReportTypes),actionEventId,internalNote,isAutomated,const DeepCollectionEquality().hash(meta),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,subject,includeAllOwned,reportId,const DeepCollectionEquality().hash(reportTypes),const DeepCollectionEquality().hash(excludedReportTypes),actionEventId,internalNote,isAutomated,const DeepCollectionEquality().hash(meta),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ReportCloseReportsInput(subject: $subject, includeAllOwned: $includeAllOwned, reportTypes: $reportTypes, excludedReportTypes: $excludedReportTypes, actionEventId: $actionEventId, internalNote: $internalNote, isAutomated: $isAutomated, meta: $meta, \$unknown: ${$unknown})';
+  return 'ReportCloseReportsInput(subject: $subject, includeAllOwned: $includeAllOwned, reportId: $reportId, reportTypes: $reportTypes, excludedReportTypes: $excludedReportTypes, actionEventId: $actionEventId, internalNote: $internalNote, isAutomated: $isAutomated, meta: $meta, \$unknown: ${$unknown})';
 }
 
 
@@ -53,7 +54,7 @@ abstract mixin class $ReportCloseReportsInputCopyWith<$Res>  {
   factory $ReportCloseReportsInputCopyWith(ReportCloseReportsInput value, $Res Function(ReportCloseReportsInput) _then) = _$ReportCloseReportsInputCopyWithImpl;
 @useResult
 $Res call({
- String subject, bool includeAllOwned, List<String>? reportTypes, List<String>? excludedReportTypes, int? actionEventId, String? internalNote, bool isAutomated, Map<String, dynamic>? meta, Map<String, dynamic>? $unknown
+ String subject, bool includeAllOwned, int? reportId, List<String>? reportTypes, List<String>? excludedReportTypes, int? actionEventId, String? internalNote, bool isAutomated, Map<String, dynamic>? meta, Map<String, dynamic>? $unknown
 });
 
 
@@ -70,11 +71,12 @@ class _$ReportCloseReportsInputCopyWithImpl<$Res>
 
 /// Create a copy of ReportCloseReportsInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? subject = null,Object? includeAllOwned = null,Object? reportTypes = freezed,Object? excludedReportTypes = freezed,Object? actionEventId = freezed,Object? internalNote = freezed,Object? isAutomated = null,Object? meta = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? subject = null,Object? includeAllOwned = null,Object? reportId = freezed,Object? reportTypes = freezed,Object? excludedReportTypes = freezed,Object? actionEventId = freezed,Object? internalNote = freezed,Object? isAutomated = null,Object? meta = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
 as String,includeAllOwned: null == includeAllOwned ? _self.includeAllOwned : includeAllOwned // ignore: cast_nullable_to_non_nullable
-as bool,reportTypes: freezed == reportTypes ? _self.reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
+as bool,reportId: freezed == reportId ? _self.reportId : reportId // ignore: cast_nullable_to_non_nullable
+as int?,reportTypes: freezed == reportTypes ? _self.reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
 as List<String>?,excludedReportTypes: freezed == excludedReportTypes ? _self.excludedReportTypes : excludedReportTypes // ignore: cast_nullable_to_non_nullable
 as List<String>?,actionEventId: freezed == actionEventId ? _self.actionEventId : actionEventId // ignore: cast_nullable_to_non_nullable
 as int?,internalNote: freezed == internalNote ? _self.internalNote : internalNote // ignore: cast_nullable_to_non_nullable
@@ -166,10 +168,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String subject,  bool includeAllOwned,  List<String>? reportTypes,  List<String>? excludedReportTypes,  int? actionEventId,  String? internalNote,  bool isAutomated,  Map<String, dynamic>? meta,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String subject,  bool includeAllOwned,  int? reportId,  List<String>? reportTypes,  List<String>? excludedReportTypes,  int? actionEventId,  String? internalNote,  bool isAutomated,  Map<String, dynamic>? meta,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReportCloseReportsInput() when $default != null:
-return $default(_that.subject,_that.includeAllOwned,_that.reportTypes,_that.excludedReportTypes,_that.actionEventId,_that.internalNote,_that.isAutomated,_that.meta,_that.$unknown);case _:
+return $default(_that.subject,_that.includeAllOwned,_that.reportId,_that.reportTypes,_that.excludedReportTypes,_that.actionEventId,_that.internalNote,_that.isAutomated,_that.meta,_that.$unknown);case _:
   return orElse();
 
 }
@@ -187,10 +189,10 @@ return $default(_that.subject,_that.includeAllOwned,_that.reportTypes,_that.excl
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String subject,  bool includeAllOwned,  List<String>? reportTypes,  List<String>? excludedReportTypes,  int? actionEventId,  String? internalNote,  bool isAutomated,  Map<String, dynamic>? meta,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String subject,  bool includeAllOwned,  int? reportId,  List<String>? reportTypes,  List<String>? excludedReportTypes,  int? actionEventId,  String? internalNote,  bool isAutomated,  Map<String, dynamic>? meta,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ReportCloseReportsInput():
-return $default(_that.subject,_that.includeAllOwned,_that.reportTypes,_that.excludedReportTypes,_that.actionEventId,_that.internalNote,_that.isAutomated,_that.meta,_that.$unknown);case _:
+return $default(_that.subject,_that.includeAllOwned,_that.reportId,_that.reportTypes,_that.excludedReportTypes,_that.actionEventId,_that.internalNote,_that.isAutomated,_that.meta,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -207,10 +209,10 @@ return $default(_that.subject,_that.includeAllOwned,_that.reportTypes,_that.excl
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String subject,  bool includeAllOwned,  List<String>? reportTypes,  List<String>? excludedReportTypes,  int? actionEventId,  String? internalNote,  bool isAutomated,  Map<String, dynamic>? meta,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String subject,  bool includeAllOwned,  int? reportId,  List<String>? reportTypes,  List<String>? excludedReportTypes,  int? actionEventId,  String? internalNote,  bool isAutomated,  Map<String, dynamic>? meta,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ReportCloseReportsInput() when $default != null:
-return $default(_that.subject,_that.includeAllOwned,_that.reportTypes,_that.excludedReportTypes,_that.actionEventId,_that.internalNote,_that.isAutomated,_that.meta,_that.$unknown);case _:
+return $default(_that.subject,_that.includeAllOwned,_that.reportId,_that.reportTypes,_that.excludedReportTypes,_that.actionEventId,_that.internalNote,_that.isAutomated,_that.meta,_that.$unknown);case _:
   return null;
 
 }
@@ -222,13 +224,15 @@ return $default(_that.subject,_that.includeAllOwned,_that.reportTypes,_that.excl
 
 @JsonSerializable(includeIfNull: false)
 class _ReportCloseReportsInput implements ReportCloseReportsInput {
-  const _ReportCloseReportsInput({required this.subject, this.includeAllOwned = false, final  List<String>? reportTypes, final  List<String>? excludedReportTypes, this.actionEventId, this.internalNote, this.isAutomated = false, final  Map<String, dynamic>? meta, final  Map<String, dynamic>? $unknown}): _reportTypes = reportTypes,_excludedReportTypes = excludedReportTypes,_meta = meta,_$unknown = $unknown;
+  const _ReportCloseReportsInput({required this.subject, this.includeAllOwned = false, this.reportId, final  List<String>? reportTypes, final  List<String>? excludedReportTypes, this.actionEventId, this.internalNote, this.isAutomated = false, final  Map<String, dynamic>? meta, final  Map<String, dynamic>? $unknown}): _reportTypes = reportTypes,_excludedReportTypes = excludedReportTypes,_meta = meta,_$unknown = $unknown;
   factory _ReportCloseReportsInput.fromJson(Map<String, dynamic> json) => _$ReportCloseReportsInputFromJson(json);
 
 /// Subject DID (account-level reports) or AT-URI (record-level reports) whose reports should be closed.
 @override final  String subject;
 /// If true, also close reports on all subjects owned by the account, including records, messages, and conversations. Only valid when subject is an account DID.
 @override@JsonKey() final  bool includeAllOwned;
+/// An explicitly targeted report in the requested subject scope. It is included even if assigned, escalated, or not in reportTypes; excludedReportTypes still applies.
+@override final  int? reportId;
  final  List<String>? _reportTypes;
 @override List<String>? get reportTypes {
   final value = _reportTypes;
@@ -285,16 +289,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReportCloseReportsInput&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.includeAllOwned, includeAllOwned) || other.includeAllOwned == includeAllOwned)&&const DeepCollectionEquality().equals(other._reportTypes, _reportTypes)&&const DeepCollectionEquality().equals(other._excludedReportTypes, _excludedReportTypes)&&(identical(other.actionEventId, actionEventId) || other.actionEventId == actionEventId)&&(identical(other.internalNote, internalNote) || other.internalNote == internalNote)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&const DeepCollectionEquality().equals(other._meta, _meta)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReportCloseReportsInput&&(identical(other.subject, subject) || other.subject == subject)&&(identical(other.includeAllOwned, includeAllOwned) || other.includeAllOwned == includeAllOwned)&&(identical(other.reportId, reportId) || other.reportId == reportId)&&const DeepCollectionEquality().equals(other._reportTypes, _reportTypes)&&const DeepCollectionEquality().equals(other._excludedReportTypes, _excludedReportTypes)&&(identical(other.actionEventId, actionEventId) || other.actionEventId == actionEventId)&&(identical(other.internalNote, internalNote) || other.internalNote == internalNote)&&(identical(other.isAutomated, isAutomated) || other.isAutomated == isAutomated)&&const DeepCollectionEquality().equals(other._meta, _meta)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,subject,includeAllOwned,const DeepCollectionEquality().hash(_reportTypes),const DeepCollectionEquality().hash(_excludedReportTypes),actionEventId,internalNote,isAutomated,const DeepCollectionEquality().hash(_meta),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,subject,includeAllOwned,reportId,const DeepCollectionEquality().hash(_reportTypes),const DeepCollectionEquality().hash(_excludedReportTypes),actionEventId,internalNote,isAutomated,const DeepCollectionEquality().hash(_meta),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ReportCloseReportsInput(subject: $subject, includeAllOwned: $includeAllOwned, reportTypes: $reportTypes, excludedReportTypes: $excludedReportTypes, actionEventId: $actionEventId, internalNote: $internalNote, isAutomated: $isAutomated, meta: $meta, \$unknown: ${$unknown})';
+  return 'ReportCloseReportsInput(subject: $subject, includeAllOwned: $includeAllOwned, reportId: $reportId, reportTypes: $reportTypes, excludedReportTypes: $excludedReportTypes, actionEventId: $actionEventId, internalNote: $internalNote, isAutomated: $isAutomated, meta: $meta, \$unknown: ${$unknown})';
 }
 
 
@@ -305,7 +309,7 @@ abstract mixin class _$ReportCloseReportsInputCopyWith<$Res> implements $ReportC
   factory _$ReportCloseReportsInputCopyWith(_ReportCloseReportsInput value, $Res Function(_ReportCloseReportsInput) _then) = __$ReportCloseReportsInputCopyWithImpl;
 @override @useResult
 $Res call({
- String subject, bool includeAllOwned, List<String>? reportTypes, List<String>? excludedReportTypes, int? actionEventId, String? internalNote, bool isAutomated, Map<String, dynamic>? meta, Map<String, dynamic>? $unknown
+ String subject, bool includeAllOwned, int? reportId, List<String>? reportTypes, List<String>? excludedReportTypes, int? actionEventId, String? internalNote, bool isAutomated, Map<String, dynamic>? meta, Map<String, dynamic>? $unknown
 });
 
 
@@ -322,11 +326,12 @@ class __$ReportCloseReportsInputCopyWithImpl<$Res>
 
 /// Create a copy of ReportCloseReportsInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? subject = null,Object? includeAllOwned = null,Object? reportTypes = freezed,Object? excludedReportTypes = freezed,Object? actionEventId = freezed,Object? internalNote = freezed,Object? isAutomated = null,Object? meta = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? subject = null,Object? includeAllOwned = null,Object? reportId = freezed,Object? reportTypes = freezed,Object? excludedReportTypes = freezed,Object? actionEventId = freezed,Object? internalNote = freezed,Object? isAutomated = null,Object? meta = freezed,Object? $unknown = freezed,}) {
   return _then(_ReportCloseReportsInput(
 subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
 as String,includeAllOwned: null == includeAllOwned ? _self.includeAllOwned : includeAllOwned // ignore: cast_nullable_to_non_nullable
-as bool,reportTypes: freezed == reportTypes ? _self._reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
+as bool,reportId: freezed == reportId ? _self.reportId : reportId // ignore: cast_nullable_to_non_nullable
+as int?,reportTypes: freezed == reportTypes ? _self._reportTypes : reportTypes // ignore: cast_nullable_to_non_nullable
 as List<String>?,excludedReportTypes: freezed == excludedReportTypes ? _self._excludedReportTypes : excludedReportTypes // ignore: cast_nullable_to_non_nullable
 as List<String>?,actionEventId: freezed == actionEventId ? _self.actionEventId : actionEventId // ignore: cast_nullable_to_non_nullable
 as int?,internalNote: freezed == internalNote ? _self.internalNote : internalNote // ignore: cast_nullable_to_non_nullable

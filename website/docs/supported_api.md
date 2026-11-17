@@ -446,10 +446,13 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 
 | Method | Docs | Paging (cursor) |
 | --- | --- | :---: |
+| **[tools.ozone.inbox.ackPushNotifications](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/ackPushNotifications.html)** | [Reference](lexicons/tools/ozone/inbox/ackPushNotifications.md) | ❌ |
 | **[tools.ozone.inbox.appealActionedSubject](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/appealActionedSubject.html)** | [Reference](lexicons/tools/ozone/inbox/appealActionedSubject.md) | ❌ |
+| **[tools.ozone.inbox.claimPushNotifications](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/claimPushNotifications.html)** | [Reference](lexicons/tools/ozone/inbox/claimPushNotifications.md) | ❌ |
 | **[tools.ozone.inbox.getAccountStatus](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/getAccountStatus.html)** | [Reference](lexicons/tools/ozone/inbox/getAccountStatus.md) | ❌ |
 | **[tools.ozone.inbox.getActionedSubject](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/getActionedSubject.html)** | [Reference](lexicons/tools/ozone/inbox/getActionedSubject.md) | ❌ |
 | **[tools.ozone.inbox.getNotificationPreferences](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/getNotificationPreferences.html)** | [Reference](lexicons/tools/ozone/inbox/getNotificationPreferences.md) | ❌ |
+| **[tools.ozone.inbox.getPushPreference](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/getPushPreference.html)** | [Reference](lexicons/tools/ozone/inbox/getPushPreference.md) | ❌ |
 | **[tools.ozone.inbox.getReport](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/getReport.html)** | [Reference](lexicons/tools/ozone/inbox/getReport.md) | ❌ |
 | **[tools.ozone.inbox.getUnreadCount](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/getUnreadCount.html)** | [Reference](lexicons/tools/ozone/inbox/getUnreadCount.md) | ❌ |
 | **[tools.ozone.inbox.listActionedSubjects](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/InboxService/listActionedSubjects.html)** | [Reference](lexicons/tools/ozone/inbox/listActionedSubjects.md) | ✅ |
@@ -464,6 +467,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | --- | --- | :---: |
 | **[tools.ozone.moderation.cancelScheduledActions](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/cancelScheduledActions.html)** | [Reference](lexicons/tools/ozone/moderation/cancelScheduledActions.md) | ❌ |
 | **[tools.ozone.moderation.emitEvent](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/emitEvent.html)** | [Reference](lexicons/tools/ozone/moderation/emitEvent.md) | ❌ |
+| **[tools.ozone.moderation.emitEvents](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/emitEvents.html)** | [Reference](lexicons/tools/ozone/moderation/emitEvents.md) | ❌ |
 | **[tools.ozone.moderation.getAccountPreferences](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/getAccountPreferences.html)** | [Reference](lexicons/tools/ozone/moderation/getAccountPreferences.md) | ❌ |
 | **[tools.ozone.moderation.getAccountTimeline](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/getAccountTimeline.html)** | [Reference](lexicons/tools/ozone/moderation/getAccountTimeline.md) | ❌ |
 | **[tools.ozone.moderation.getEvent](https://pub.dev/documentation/bluesky/latest/tools_ozone_services/ModerationService/getEvent.html)** | [Reference](lexicons/tools/ozone/moderation/getEvent.md) | ❌ |

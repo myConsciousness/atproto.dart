@@ -23,6 +23,9 @@ import 'moderation/defs/repo_view_detail.dart';
 import 'moderation/emitEvent/report_action.dart';
 import 'moderation/emitEvent/union_main_event.dart';
 import 'moderation/emitEvent/union_main_subject.dart';
+import 'moderation/emitEvents/output.dart';
+import 'moderation/emitEvents/subject_entry.dart';
+import 'moderation/emitEvents/union_main_event.dart';
 import 'moderation/getAccountPreferences/output.dart';
 import 'moderation/getAccountTimeline/output.dart';
 import 'moderation/getRecords/output.dart';
@@ -97,6 +100,33 @@ Future<XRPCResponse<ModEventView>> toolsOzoneModerationEmitEvent({
       'reportAction': const ReportActionConverter().toJson(reportAction),
   },
   to: const ModEventViewConverter().fromJson,
+);
+
+/// Take a moderation action on multiple subjects at once. Each subject is processed independently; failures are listed in failedEvents. Only the listed event types are supported.
+Future<XRPCResponse<ModerationEmitEventsOutput>>
+toolsOzoneModerationEmitEvents({
+  required UModerationEmitEventsEvent event,
+  required List<SubjectEntry> subjects,
+  required String createdBy,
+  ModTool? modTool,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.toolsOzoneModerationEmitEvents,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'event': event.toJson(),
+    'subjects': subjects
+        .map((e) => const SubjectEntryConverter().toJson(e))
+        .toList(),
+    'createdBy': createdBy,
+    if (modTool != null) 'modTool': const ModToolConverter().toJson(modTool),
+  },
+  to: const ModerationEmitEventsOutputConverter().fromJson,
 );
 
 /// Get private preferences for an account. Requires moderator or admin auth.
@@ -522,6 +552,26 @@ base class ModerationService {
     modTool: modTool,
     externalId: externalId,
     reportAction: reportAction,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Take a moderation action on multiple subjects at once. Each subject is processed independently; failures are listed in failedEvents. Only the listed event types are supported.
+  Future<XRPCResponse<ModerationEmitEventsOutput>> emitEvents({
+    required UModerationEmitEventsEvent event,
+    required List<SubjectEntry> subjects,
+    required String createdBy,
+    ModTool? modTool,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneModerationEmitEvents(
+    event: event,
+    subjects: subjects,
+    createdBy: createdBy,
+    modTool: modTool,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,
