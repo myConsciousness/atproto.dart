@@ -14,6 +14,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
 import './interaction_event.dart';
+import './interaction_view_context.dart';
 
 part 'interaction.freezed.dart';
 part 'interaction.g.dart';
@@ -24,13 +25,24 @@ part 'interaction.g.dart';
 
 @freezed
 abstract class Interaction with _$Interaction {
-  static const knownProps = <String>['item', 'event', 'feedContext', 'reqId'];
+  static const knownProps = <String>[
+    'item',
+    'event',
+    'viewContext',
+    'payload',
+    'feedContext',
+    'reqId',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory Interaction({
     @Default('app.bsky.feed.defs#interaction') String $type,
     @AtUriConverter() AtUri? item,
     @InteractionEventConverter() InteractionEvent? event,
+
+    /// The view in which the interaction occurred.
+    @InteractionViewContextConverter() InteractionViewContext? viewContext,
+    Map<String, dynamic>? payload,
 
     /// Context on a feed item that was originally supplied by the feed generator on getFeedSkeleton.
     String? feedContext,
@@ -55,6 +67,10 @@ extension InteractionExtension on Interaction {
   bool get hasNotItem => !hasItem;
   bool get hasEvent => event != null;
   bool get hasNotEvent => !hasEvent;
+  bool get hasViewContext => viewContext != null;
+  bool get hasNotViewContext => !hasViewContext;
+  bool get hasPayload => payload != null;
+  bool get hasNotPayload => !hasPayload;
   bool get hasFeedContext => feedContext != null;
   bool get hasNotFeedContext => !hasFeedContext;
   bool get hasReqId => reqId != null;

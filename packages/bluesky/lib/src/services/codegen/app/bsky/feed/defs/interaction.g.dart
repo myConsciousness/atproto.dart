@@ -29,6 +29,17 @@ _Interaction _$InteractionFromJson(Map json) =>
             const InteractionEventConverter().fromJson,
           ),
         ),
+        viewContext: $checkedConvert(
+          'viewContext',
+          (v) => _$JsonConverterFromJson<String, InteractionViewContext>(
+            v,
+            const InteractionViewContextConverter().fromJson,
+          ),
+        ),
+        payload: $checkedConvert(
+          'payload',
+          (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
+        ),
         feedContext: $checkedConvert('feedContext', (v) => v as String?),
         reqId: $checkedConvert('reqId', (v) => v as String?),
         $unknown: $checkedConvert(
@@ -50,6 +61,11 @@ Map<String, dynamic> _$InteractionToJson(_Interaction instance) =>
         instance.event,
         const InteractionEventConverter().toJson,
       ),
+      'viewContext': ?_$JsonConverterToJson<String, InteractionViewContext>(
+        instance.viewContext,
+        const InteractionViewContextConverter().toJson,
+      ),
+      'payload': ?instance.payload,
       'feedContext': ?instance.feedContext,
       'reqId': ?instance.reqId,
       r'$unknown': ?instance.$unknown,

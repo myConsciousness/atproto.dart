@@ -39,3 +39,4 @@ export 'package:bluesky/src/services/codegen/app/bsky/feed/defs/skeleton_reason_
 export 'package:bluesky/src/services/codegen/app/bsky/feed/defs/threadgate_view.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/feed/defs/interaction.dart';
 export 'package:bluesky/src/services/codegen/app/bsky/feed/defs/interaction_event.dart';
+export 'package:bluesky/src/services/codegen/app/bsky/feed/defs/interaction_view_context.dart';

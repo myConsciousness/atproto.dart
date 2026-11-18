@@ -495,6 +495,9 @@ const appBskyFeedDefsGeneratorViewerState =
 /// `app.bsky.feed.defs#interaction`
 const appBskyFeedDefsInteraction = 'app.bsky.feed.defs#interaction';
 
+/// `app.bsky.feed.defs#interactionFollow`
+const appBskyFeedDefsInteractionFollow = 'app.bsky.feed.defs#interactionFollow';
+
 /// `app.bsky.feed.defs#interactionLike`
 const appBskyFeedDefsInteractionLike = 'app.bsky.feed.defs#interactionLike';
 
@@ -512,6 +515,10 @@ const appBskyFeedDefsInteractionSeen = 'app.bsky.feed.defs#interactionSeen';
 
 /// `app.bsky.feed.defs#interactionShare`
 const appBskyFeedDefsInteractionShare = 'app.bsky.feed.defs#interactionShare';
+
+/// `app.bsky.feed.defs#interactionUnspecced`
+const appBskyFeedDefsInteractionUnspecced =
+    'app.bsky.feed.defs#interactionUnspecced';
 
 /// `app.bsky.feed.defs#knownLikers`
 const appBskyFeedDefsKnownLikers = 'app.bsky.feed.defs#knownLikers';

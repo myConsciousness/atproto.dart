@@ -22,7 +22,8 @@ final class GetAuthorFeedCommand extends QueryCommand {
       ..addOption("cursor")
       ..addOption(
         "filter",
-        help: r"Combinations of post/repost types to include in response.",
+        help:
+            r"Combinations of post/repost types to include in response. The posts_and_replies_only filter includes authored top-level posts and replies, but excludes reposts.",
         defaultsTo: "posts_with_replies",
       )
       ..addFlag("includePins", defaultsTo: false);

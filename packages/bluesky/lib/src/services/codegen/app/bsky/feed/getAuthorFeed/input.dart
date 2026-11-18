@@ -37,7 +37,7 @@ abstract class FeedGetAuthorFeedInput with _$FeedGetAuthorFeedInput {
     @Default(50) int limit,
     String? cursor,
 
-    /// Combinations of post/repost types to include in response.
+    /// Combinations of post/repost types to include in response. The posts_and_replies_only filter includes authored top-level posts and replies, but excludes reposts.
     @FeedGetAuthorFeedFilterConverter()
     @Default(
       FeedGetAuthorFeedFilter.knownValue(
