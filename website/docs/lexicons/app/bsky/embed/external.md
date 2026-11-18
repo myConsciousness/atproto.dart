@@ -28,6 +28,7 @@ A representation of some externally linked content (eg, a URL and 'card'), embed
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **external** | [#viewExternal](#viewexternal) | - | ✅ | - |
+| **data** | union of <br/>[#viewArticle](#viewarticle)<br/>[#viewArticlePublication](#viewarticlepublication)<br/>[#viewGallery](#viewgallery)<br/>[#viewLivestream](#viewlivestream) | - | ❌ | - |
 
 ## #viewExternal
 
