@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FeedGetAuthorFeedInput {
 
- String get actor; int get limit; String? get cursor;/// Combinations of post/repost types to include in response.
+ String get actor; int get limit; String? get cursor;/// Combinations of post/repost types to include in response. The posts_and_replies_only filter includes authored top-level posts and replies, but excludes reposts.
 @FeedGetAuthorFeedFilterConverter() FeedGetAuthorFeedFilter get filter; bool get includePins; Map<String, dynamic>? get $unknown;
 /// Create a copy of FeedGetAuthorFeedInput
 /// with the given fields replaced by the non-null parameter values.
@@ -230,7 +230,7 @@ class _FeedGetAuthorFeedInput implements FeedGetAuthorFeedInput {
 @override final  String actor;
 @override@JsonKey() final  int limit;
 @override final  String? cursor;
-/// Combinations of post/repost types to include in response.
+/// Combinations of post/repost types to include in response. The posts_and_replies_only filter includes authored top-level posts and replies, but excludes reposts.
 @override@JsonKey()@FeedGetAuthorFeedFilterConverter() final  FeedGetAuthorFeedFilter filter;
 @override@JsonKey() final  bool includePins;
  final  Map<String, dynamic>? _$unknown;

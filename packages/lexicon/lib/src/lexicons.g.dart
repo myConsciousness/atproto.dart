@@ -3588,7 +3588,20 @@ const appBskyFeedDefs = <String, dynamic>{
             "app.bsky.feed.defs#interactionReply",
             "app.bsky.feed.defs#interactionQuote",
             "app.bsky.feed.defs#interactionShare",
+            "app.bsky.feed.defs#interactionFollow",
+            "app.bsky.feed.defs#interactionUnspecced",
           ],
+        },
+        "viewContext": {
+          "type": "string",
+          "description": "The view in which the interaction occurred.",
+          "maxLength": 64,
+          "knownValues": ["feed", "thread"],
+        },
+        "payload": {
+          "type": "unknown",
+          "description":
+              "Additional data for the interaction, with an application-defined structure.",
         },
         "feedContext": {
           "type": "string",
@@ -3663,6 +3676,14 @@ const appBskyFeedDefs = <String, dynamic>{
     "interactionShare": {
       "type": "token",
       "description": "User shared the feed item",
+    },
+    "interactionFollow": {
+      "type": "token",
+      "description": "User followed the author of the feed item",
+    },
+    "interactionUnspecced": {
+      "type": "token",
+      "description": "Application-defined interaction with the feed item",
     },
   },
 };
@@ -3883,10 +3904,11 @@ const appBskyFeedGetAuthorFeed = <String, dynamic>{
           "filter": {
             "type": "string",
             "description":
-                "Combinations of post/repost types to include in response.",
+                "Combinations of post/repost types to include in response. The posts_and_replies_only filter includes authored top-level posts and replies, but excludes reposts.",
             "default": "posts_with_replies",
             "knownValues": [
               "posts_with_replies",
+              "posts_and_replies_only",
               "posts_no_replies",
               "posts_with_media",
               "posts_and_author_threads",

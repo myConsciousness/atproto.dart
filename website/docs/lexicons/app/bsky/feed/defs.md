@@ -175,7 +175,9 @@ Metadata about this post within the context of the thread it is in.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **item** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
-| **event** | string | [app.bsky.feed.defs#requestLess](../../../../lexicons/app/bsky/feed/defs.md#requestless)<br/>[app.bsky.feed.defs#requestMore](../../../../lexicons/app/bsky/feed/defs.md#requestmore)<br/>[app.bsky.feed.defs#clickthroughItem](../../../../lexicons/app/bsky/feed/defs.md#clickthroughitem)<br/>[app.bsky.feed.defs#clickthroughAuthor](../../../../lexicons/app/bsky/feed/defs.md#clickthroughauthor)<br/>[app.bsky.feed.defs#clickthroughReposter](../../../../lexicons/app/bsky/feed/defs.md#clickthroughreposter)<br/>[app.bsky.feed.defs#clickthroughEmbed](../../../../lexicons/app/bsky/feed/defs.md#clickthroughembed)<br/>[app.bsky.feed.defs#interactionSeen](../../../../lexicons/app/bsky/feed/defs.md#interactionseen)<br/>[app.bsky.feed.defs#interactionLike](../../../../lexicons/app/bsky/feed/defs.md#interactionlike)<br/>[app.bsky.feed.defs#interactionRepost](../../../../lexicons/app/bsky/feed/defs.md#interactionrepost)<br/>[app.bsky.feed.defs#interactionReply](../../../../lexicons/app/bsky/feed/defs.md#interactionreply)<br/>[app.bsky.feed.defs#interactionQuote](../../../../lexicons/app/bsky/feed/defs.md#interactionquote)<br/>[app.bsky.feed.defs#interactionShare](../../../../lexicons/app/bsky/feed/defs.md#interactionshare) | ❌ | - |
+| **event** | string | [app.bsky.feed.defs#requestLess](../../../../lexicons/app/bsky/feed/defs.md#requestless)<br/>[app.bsky.feed.defs#requestMore](../../../../lexicons/app/bsky/feed/defs.md#requestmore)<br/>[app.bsky.feed.defs#clickthroughItem](../../../../lexicons/app/bsky/feed/defs.md#clickthroughitem)<br/>[app.bsky.feed.defs#clickthroughAuthor](../../../../lexicons/app/bsky/feed/defs.md#clickthroughauthor)<br/>[app.bsky.feed.defs#clickthroughReposter](../../../../lexicons/app/bsky/feed/defs.md#clickthroughreposter)<br/>[app.bsky.feed.defs#clickthroughEmbed](../../../../lexicons/app/bsky/feed/defs.md#clickthroughembed)<br/>[app.bsky.feed.defs#interactionSeen](../../../../lexicons/app/bsky/feed/defs.md#interactionseen)<br/>[app.bsky.feed.defs#interactionLike](../../../../lexicons/app/bsky/feed/defs.md#interactionlike)<br/>[app.bsky.feed.defs#interactionRepost](../../../../lexicons/app/bsky/feed/defs.md#interactionrepost)<br/>[app.bsky.feed.defs#interactionReply](../../../../lexicons/app/bsky/feed/defs.md#interactionreply)<br/>[app.bsky.feed.defs#interactionQuote](../../../../lexicons/app/bsky/feed/defs.md#interactionquote)<br/>[app.bsky.feed.defs#interactionShare](../../../../lexicons/app/bsky/feed/defs.md#interactionshare)<br/>[app.bsky.feed.defs#interactionFollow](../../../../lexicons/app/bsky/feed/defs.md#interactionfollow)<br/>[app.bsky.feed.defs#interactionUnspecced](../../../../lexicons/app/bsky/feed/defs.md#interactionunspecced) | ❌ | - |
+| **viewContext** | string | feed<br/>thread | ❌ | The view in which the interaction occurred. |
+| **payload** | unknown | - | ❌ | Additional data for the interaction, with an application-defined structure. |
 | **feedContext** | string | - | ❌ | Context on a feed item that was originally supplied by the feed generator on getFeedSkeleton. |
 | **reqId** | string | - | ❌ | Unique identifier per request that may be passed back alongside interactions. |
 
@@ -234,3 +236,11 @@ Metadata about this post within the context of the thread it is in.
 ## #interactionShare
 
 **TOKEN**: User shared the feed item
+
+## #interactionFollow
+
+**TOKEN**: User followed the author of the feed item
+
+## #interactionUnspecced
+
+**TOKEN**: Application-defined interaction with the feed item

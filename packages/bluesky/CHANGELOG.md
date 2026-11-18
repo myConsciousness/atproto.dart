@@ -1,5 +1,15 @@
 # Release Note
 
+## v2.18.2
+
+- chore: updated `app.bsky.feed.defs#interaction.event`
+- feat: added `app.bsky.feed.defs#interaction.payload`
+- feat: added `app.bsky.feed.defs#interaction.viewContext`
+- feat: added `app.bsky.feed.defs#interactionFollow`
+- feat: added `app.bsky.feed.defs#interactionUnspecced`
+- chore: updated `app.bsky.feed.getAuthorFeed.parameters.filter`
+- chore: regenerated from synced lexicons
+
 ## v2.18.1
 
 - feat: added `tools.ozone.inbox.ackPushNotifications#item`

@@ -102,7 +102,13 @@ enum KnownInteractionEvent implements Serializable {
   @JsonValue('app.bsky.feed.defs#interactionQuote')
   appBskyFeedDefsInteractionQuote('app.bsky.feed.defs#interactionQuote'),
   @JsonValue('app.bsky.feed.defs#interactionShare')
-  appBskyFeedDefsInteractionShare('app.bsky.feed.defs#interactionShare');
+  appBskyFeedDefsInteractionShare('app.bsky.feed.defs#interactionShare'),
+  @JsonValue('app.bsky.feed.defs#interactionFollow')
+  appBskyFeedDefsInteractionFollow('app.bsky.feed.defs#interactionFollow'),
+  @JsonValue('app.bsky.feed.defs#interactionUnspecced')
+  appBskyFeedDefsInteractionUnspecced(
+    'app.bsky.feed.defs#interactionUnspecced',
+  );
 
   @override
   final String value;
