@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EmbedExternalView {
 
- String get $type;@EmbedExternalViewExternalConverter() EmbedExternalViewExternal get external; Map<String, dynamic>? get $unknown;
+ String get $type;@EmbedExternalViewExternalConverter() EmbedExternalViewExternal get external;@UEmbedExternalViewDataConverter() UEmbedExternalViewData? get data; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedExternalView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $EmbedExternalViewCopyWith<EmbedExternalView> get copyWith => _$EmbedExternalVie
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedExternalView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.external, external) || other.external == external)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedExternalView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.external, external) || other.external == external)&&(identical(other.data, data) || other.data == data)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,external,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,external,data,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'EmbedExternalView(\$type: ${$type}, external: $external, \$unknown: ${$unknown})';
+  return 'EmbedExternalView(\$type: ${$type}, external: $external, data: $data, \$unknown: ${$unknown})';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $EmbedExternalViewCopyWith<$Res>  {
   factory $EmbedExternalViewCopyWith(EmbedExternalView value, $Res Function(EmbedExternalView) _then) = _$EmbedExternalViewCopyWithImpl;
 @useResult
 $Res call({
- String $type,@EmbedExternalViewExternalConverter() EmbedExternalViewExternal external, Map<String, dynamic>? $unknown
+ String $type,@EmbedExternalViewExternalConverter() EmbedExternalViewExternal external,@UEmbedExternalViewDataConverter() UEmbedExternalViewData? data, Map<String, dynamic>? $unknown
 });
 
 
-$EmbedExternalViewExternalCopyWith<$Res> get external;
+$EmbedExternalViewExternalCopyWith<$Res> get external;$UEmbedExternalViewDataCopyWith<$Res>? get data;
 
 }
 /// @nodoc
@@ -65,11 +65,12 @@ class _$EmbedExternalViewCopyWithImpl<$Res>
 
 /// Create a copy of EmbedExternalView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? external = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? external = null,Object? data = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,external: null == external ? _self.external : external // ignore: cast_nullable_to_non_nullable
-as EmbedExternalViewExternal,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as EmbedExternalViewExternal,data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as UEmbedExternalViewData?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -81,6 +82,18 @@ $EmbedExternalViewExternalCopyWith<$Res> get external {
   
   return $EmbedExternalViewExternalCopyWith<$Res>(_self.external, (value) {
     return _then(_self.copyWith(external: value));
+  });
+}/// Create a copy of EmbedExternalView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UEmbedExternalViewDataCopyWith<$Res>? get data {
+    if (_self.data == null) {
+    return null;
+  }
+
+  return $UEmbedExternalViewDataCopyWith<$Res>(_self.data!, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }
@@ -164,10 +177,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @EmbedExternalViewExternalConverter()  EmbedExternalViewExternal external,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @EmbedExternalViewExternalConverter()  EmbedExternalViewExternal external, @UEmbedExternalViewDataConverter()  UEmbedExternalViewData? data,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedExternalView() when $default != null:
-return $default(_that.$type,_that.external,_that.$unknown);case _:
+return $default(_that.$type,_that.external,_that.data,_that.$unknown);case _:
   return orElse();
 
 }
@@ -185,10 +198,10 @@ return $default(_that.$type,_that.external,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @EmbedExternalViewExternalConverter()  EmbedExternalViewExternal external,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @EmbedExternalViewExternalConverter()  EmbedExternalViewExternal external, @UEmbedExternalViewDataConverter()  UEmbedExternalViewData? data,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalView():
-return $default(_that.$type,_that.external,_that.$unknown);case _:
+return $default(_that.$type,_that.external,_that.data,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -205,10 +218,10 @@ return $default(_that.$type,_that.external,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @EmbedExternalViewExternalConverter()  EmbedExternalViewExternal external,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @EmbedExternalViewExternalConverter()  EmbedExternalViewExternal external, @UEmbedExternalViewDataConverter()  UEmbedExternalViewData? data,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalView() when $default != null:
-return $default(_that.$type,_that.external,_that.$unknown);case _:
+return $default(_that.$type,_that.external,_that.data,_that.$unknown);case _:
   return null;
 
 }
@@ -220,11 +233,12 @@ return $default(_that.$type,_that.external,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedExternalView implements EmbedExternalView {
-  const _EmbedExternalView({this.$type = 'app.bsky.embed.external#view', @EmbedExternalViewExternalConverter() required this.external, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedExternalView({this.$type = 'app.bsky.embed.external#view', @EmbedExternalViewExternalConverter() required this.external, @UEmbedExternalViewDataConverter() this.data, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _EmbedExternalView.fromJson(Map<String, dynamic> json) => _$EmbedExternalViewFromJson(json);
 
 @override@JsonKey() final  String $type;
 @override@EmbedExternalViewExternalConverter() final  EmbedExternalViewExternal external;
+@override@UEmbedExternalViewDataConverter() final  UEmbedExternalViewData? data;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -248,16 +262,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedExternalView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.external, external) || other.external == external)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedExternalView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.external, external) || other.external == external)&&(identical(other.data, data) || other.data == data)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,external,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,external,data,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'EmbedExternalView(\$type: ${$type}, external: $external, \$unknown: ${$unknown})';
+  return 'EmbedExternalView(\$type: ${$type}, external: $external, data: $data, \$unknown: ${$unknown})';
 }
 
 
@@ -268,11 +282,11 @@ abstract mixin class _$EmbedExternalViewCopyWith<$Res> implements $EmbedExternal
   factory _$EmbedExternalViewCopyWith(_EmbedExternalView value, $Res Function(_EmbedExternalView) _then) = __$EmbedExternalViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@EmbedExternalViewExternalConverter() EmbedExternalViewExternal external, Map<String, dynamic>? $unknown
+ String $type,@EmbedExternalViewExternalConverter() EmbedExternalViewExternal external,@UEmbedExternalViewDataConverter() UEmbedExternalViewData? data, Map<String, dynamic>? $unknown
 });
 
 
-@override $EmbedExternalViewExternalCopyWith<$Res> get external;
+@override $EmbedExternalViewExternalCopyWith<$Res> get external;@override $UEmbedExternalViewDataCopyWith<$Res>? get data;
 
 }
 /// @nodoc
@@ -285,11 +299,12 @@ class __$EmbedExternalViewCopyWithImpl<$Res>
 
 /// Create a copy of EmbedExternalView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? external = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? external = null,Object? data = freezed,Object? $unknown = freezed,}) {
   return _then(_EmbedExternalView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,external: null == external ? _self.external : external // ignore: cast_nullable_to_non_nullable
-as EmbedExternalViewExternal,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as EmbedExternalViewExternal,data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
+as UEmbedExternalViewData?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -302,6 +317,18 @@ $EmbedExternalViewExternalCopyWith<$Res> get external {
   
   return $EmbedExternalViewExternalCopyWith<$Res>(_self.external, (value) {
     return _then(_self.copyWith(external: value));
+  });
+}/// Create a copy of EmbedExternalView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$UEmbedExternalViewDataCopyWith<$Res>? get data {
+    if (_self.data == null) {
+    return null;
+  }
+
+  return $UEmbedExternalViewDataCopyWith<$Res>(_self.data!, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }

@@ -2502,6 +2502,17 @@ const appBskyEmbedExternal = <String, dynamic>{
       "required": ["external"],
       "properties": {
         "external": {"type": "ref", "ref": "#viewExternal"},
+        "data": {
+          "type": "union",
+          "description":
+              "Hydrated modality-specific data for the external embed, when available.",
+          "refs": [
+            "#viewArticle",
+            "#viewArticlePublication",
+            "#viewGallery",
+            "#viewLivestream",
+          ],
+        },
       },
     },
     "viewExternal": {

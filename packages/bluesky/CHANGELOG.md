@@ -1,5 +1,10 @@
 # Release Note
 
+## v2.18.3
+
+- feat: added `app.bsky.embed.external#view.data`
+- chore: regenerated from synced lexicons
+
 ## v2.18.2
 
 - chore: updated `app.bsky.feed.defs#interaction.event`
