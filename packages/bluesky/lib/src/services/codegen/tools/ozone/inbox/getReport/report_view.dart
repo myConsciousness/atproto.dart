@@ -12,6 +12,8 @@ import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // Project imports:
+import './account_status.dart';
+import './record_status.dart';
 import './report_view_status.dart';
 import './union_report_view_subject.dart';
 
@@ -31,6 +33,8 @@ abstract class ReportView with _$ReportView {
     'reason',
     'subject',
     'record',
+    'accountStatus',
+    'subjectStatus',
     'status',
     'createdAt',
     'updatedAt',
@@ -51,6 +55,12 @@ abstract class ReportView with _$ReportView {
     String? reason,
     @UReportViewSubjectConverter() required UReportViewSubject subject,
     Map<String, dynamic>? record,
+
+    /// Current status of the reported account or record owner, independent of the report's resolution.
+    @AccountStatusConverter() AccountStatus? accountStatus,
+
+    /// Current status of a reported record, when known.
+    @RecordStatusConverter() RecordStatus? subjectStatus,
     @ReportViewStatusConverter() required ReportViewStatus status,
     @JsonKey(toJson: iso8601) required DateTime createdAt,
     @JsonKey(toJson: iso8601) required DateTime updatedAt,
@@ -72,6 +82,10 @@ extension ReportViewExtension on ReportView {
   bool get hasNotReason => !hasReason;
   bool get hasRecord => record != null;
   bool get hasNotRecord => !hasRecord;
+  bool get hasAccountStatus => accountStatus != null;
+  bool get hasNotAccountStatus => !hasAccountStatus;
+  bool get hasSubjectStatus => subjectStatus != null;
+  bool get hasNotSubjectStatus => !hasSubjectStatus;
 }
 
 final class ReportViewConverter

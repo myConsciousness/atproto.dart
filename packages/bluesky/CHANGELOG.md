@@ -1,5 +1,13 @@
 # Release Note
 
+## v2.18.4
+
+- feat: added `tools.ozone.inbox.getReport#accountStatus`
+- feat: added `tools.ozone.inbox.getReport#recordStatus`
+- feat: added `tools.ozone.inbox.getReport#reportView.accountStatus`
+- feat: added `tools.ozone.inbox.getReport#reportView.subjectStatus`
+- chore: regenerated from synced lexicons
+
 ## v2.18.3
 
 - feat: added `app.bsky.embed.external#view.data`

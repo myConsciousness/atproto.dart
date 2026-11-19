@@ -1341,6 +1341,16 @@ const toolsOzoneInboxGetPushPreference = NSID(
 /// `tools.ozone.inbox.getReport`
 const toolsOzoneInboxGetReport = NSID(ids.toolsOzoneInboxGetReport);
 
+/// `tools.ozone.inbox.getReport#accountStatus`
+const toolsOzoneInboxGetReportAccountStatus = NSID(
+  ids.toolsOzoneInboxGetReportAccountStatus,
+);
+
+/// `tools.ozone.inbox.getReport#recordStatus`
+const toolsOzoneInboxGetReportRecordStatus = NSID(
+  ids.toolsOzoneInboxGetReportRecordStatus,
+);
+
 /// `tools.ozone.inbox.getReport#reportView`
 const toolsOzoneInboxGetReportReportView = NSID(
   ids.toolsOzoneInboxGetReportReportView,

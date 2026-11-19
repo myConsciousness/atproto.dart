@@ -30,6 +30,20 @@ _ReportView _$ReportViewFromJson(
       'record',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
     ),
+    accountStatus: $checkedConvert(
+      'accountStatus',
+      (v) => _$JsonConverterFromJson<Map<String, dynamic>, AccountStatus>(
+        v,
+        const AccountStatusConverter().fromJson,
+      ),
+    ),
+    subjectStatus: $checkedConvert(
+      'subjectStatus',
+      (v) => _$JsonConverterFromJson<Map<String, dynamic>, RecordStatus>(
+        v,
+        const RecordStatusConverter().fromJson,
+      ),
+    ),
     status: $checkedConvert(
       'status',
       (v) => const ReportViewStatusConverter().fromJson(v as String),
@@ -44,17 +58,36 @@ _ReportView _$ReportViewFromJson(
   return val;
 });
 
-Map<String, dynamic> _$ReportViewToJson(_ReportView instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'src': instance.src,
-      'id': instance.id,
-      'reasonType': instance.reasonType,
-      'reason': ?instance.reason,
-      'subject': const UReportViewSubjectConverter().toJson(instance.subject),
-      'record': ?instance.record,
-      'status': const ReportViewStatusConverter().toJson(instance.status),
-      'createdAt': iso8601(instance.createdAt),
-      'updatedAt': iso8601(instance.updatedAt),
-      r'$unknown': ?instance.$unknown,
-    };
+Map<String, dynamic> _$ReportViewToJson(
+  _ReportView instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'src': instance.src,
+  'id': instance.id,
+  'reasonType': instance.reasonType,
+  'reason': ?instance.reason,
+  'subject': const UReportViewSubjectConverter().toJson(instance.subject),
+  'record': ?instance.record,
+  'accountStatus': ?_$JsonConverterToJson<Map<String, dynamic>, AccountStatus>(
+    instance.accountStatus,
+    const AccountStatusConverter().toJson,
+  ),
+  'subjectStatus': ?_$JsonConverterToJson<Map<String, dynamic>, RecordStatus>(
+    instance.subjectStatus,
+    const RecordStatusConverter().toJson,
+  ),
+  'status': const ReportViewStatusConverter().toJson(instance.status),
+  'createdAt': iso8601(instance.createdAt),
+  'updatedAt': iso8601(instance.updatedAt),
+  r'$unknown': ?instance.$unknown,
+};
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

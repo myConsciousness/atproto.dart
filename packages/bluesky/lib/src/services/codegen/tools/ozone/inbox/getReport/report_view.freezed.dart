@@ -18,7 +18,9 @@ mixin _$ReportView {
  String get $type;/// DID of the moderation service that received the report.
  String get src;/// Report ID (report table ID), used by Ozone's report detail page.
  int get id;/// The exact fully-qualified reason NSID submitted with and stored on the report.
- String get reasonType; String? get reason;@UReportViewSubjectConverter() UReportViewSubject get subject; Map<String, dynamic>? get record;@ReportViewStatusConverter() ReportViewStatus get status;@JsonKey(toJson: iso8601) DateTime get createdAt;@JsonKey(toJson: iso8601) DateTime get updatedAt; Map<String, dynamic>? get $unknown;
+ String get reasonType; String? get reason;@UReportViewSubjectConverter() UReportViewSubject get subject; Map<String, dynamic>? get record;/// Current status of the reported account or record owner, independent of the report's resolution.
+@AccountStatusConverter() AccountStatus? get accountStatus;/// Current status of a reported record, when known.
+@RecordStatusConverter() RecordStatus? get subjectStatus;@ReportViewStatusConverter() ReportViewStatus get status;@JsonKey(toJson: iso8601) DateTime get createdAt;@JsonKey(toJson: iso8601) DateTime get updatedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of ReportView
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -31,16 +33,16 @@ $ReportViewCopyWith<ReportView> get copyWith => _$ReportViewCopyWithImpl<ReportV
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReportView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.src, src) || other.src == src)&&(identical(other.id, id) || other.id == id)&&(identical(other.reasonType, reasonType) || other.reasonType == reasonType)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.subject, subject) || other.subject == subject)&&const DeepCollectionEquality().equals(other.record, record)&&(identical(other.status, status) || other.status == status)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReportView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.src, src) || other.src == src)&&(identical(other.id, id) || other.id == id)&&(identical(other.reasonType, reasonType) || other.reasonType == reasonType)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.subject, subject) || other.subject == subject)&&const DeepCollectionEquality().equals(other.record, record)&&(identical(other.accountStatus, accountStatus) || other.accountStatus == accountStatus)&&(identical(other.subjectStatus, subjectStatus) || other.subjectStatus == subjectStatus)&&(identical(other.status, status) || other.status == status)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,src,id,reasonType,reason,subject,const DeepCollectionEquality().hash(record),status,createdAt,updatedAt,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,src,id,reasonType,reason,subject,const DeepCollectionEquality().hash(record),accountStatus,subjectStatus,status,createdAt,updatedAt,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'ReportView(\$type: ${$type}, src: $src, id: $id, reasonType: $reasonType, reason: $reason, subject: $subject, record: $record, status: $status, createdAt: $createdAt, updatedAt: $updatedAt, \$unknown: ${$unknown})';
+  return 'ReportView(\$type: ${$type}, src: $src, id: $id, reasonType: $reasonType, reason: $reason, subject: $subject, record: $record, accountStatus: $accountStatus, subjectStatus: $subjectStatus, status: $status, createdAt: $createdAt, updatedAt: $updatedAt, \$unknown: ${$unknown})';
 }
 
 
@@ -51,11 +53,11 @@ abstract mixin class $ReportViewCopyWith<$Res>  {
   factory $ReportViewCopyWith(ReportView value, $Res Function(ReportView) _then) = _$ReportViewCopyWithImpl;
 @useResult
 $Res call({
- String $type, String src, int id, String reasonType, String? reason,@UReportViewSubjectConverter() UReportViewSubject subject, Map<String, dynamic>? record,@ReportViewStatusConverter() ReportViewStatus status,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
+ String $type, String src, int id, String reasonType, String? reason,@UReportViewSubjectConverter() UReportViewSubject subject, Map<String, dynamic>? record,@AccountStatusConverter() AccountStatus? accountStatus,@RecordStatusConverter() RecordStatus? subjectStatus,@ReportViewStatusConverter() ReportViewStatus status,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
 });
 
 
-$UReportViewSubjectCopyWith<$Res> get subject;$ReportViewStatusCopyWith<$Res> get status;
+$UReportViewSubjectCopyWith<$Res> get subject;$AccountStatusCopyWith<$Res>? get accountStatus;$RecordStatusCopyWith<$Res>? get subjectStatus;$ReportViewStatusCopyWith<$Res> get status;
 
 }
 /// @nodoc
@@ -68,7 +70,7 @@ class _$ReportViewCopyWithImpl<$Res>
 
 /// Create a copy of ReportView
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? src = null,Object? id = null,Object? reasonType = null,Object? reason = freezed,Object? subject = null,Object? record = freezed,Object? status = null,Object? createdAt = null,Object? updatedAt = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? src = null,Object? id = null,Object? reasonType = null,Object? reason = freezed,Object? subject = null,Object? record = freezed,Object? accountStatus = freezed,Object? subjectStatus = freezed,Object? status = null,Object? createdAt = null,Object? updatedAt = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,src: null == src ? _self.src : src // ignore: cast_nullable_to_non_nullable
@@ -77,7 +79,9 @@ as int,reasonType: null == reasonType ? _self.reasonType : reasonType // ignore:
 as String,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
 as String?,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
 as UReportViewSubject,record: freezed == record ? _self.record : record // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,accountStatus: freezed == accountStatus ? _self.accountStatus : accountStatus // ignore: cast_nullable_to_non_nullable
+as AccountStatus?,subjectStatus: freezed == subjectStatus ? _self.subjectStatus : subjectStatus // ignore: cast_nullable_to_non_nullable
+as RecordStatus?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as ReportViewStatus,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -92,6 +96,30 @@ $UReportViewSubjectCopyWith<$Res> get subject {
   
   return $UReportViewSubjectCopyWith<$Res>(_self.subject, (value) {
     return _then(_self.copyWith(subject: value));
+  });
+}/// Create a copy of ReportView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AccountStatusCopyWith<$Res>? get accountStatus {
+    if (_self.accountStatus == null) {
+    return null;
+  }
+
+  return $AccountStatusCopyWith<$Res>(_self.accountStatus!, (value) {
+    return _then(_self.copyWith(accountStatus: value));
+  });
+}/// Create a copy of ReportView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RecordStatusCopyWith<$Res>? get subjectStatus {
+    if (_self.subjectStatus == null) {
+    return null;
+  }
+
+  return $RecordStatusCopyWith<$Res>(_self.subjectStatus!, (value) {
+    return _then(_self.copyWith(subjectStatus: value));
   });
 }/// Create a copy of ReportView
 /// with the given fields replaced by the non-null parameter values.
@@ -184,10 +212,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String src,  int id,  String reasonType,  String? reason, @UReportViewSubjectConverter()  UReportViewSubject subject,  Map<String, dynamic>? record, @ReportViewStatusConverter()  ReportViewStatus status, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String src,  int id,  String reasonType,  String? reason, @UReportViewSubjectConverter()  UReportViewSubject subject,  Map<String, dynamic>? record, @AccountStatusConverter()  AccountStatus? accountStatus, @RecordStatusConverter()  RecordStatus? subjectStatus, @ReportViewStatusConverter()  ReportViewStatus status, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReportView() when $default != null:
-return $default(_that.$type,_that.src,_that.id,_that.reasonType,_that.reason,_that.subject,_that.record,_that.status,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
+return $default(_that.$type,_that.src,_that.id,_that.reasonType,_that.reason,_that.subject,_that.record,_that.accountStatus,_that.subjectStatus,_that.status,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
   return orElse();
 
 }
@@ -205,10 +233,10 @@ return $default(_that.$type,_that.src,_that.id,_that.reasonType,_that.reason,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String src,  int id,  String reasonType,  String? reason, @UReportViewSubjectConverter()  UReportViewSubject subject,  Map<String, dynamic>? record, @ReportViewStatusConverter()  ReportViewStatus status, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String src,  int id,  String reasonType,  String? reason, @UReportViewSubjectConverter()  UReportViewSubject subject,  Map<String, dynamic>? record, @AccountStatusConverter()  AccountStatus? accountStatus, @RecordStatusConverter()  RecordStatus? subjectStatus, @ReportViewStatusConverter()  ReportViewStatus status, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _ReportView():
-return $default(_that.$type,_that.src,_that.id,_that.reasonType,_that.reason,_that.subject,_that.record,_that.status,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
+return $default(_that.$type,_that.src,_that.id,_that.reasonType,_that.reason,_that.subject,_that.record,_that.accountStatus,_that.subjectStatus,_that.status,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -225,10 +253,10 @@ return $default(_that.$type,_that.src,_that.id,_that.reasonType,_that.reason,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String src,  int id,  String reasonType,  String? reason, @UReportViewSubjectConverter()  UReportViewSubject subject,  Map<String, dynamic>? record, @ReportViewStatusConverter()  ReportViewStatus status, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String src,  int id,  String reasonType,  String? reason, @UReportViewSubjectConverter()  UReportViewSubject subject,  Map<String, dynamic>? record, @AccountStatusConverter()  AccountStatus? accountStatus, @RecordStatusConverter()  RecordStatus? subjectStatus, @ReportViewStatusConverter()  ReportViewStatus status, @JsonKey(toJson: iso8601)  DateTime createdAt, @JsonKey(toJson: iso8601)  DateTime updatedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _ReportView() when $default != null:
-return $default(_that.$type,_that.src,_that.id,_that.reasonType,_that.reason,_that.subject,_that.record,_that.status,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
+return $default(_that.$type,_that.src,_that.id,_that.reasonType,_that.reason,_that.subject,_that.record,_that.accountStatus,_that.subjectStatus,_that.status,_that.createdAt,_that.updatedAt,_that.$unknown);case _:
   return null;
 
 }
@@ -240,7 +268,7 @@ return $default(_that.$type,_that.src,_that.id,_that.reasonType,_that.reason,_th
 
 @JsonSerializable(includeIfNull: false)
 class _ReportView implements ReportView {
-  const _ReportView({this.$type = 'tools.ozone.inbox.getReport#reportView', required this.src, required this.id, required this.reasonType, this.reason, @UReportViewSubjectConverter() required this.subject, final  Map<String, dynamic>? record, @ReportViewStatusConverter() required this.status, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) required this.updatedAt, final  Map<String, dynamic>? $unknown}): _record = record,_$unknown = $unknown;
+  const _ReportView({this.$type = 'tools.ozone.inbox.getReport#reportView', required this.src, required this.id, required this.reasonType, this.reason, @UReportViewSubjectConverter() required this.subject, final  Map<String, dynamic>? record, @AccountStatusConverter() this.accountStatus, @RecordStatusConverter() this.subjectStatus, @ReportViewStatusConverter() required this.status, @JsonKey(toJson: iso8601) required this.createdAt, @JsonKey(toJson: iso8601) required this.updatedAt, final  Map<String, dynamic>? $unknown}): _record = record,_$unknown = $unknown;
   factory _ReportView.fromJson(Map<String, dynamic> json) => _$ReportViewFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -261,6 +289,10 @@ class _ReportView implements ReportView {
   return EqualUnmodifiableMapView(value);
 }
 
+/// Current status of the reported account or record owner, independent of the report's resolution.
+@override@AccountStatusConverter() final  AccountStatus? accountStatus;
+/// Current status of a reported record, when known.
+@override@RecordStatusConverter() final  RecordStatus? subjectStatus;
 @override@ReportViewStatusConverter() final  ReportViewStatus status;
 @override@JsonKey(toJson: iso8601) final  DateTime createdAt;
 @override@JsonKey(toJson: iso8601) final  DateTime updatedAt;
@@ -287,16 +319,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReportView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.src, src) || other.src == src)&&(identical(other.id, id) || other.id == id)&&(identical(other.reasonType, reasonType) || other.reasonType == reasonType)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.subject, subject) || other.subject == subject)&&const DeepCollectionEquality().equals(other._record, _record)&&(identical(other.status, status) || other.status == status)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReportView&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.src, src) || other.src == src)&&(identical(other.id, id) || other.id == id)&&(identical(other.reasonType, reasonType) || other.reasonType == reasonType)&&(identical(other.reason, reason) || other.reason == reason)&&(identical(other.subject, subject) || other.subject == subject)&&const DeepCollectionEquality().equals(other._record, _record)&&(identical(other.accountStatus, accountStatus) || other.accountStatus == accountStatus)&&(identical(other.subjectStatus, subjectStatus) || other.subjectStatus == subjectStatus)&&(identical(other.status, status) || other.status == status)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,src,id,reasonType,reason,subject,const DeepCollectionEquality().hash(_record),status,createdAt,updatedAt,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,src,id,reasonType,reason,subject,const DeepCollectionEquality().hash(_record),accountStatus,subjectStatus,status,createdAt,updatedAt,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'ReportView(\$type: ${$type}, src: $src, id: $id, reasonType: $reasonType, reason: $reason, subject: $subject, record: $record, status: $status, createdAt: $createdAt, updatedAt: $updatedAt, \$unknown: ${$unknown})';
+  return 'ReportView(\$type: ${$type}, src: $src, id: $id, reasonType: $reasonType, reason: $reason, subject: $subject, record: $record, accountStatus: $accountStatus, subjectStatus: $subjectStatus, status: $status, createdAt: $createdAt, updatedAt: $updatedAt, \$unknown: ${$unknown})';
 }
 
 
@@ -307,11 +339,11 @@ abstract mixin class _$ReportViewCopyWith<$Res> implements $ReportViewCopyWith<$
   factory _$ReportViewCopyWith(_ReportView value, $Res Function(_ReportView) _then) = __$ReportViewCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String src, int id, String reasonType, String? reason,@UReportViewSubjectConverter() UReportViewSubject subject, Map<String, dynamic>? record,@ReportViewStatusConverter() ReportViewStatus status,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
+ String $type, String src, int id, String reasonType, String? reason,@UReportViewSubjectConverter() UReportViewSubject subject, Map<String, dynamic>? record,@AccountStatusConverter() AccountStatus? accountStatus,@RecordStatusConverter() RecordStatus? subjectStatus,@ReportViewStatusConverter() ReportViewStatus status,@JsonKey(toJson: iso8601) DateTime createdAt,@JsonKey(toJson: iso8601) DateTime updatedAt, Map<String, dynamic>? $unknown
 });
 
 
-@override $UReportViewSubjectCopyWith<$Res> get subject;@override $ReportViewStatusCopyWith<$Res> get status;
+@override $UReportViewSubjectCopyWith<$Res> get subject;@override $AccountStatusCopyWith<$Res>? get accountStatus;@override $RecordStatusCopyWith<$Res>? get subjectStatus;@override $ReportViewStatusCopyWith<$Res> get status;
 
 }
 /// @nodoc
@@ -324,7 +356,7 @@ class __$ReportViewCopyWithImpl<$Res>
 
 /// Create a copy of ReportView
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? src = null,Object? id = null,Object? reasonType = null,Object? reason = freezed,Object? subject = null,Object? record = freezed,Object? status = null,Object? createdAt = null,Object? updatedAt = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? src = null,Object? id = null,Object? reasonType = null,Object? reason = freezed,Object? subject = null,Object? record = freezed,Object? accountStatus = freezed,Object? subjectStatus = freezed,Object? status = null,Object? createdAt = null,Object? updatedAt = null,Object? $unknown = freezed,}) {
   return _then(_ReportView(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,src: null == src ? _self.src : src // ignore: cast_nullable_to_non_nullable
@@ -333,7 +365,9 @@ as int,reasonType: null == reasonType ? _self.reasonType : reasonType // ignore:
 as String,reason: freezed == reason ? _self.reason : reason // ignore: cast_nullable_to_non_nullable
 as String?,subject: null == subject ? _self.subject : subject // ignore: cast_nullable_to_non_nullable
 as UReportViewSubject,record: freezed == record ? _self._record : record // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>?,accountStatus: freezed == accountStatus ? _self.accountStatus : accountStatus // ignore: cast_nullable_to_non_nullable
+as AccountStatus?,subjectStatus: freezed == subjectStatus ? _self.subjectStatus : subjectStatus // ignore: cast_nullable_to_non_nullable
+as RecordStatus?,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as ReportViewStatus,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime,updatedAt: null == updatedAt ? _self.updatedAt : updatedAt // ignore: cast_nullable_to_non_nullable
 as DateTime,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
@@ -349,6 +383,30 @@ $UReportViewSubjectCopyWith<$Res> get subject {
   
   return $UReportViewSubjectCopyWith<$Res>(_self.subject, (value) {
     return _then(_self.copyWith(subject: value));
+  });
+}/// Create a copy of ReportView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AccountStatusCopyWith<$Res>? get accountStatus {
+    if (_self.accountStatus == null) {
+    return null;
+  }
+
+  return $AccountStatusCopyWith<$Res>(_self.accountStatus!, (value) {
+    return _then(_self.copyWith(accountStatus: value));
+  });
+}/// Create a copy of ReportView
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RecordStatusCopyWith<$Res>? get subjectStatus {
+    if (_self.subjectStatus == null) {
+    return null;
+  }
+
+  return $RecordStatusCopyWith<$Res>(_self.subjectStatus!, (value) {
+    return _then(_self.copyWith(subjectStatus: value));
   });
 }/// Create a copy of ReportView
 /// with the given fields replaced by the non-null parameter values.
