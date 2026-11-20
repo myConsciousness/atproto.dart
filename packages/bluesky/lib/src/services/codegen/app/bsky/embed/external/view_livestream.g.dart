@@ -16,6 +16,7 @@ _EmbedExternalViewLivestream _$EmbedExternalViewLivestreamFromJson(
       r'$type',
       (v) => v as String? ?? 'app.bsky.embed.external#viewLivestream',
     ),
+    providerId: $checkedConvert('providerId', (v) => v as String?),
     uri: $checkedConvert('uri', (v) => v as String),
     title: $checkedConvert('title', (v) => v as String),
     description: $checkedConvert('description', (v) => v as String),
@@ -65,6 +66,10 @@ _EmbedExternalViewLivestream _$EmbedExternalViewLivestreamFromJson(
       'endedAt',
       (v) => v == null ? null : DateTime.parse(v as String),
     ),
+    lastSeenAt: $checkedConvert(
+      'lastSeenAt',
+      (v) => v == null ? null : DateTime.parse(v as String),
+    ),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -77,6 +82,7 @@ Map<String, dynamic> _$EmbedExternalViewLivestreamToJson(
   _EmbedExternalViewLivestream instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
+  'providerId': ?instance.providerId,
   'uri': instance.uri,
   'title': instance.title,
   'description': instance.description,
@@ -93,5 +99,6 @@ Map<String, dynamic> _$EmbedExternalViewLivestreamToJson(
   'active': instance.active,
   'startedAt': iso8601(instance.startedAt),
   'endedAt': iso8601(instance.endedAt),
+  'lastSeenAt': iso8601(instance.lastSeenAt),
   r'$unknown': ?instance.$unknown,
 };

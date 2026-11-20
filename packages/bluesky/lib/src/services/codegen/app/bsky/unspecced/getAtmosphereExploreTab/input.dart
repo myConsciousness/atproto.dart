@@ -21,17 +21,11 @@ part 'input.g.dart';
 @freezed
 abstract class UnspeccedGetAtmosphereExploreTabInput
     with _$UnspeccedGetAtmosphereExploreTabInput {
-  static const knownProps = <String>['langs', 'countryCode', 'regionCode'];
+  static const knownProps = <String>['langs'];
 
   @JsonSerializable(includeIfNull: false)
   const factory UnspeccedGetAtmosphereExploreTabInput({
     List<String>? langs,
-
-    /// The ISO 3166-1 alpha-2 country code used to select curated content.
-    String? countryCode,
-
-    /// The ISO 3166-2 region code used to select curated content.
-    String? regionCode,
 
     Map<String, dynamic>? $unknown,
   }) = _UnspeccedGetAtmosphereExploreTabInput;
@@ -39,14 +33,6 @@ abstract class UnspeccedGetAtmosphereExploreTabInput
   factory UnspeccedGetAtmosphereExploreTabInput.fromJson(
     Map<String, Object?> json,
   ) => _$UnspeccedGetAtmosphereExploreTabInputFromJson(json);
-}
-
-extension UnspeccedGetAtmosphereExploreTabInputExtension
-    on UnspeccedGetAtmosphereExploreTabInput {
-  bool get hasCountryCode => countryCode != null;
-  bool get hasNotCountryCode => !hasCountryCode;
-  bool get hasRegionCode => regionCode != null;
-  bool get hasNotRegionCode => !hasRegionCode;
 }
 
 final class UnspeccedGetAtmosphereExploreTabInputConverter

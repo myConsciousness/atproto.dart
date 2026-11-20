@@ -135,6 +135,16 @@ const appBskyEmbedExternalViewArticlePublicationTheme = NSID(
   ids.appBskyEmbedExternalViewArticlePublicationTheme,
 );
 
+/// `app.bsky.embed.external#viewArticlePublicationViewerState`
+const appBskyEmbedExternalViewArticlePublicationViewerState = NSID(
+  ids.appBskyEmbedExternalViewArticlePublicationViewerState,
+);
+
+/// `app.bsky.embed.external#viewArticleViewerState`
+const appBskyEmbedExternalViewArticleViewerState = NSID(
+  ids.appBskyEmbedExternalViewArticleViewerState,
+);
+
 /// `app.bsky.embed.external#viewExternal`
 const appBskyEmbedExternalViewExternal = NSID(
   ids.appBskyEmbedExternalViewExternal,
@@ -158,6 +168,11 @@ const appBskyEmbedExternalViewGallery = NSID(
 /// `app.bsky.embed.external#viewGalleryImage`
 const appBskyEmbedExternalViewGalleryImage = NSID(
   ids.appBskyEmbedExternalViewGalleryImage,
+);
+
+/// `app.bsky.embed.external#viewGalleryViewerState`
+const appBskyEmbedExternalViewGalleryViewerState = NSID(
+  ids.appBskyEmbedExternalViewGalleryViewerState,
 );
 
 /// `app.bsky.embed.external#viewLivestream`
@@ -719,6 +734,26 @@ const appBskyUnspeccedGetAgeAssuranceState = NSID(
   ids.appBskyUnspeccedGetAgeAssuranceState,
 );
 
+/// `app.bsky.unspecced.getAtmosphereActivityRecommendations`
+const appBskyUnspeccedGetAtmosphereActivityRecommendations = NSID(
+  ids.appBskyUnspeccedGetAtmosphereActivityRecommendations,
+);
+
+/// `app.bsky.unspecced.getAtmosphereActivityRecommendations#item`
+const appBskyUnspeccedGetAtmosphereActivityRecommendationsItem = NSID(
+  ids.appBskyUnspeccedGetAtmosphereActivityRecommendationsItem,
+);
+
+/// `app.bsky.unspecced.getAtmosphereApps`
+const appBskyUnspeccedGetAtmosphereApps = NSID(
+  ids.appBskyUnspeccedGetAtmosphereApps,
+);
+
+/// `app.bsky.unspecced.getAtmosphereApps#appCard`
+const appBskyUnspeccedGetAtmosphereAppsAppCard = NSID(
+  ids.appBskyUnspeccedGetAtmosphereAppsAppCard,
+);
+
 /// `app.bsky.unspecced.getAtmosphereExploreArticleRecommendations`
 const appBskyUnspeccedGetAtmosphereExploreArticleRecommendations = NSID(
   ids.appBskyUnspeccedGetAtmosphereExploreArticleRecommendations,
@@ -727,6 +762,16 @@ const appBskyUnspeccedGetAtmosphereExploreArticleRecommendations = NSID(
 /// `app.bsky.unspecced.getAtmosphereExploreArticleRecommendations#article`
 const appBskyUnspeccedGetAtmosphereExploreArticleRecommendationsArticle = NSID(
   ids.appBskyUnspeccedGetAtmosphereExploreArticleRecommendationsArticle,
+);
+
+/// `app.bsky.unspecced.getAtmosphereExploreGalleryRecommendations`
+const appBskyUnspeccedGetAtmosphereExploreGalleryRecommendations = NSID(
+  ids.appBskyUnspeccedGetAtmosphereExploreGalleryRecommendations,
+);
+
+/// `app.bsky.unspecced.getAtmosphereExploreGalleryRecommendations#gallery`
+const appBskyUnspeccedGetAtmosphereExploreGalleryRecommendationsGallery = NSID(
+  ids.appBskyUnspeccedGetAtmosphereExploreGalleryRecommendationsGallery,
 );
 
 /// `app.bsky.unspecced.getAtmosphereExploreTab`
@@ -782,6 +827,121 @@ const appBskyUnspeccedGetAtmosphereExploreTabPublicationItem = NSID(
 /// `app.bsky.unspecced.getAtmosphereExploreTab#publicationList`
 const appBskyUnspeccedGetAtmosphereExploreTabPublicationList = NSID(
   ids.appBskyUnspeccedGetAtmosphereExploreTabPublicationList,
+);
+
+/// `app.bsky.unspecced.getAtmosphereRecommendedActivity`
+const appBskyUnspeccedGetAtmosphereRecommendedActivity = NSID(
+  ids.appBskyUnspeccedGetAtmosphereRecommendedActivity,
+);
+
+/// `app.bsky.unspecced.getAtmosphereRecommendedActivity#item`
+const appBskyUnspeccedGetAtmosphereRecommendedActivityItem = NSID(
+  ids.appBskyUnspeccedGetAtmosphereRecommendedActivityItem,
+);
+
+/// `app.bsky.unspecced.getAtmosphereRecordView`
+const appBskyUnspeccedGetAtmosphereRecordView = NSID(
+  ids.appBskyUnspeccedGetAtmosphereRecordView,
+);
+
+/// `app.bsky.unspecced.getAtmosphereRecordViews`
+const appBskyUnspeccedGetAtmosphereRecordViews = NSID(
+  ids.appBskyUnspeccedGetAtmosphereRecordViews,
+);
+
+/// `app.bsky.unspecced.getAtmosphereRecordViews#recordRef`
+const appBskyUnspeccedGetAtmosphereRecordViewsRecordRef = NSID(
+  ids.appBskyUnspeccedGetAtmosphereRecordViewsRecordRef,
+);
+
+/// `app.bsky.unspecced.getAtmosphereRecordViews#recordView`
+const appBskyUnspeccedGetAtmosphereRecordViewsRecordView = NSID(
+  ids.appBskyUnspeccedGetAtmosphereRecordViewsRecordView,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimeline`
+const appBskyUnspeccedGetAtmosphereTimeline = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimeline,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimeline#activityActorGroup`
+const appBskyUnspeccedGetAtmosphereTimelineActivityActorGroup = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineActivityActorGroup,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimeline#activityGroupItem`
+const appBskyUnspeccedGetAtmosphereTimelineActivityGroupItem = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineActivityGroupItem,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimeline#activityItem`
+const appBskyUnspeccedGetAtmosphereTimelineActivityItem = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineActivityItem,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimeline#activityRecord`
+const appBskyUnspeccedGetAtmosphereTimelineActivityRecord = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineActivityRecord,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimeline#activityRelatedGroup`
+const appBskyUnspeccedGetAtmosphereTimelineActivityRelatedGroup = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineActivityRelatedGroup,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimeline#activitySubject`
+const appBskyUnspeccedGetAtmosphereTimelineActivitySubject = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineActivitySubject,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimeline#activitySubjectGroup`
+const appBskyUnspeccedGetAtmosphereTimelineActivitySubjectGroup = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineActivitySubjectGroup,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimelineV2`
+const appBskyUnspeccedGetAtmosphereTimelineV2 = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineV2,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimelineV2#activityActorGroup`
+const appBskyUnspeccedGetAtmosphereTimelineV2ActivityActorGroup = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineV2ActivityActorGroup,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimelineV2#activityActorGroupItem`
+const appBskyUnspeccedGetAtmosphereTimelineV2ActivityActorGroupItem = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineV2ActivityActorGroupItem,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimelineV2#activityItem`
+const appBskyUnspeccedGetAtmosphereTimelineV2ActivityItem = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineV2ActivityItem,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimelineV2#activityItemRelatedActivity`
+const appBskyUnspeccedGetAtmosphereTimelineV2ActivityItemRelatedActivity = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineV2ActivityItemRelatedActivity,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimelineV2#activitySubject`
+const appBskyUnspeccedGetAtmosphereTimelineV2ActivitySubject = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineV2ActivitySubject,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimelineV2#activitySubjectGroup`
+const appBskyUnspeccedGetAtmosphereTimelineV2ActivitySubjectGroup = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineV2ActivitySubjectGroup,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimelineV2#activitySubjectGroupItem`
+const appBskyUnspeccedGetAtmosphereTimelineV2ActivitySubjectGroupItem = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineV2ActivitySubjectGroupItem,
+);
+
+/// `app.bsky.unspecced.getAtmosphereTimeline#viewerState`
+const appBskyUnspeccedGetAtmosphereTimelineViewerState = NSID(
+  ids.appBskyUnspeccedGetAtmosphereTimelineViewerState,
 );
 
 /// `app.bsky.unspecced.getConfig`
@@ -1576,6 +1736,21 @@ const toolsOzoneReportGetLiveStats = NSID(ids.toolsOzoneReportGetLiveStats);
 
 /// `tools.ozone.report.getReport`
 const toolsOzoneReportGetReport = NSID(ids.toolsOzoneReportGetReport);
+
+/// `tools.ozone.report.getStatGroupDetails`
+const toolsOzoneReportGetStatGroupDetails = NSID(
+  ids.toolsOzoneReportGetStatGroupDetails,
+);
+
+/// `tools.ozone.report.getStatGroupDetails#reportTypeBreakdown`
+const toolsOzoneReportGetStatGroupDetailsReportTypeBreakdown = NSID(
+  ids.toolsOzoneReportGetStatGroupDetailsReportTypeBreakdown,
+);
+
+/// `tools.ozone.report.getStatGroupDetails#reportTypeStats`
+const toolsOzoneReportGetStatGroupDetailsReportTypeStats = NSID(
+  ids.toolsOzoneReportGetStatGroupDetailsReportTypeStats,
+);
 
 /// `tools.ozone.report.listActivities`
 const toolsOzoneReportListActivities = NSID(ids.toolsOzoneReportListActivities);

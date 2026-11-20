@@ -23,6 +23,7 @@ import 'report/getAssignments/output.dart';
 import 'report/getHistoricalStats/output.dart';
 import 'report/getLatestReport/output.dart';
 import 'report/getLiveStats/output.dart';
+import 'report/getStatGroupDetails/output.dart';
 import 'report/listActivities/output.dart';
 import 'report/queryActivities/output.dart';
 import 'report/queryModeratorActivity/output.dart';
@@ -232,6 +233,33 @@ Future<XRPCResponse<ReportView>> toolsOzoneReportGetReport({
   headers: $headers,
   parameters: {...?$unknown, 'id': id},
   to: const ReportViewConverter().fromJson,
+);
+
+/// Get additional details for a stat group. Omit all group selectors for aggregate details.
+Future<XRPCResponse<ReportGetStatGroupDetailsOutput>>
+toolsOzoneReportGetStatGroupDetails({
+  int? queueId,
+  String? moderatorDid,
+  List<String>? reportTypes,
+  DateTime? startDate,
+  DateTime? endDate,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.toolsOzoneReportGetStatGroupDetails,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (queueId != null) 'queueId': queueId,
+    if (moderatorDid != null) 'moderatorDid': moderatorDid,
+    if (reportTypes != null) 'reportTypes': reportTypes,
+    if (startDate != null) 'startDate': iso8601(startDate),
+    if (endDate != null) 'endDate': iso8601(endDate),
+  },
+  to: const ReportGetStatGroupDetailsOutputConverter().fromJson,
 );
 
 /// List all activities for a report, sorted most-recent-first.
@@ -588,6 +616,28 @@ base class ReportService {
     Map<String, String>? $unknown,
   }) async => await toolsOzoneReportGetReport(
     id: id,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get additional details for a stat group. Omit all group selectors for aggregate details.
+  Future<XRPCResponse<ReportGetStatGroupDetailsOutput>> getStatGroupDetails({
+    int? queueId,
+    String? moderatorDid,
+    List<String>? reportTypes,
+    DateTime? startDate,
+    DateTime? endDate,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await toolsOzoneReportGetStatGroupDetails(
+    queueId: queueId,
+    moderatorDid: moderatorDid,
+    reportTypes: reportTypes,
+    startDate: startDate,
+    endDate: endDate,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

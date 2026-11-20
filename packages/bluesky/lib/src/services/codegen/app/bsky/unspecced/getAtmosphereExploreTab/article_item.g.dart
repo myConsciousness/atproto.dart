@@ -17,7 +17,20 @@ _ArticleItem _$ArticleItemFromJson(Map json) =>
               v as String? ??
               'app.bsky.unspecced.getAtmosphereExploreTab#articleItem',
         ),
-        featured: $checkedConvert('featured', (v) => v as bool),
+        bskyPostRef: $checkedConvert(
+          'bskyPostRef',
+          (v) => _$JsonConverterFromJson<Map<String, dynamic>, RepoStrongRef>(
+            v,
+            const RepoStrongRefConverter().fromJson,
+          ),
+        ),
+        viewBskyPost: $checkedConvert(
+          'viewBskyPost',
+          (v) => _$JsonConverterFromJson<Map<String, dynamic>, PostView>(
+            v,
+            const PostViewConverter().fromJson,
+          ),
+        ),
         view: $checkedConvert(
           'view',
           (v) => const EmbedExternalViewArticleConverter().fromJson(
@@ -32,10 +45,28 @@ _ArticleItem _$ArticleItemFromJson(Map json) =>
       return val;
     });
 
-Map<String, dynamic> _$ArticleItemToJson(_ArticleItem instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'featured': instance.featured,
-      'view': const EmbedExternalViewArticleConverter().toJson(instance.view),
-      r'$unknown': ?instance.$unknown,
-    };
+Map<String, dynamic> _$ArticleItemToJson(
+  _ArticleItem instance,
+) => <String, dynamic>{
+  r'$type': instance.$type,
+  'bskyPostRef': ?_$JsonConverterToJson<Map<String, dynamic>, RepoStrongRef>(
+    instance.bskyPostRef,
+    const RepoStrongRefConverter().toJson,
+  ),
+  'viewBskyPost': ?_$JsonConverterToJson<Map<String, dynamic>, PostView>(
+    instance.viewBskyPost,
+    const PostViewConverter().toJson,
+  ),
+  'view': const EmbedExternalViewArticleConverter().toJson(instance.view),
+  r'$unknown': ?instance.$unknown,
+};
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

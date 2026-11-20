@@ -16,6 +16,7 @@ _EmbedExternalViewArticle _$EmbedExternalViewArticleFromJson(
       r'$type',
       (v) => v as String? ?? 'app.bsky.embed.external#viewArticle',
     ),
+    providerId: $checkedConvert('providerId', (v) => v as String?),
     uri: $checkedConvert('uri', (v) => v as String),
     title: $checkedConvert('title', (v) => v as String),
     description: $checkedConvert('description', (v) => v as String),
@@ -65,6 +66,14 @@ _EmbedExternalViewArticle _$EmbedExternalViewArticleFromJson(
           >(v, const EmbedExternalViewArticlePublicationConverter().fromJson),
     ),
     readingTime: $checkedConvert('readingTime', (v) => (v as num?)?.toInt()),
+    viewer: $checkedConvert(
+      'viewer',
+      (v) =>
+          _$JsonConverterFromJson<
+            Map<String, dynamic>,
+            EmbedExternalViewArticleViewerState
+          >(v, const EmbedExternalViewArticleViewerStateConverter().fromJson),
+    ),
     likeCount: $checkedConvert('likeCount', (v) => (v as num?)?.toInt()),
     likers: $checkedConvert(
       'likers',
@@ -88,6 +97,7 @@ Map<String, dynamic> _$EmbedExternalViewArticleToJson(
   _EmbedExternalViewArticle instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
+  'providerId': ?instance.providerId,
   'uri': instance.uri,
   'title': instance.title,
   'description': instance.description,
@@ -110,6 +120,14 @@ Map<String, dynamic> _$EmbedExternalViewArticleToJson(
         const EmbedExternalViewArticlePublicationConverter().toJson,
       ),
   'readingTime': ?instance.readingTime,
+  'viewer':
+      ?_$JsonConverterToJson<
+        Map<String, dynamic>,
+        EmbedExternalViewArticleViewerState
+      >(
+        instance.viewer,
+        const EmbedExternalViewArticleViewerStateConverter().toJson,
+      ),
   'likeCount': ?instance.likeCount,
   'likers': ?instance.likers
       ?.map(const ProfileViewBasicConverter().toJson)

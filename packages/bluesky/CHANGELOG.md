@@ -1,5 +1,70 @@
 # Release Note
 
+## v2.19.0
+
+- feat: added `app.bsky.embed.external#viewArticle.providerId`
+- feat: added `app.bsky.embed.external#viewArticle.viewer`
+- feat: added `app.bsky.embed.external#viewArticlePublication.providerId`
+- feat: added `app.bsky.embed.external#viewArticlePublication.viewer`
+- feat: added `app.bsky.embed.external#viewArticlePublicationViewerState`
+- feat: added `app.bsky.embed.external#viewArticleViewerState`
+- feat: added `app.bsky.embed.external#viewGallery.photoCount`
+- feat: added `app.bsky.embed.external#viewGallery.providerId`
+- feat: added `app.bsky.embed.external#viewGallery.viewer`
+- feat: added `app.bsky.embed.external#viewGalleryViewerState`
+- feat: added `app.bsky.embed.external#viewLivestream.lastSeenAt`
+- feat: added `app.bsky.embed.external#viewLivestream.providerId`
+- feat: added `app.bsky.unspecced.getAtmosphereActivityRecommendations#item`
+- feat: added `app.bsky.unspecced.getAtmosphereActivityRecommendations`
+- feat: added `app.bsky.unspecced.getAtmosphereApps#appCard`
+- feat: added `app.bsky.unspecced.getAtmosphereApps`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreGalleryRecommendations#gallery`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreGalleryRecommendations`
+- chore: updated `app.bsky.unspecced.getAtmosphereExploreTab#appCard.backgroundImage`
+- chore: updated `app.bsky.unspecced.getAtmosphereExploreTab#appCard.logo`
+- chore: updated `app.bsky.unspecced.getAtmosphereExploreTab#appCard.overlayColor`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#appCard.profile`
+- chore: updated `app.bsky.unspecced.getAtmosphereExploreTab#appCard.textColor`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#articleItem.bskyPostRef`
+- chore: updated `app.bsky.unspecced.getAtmosphereExploreTab#articleItem.featured`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#articleItem.viewBskyPost`
+- chore: updated `app.bsky.unspecced.getAtmosphereExploreTab#galleryItem.featured`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#livestreamItem.bskyPostRef`
+- chore: updated `app.bsky.unspecced.getAtmosphereExploreTab#livestreamItem.featured`
+- feat: added `app.bsky.unspecced.getAtmosphereExploreTab#livestreamItem.viewBskyPost`
+- chore: updated `app.bsky.unspecced.getAtmosphereExploreTab`
+- fix!: removed `app.bsky.unspecced.getAtmosphereExploreTab.parameters.countryCode` (BREAKING)
+- chore: updated `app.bsky.unspecced.getAtmosphereExploreTab.parameters.langs`
+- fix!: removed `app.bsky.unspecced.getAtmosphereExploreTab.parameters.regionCode` (BREAKING)
+- chore: updated `app.bsky.unspecced.getAtmosphereExploreTab#publicationItem.featured`
+- feat: added `app.bsky.unspecced.getAtmosphereRecommendedActivity#item`
+- feat: added `app.bsky.unspecced.getAtmosphereRecommendedActivity`
+- feat: added `app.bsky.unspecced.getAtmosphereRecordView`
+- feat: added `app.bsky.unspecced.getAtmosphereRecordViews`
+- feat: added `app.bsky.unspecced.getAtmosphereRecordViews#recordRef`
+- feat: added `app.bsky.unspecced.getAtmosphereRecordViews#recordView`
+- feat: added `app.bsky.unspecced.getAtmosphereTimeline#activityActorGroup`
+- feat: added `app.bsky.unspecced.getAtmosphereTimeline#activityGroupItem`
+- feat: added `app.bsky.unspecced.getAtmosphereTimeline#activityItem`
+- feat: added `app.bsky.unspecced.getAtmosphereTimeline#activityRecord`
+- feat: added `app.bsky.unspecced.getAtmosphereTimeline#activityRelatedGroup`
+- feat: added `app.bsky.unspecced.getAtmosphereTimeline#activitySubject`
+- feat: added `app.bsky.unspecced.getAtmosphereTimeline#activitySubjectGroup`
+- feat: added `app.bsky.unspecced.getAtmosphereTimeline`
+- feat: added `app.bsky.unspecced.getAtmosphereTimeline#viewerState`
+- feat: added `app.bsky.unspecced.getAtmosphereTimelineV2#activityActorGroup`
+- feat: added `app.bsky.unspecced.getAtmosphereTimelineV2#activityActorGroupItem`
+- feat: added `app.bsky.unspecced.getAtmosphereTimelineV2#activityItem`
+- feat: added `app.bsky.unspecced.getAtmosphereTimelineV2#activityItemRelatedActivity`
+- feat: added `app.bsky.unspecced.getAtmosphereTimelineV2#activitySubject`
+- feat: added `app.bsky.unspecced.getAtmosphereTimelineV2#activitySubjectGroup`
+- feat: added `app.bsky.unspecced.getAtmosphereTimelineV2#activitySubjectGroupItem`
+- feat: added `app.bsky.unspecced.getAtmosphereTimelineV2`
+- feat: added `tools.ozone.report.getStatGroupDetails`
+- feat: added `tools.ozone.report.getStatGroupDetails#reportTypeBreakdown`
+- feat: added `tools.ozone.report.getStatGroupDetails#reportTypeStats`
+- chore: regenerated from synced lexicons
+
 ## v2.18.4
 
 - feat: added `tools.ozone.inbox.getReport#accountStatus`

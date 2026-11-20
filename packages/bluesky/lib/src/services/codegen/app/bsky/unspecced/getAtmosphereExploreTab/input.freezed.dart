@@ -15,9 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnspeccedGetAtmosphereExploreTabInput {
 
- List<String>? get langs;/// The ISO 3166-1 alpha-2 country code used to select curated content.
- String? get countryCode;/// The ISO 3166-2 region code used to select curated content.
- String? get regionCode; Map<String, dynamic>? get $unknown;
+ List<String>? get langs; Map<String, dynamic>? get $unknown;
 /// Create a copy of UnspeccedGetAtmosphereExploreTabInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,16 +28,16 @@ $UnspeccedGetAtmosphereExploreTabInputCopyWith<UnspeccedGetAtmosphereExploreTabI
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetAtmosphereExploreTabInput&&const DeepCollectionEquality().equals(other.langs, langs)&&(identical(other.countryCode, countryCode) || other.countryCode == countryCode)&&(identical(other.regionCode, regionCode) || other.regionCode == regionCode)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnspeccedGetAtmosphereExploreTabInput&&const DeepCollectionEquality().equals(other.langs, langs)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(langs),countryCode,regionCode,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(langs),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'UnspeccedGetAtmosphereExploreTabInput(langs: $langs, countryCode: $countryCode, regionCode: $regionCode, \$unknown: ${$unknown})';
+  return 'UnspeccedGetAtmosphereExploreTabInput(langs: $langs, \$unknown: ${$unknown})';
 }
 
 
@@ -50,7 +48,7 @@ abstract mixin class $UnspeccedGetAtmosphereExploreTabInputCopyWith<$Res>  {
   factory $UnspeccedGetAtmosphereExploreTabInputCopyWith(UnspeccedGetAtmosphereExploreTabInput value, $Res Function(UnspeccedGetAtmosphereExploreTabInput) _then) = _$UnspeccedGetAtmosphereExploreTabInputCopyWithImpl;
 @useResult
 $Res call({
- List<String>? langs, String? countryCode, String? regionCode, Map<String, dynamic>? $unknown
+ List<String>? langs, Map<String, dynamic>? $unknown
 });
 
 
@@ -67,12 +65,10 @@ class _$UnspeccedGetAtmosphereExploreTabInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetAtmosphereExploreTabInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? langs = freezed,Object? countryCode = freezed,Object? regionCode = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? langs = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 langs: freezed == langs ? _self.langs : langs // ignore: cast_nullable_to_non_nullable
-as List<String>?,countryCode: freezed == countryCode ? _self.countryCode : countryCode // ignore: cast_nullable_to_non_nullable
-as String?,regionCode: freezed == regionCode ? _self.regionCode : regionCode // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<String>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -158,10 +154,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String>? langs,  String? countryCode,  String? regionCode,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String>? langs,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnspeccedGetAtmosphereExploreTabInput() when $default != null:
-return $default(_that.langs,_that.countryCode,_that.regionCode,_that.$unknown);case _:
+return $default(_that.langs,_that.$unknown);case _:
   return orElse();
 
 }
@@ -179,10 +175,10 @@ return $default(_that.langs,_that.countryCode,_that.regionCode,_that.$unknown);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String>? langs,  String? countryCode,  String? regionCode,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String>? langs,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetAtmosphereExploreTabInput():
-return $default(_that.langs,_that.countryCode,_that.regionCode,_that.$unknown);case _:
+return $default(_that.langs,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -199,10 +195,10 @@ return $default(_that.langs,_that.countryCode,_that.regionCode,_that.$unknown);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String>? langs,  String? countryCode,  String? regionCode,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String>? langs,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _UnspeccedGetAtmosphereExploreTabInput() when $default != null:
-return $default(_that.langs,_that.countryCode,_that.regionCode,_that.$unknown);case _:
+return $default(_that.langs,_that.$unknown);case _:
   return null;
 
 }
@@ -214,7 +210,7 @@ return $default(_that.langs,_that.countryCode,_that.regionCode,_that.$unknown);c
 
 @JsonSerializable(includeIfNull: false)
 class _UnspeccedGetAtmosphereExploreTabInput implements UnspeccedGetAtmosphereExploreTabInput {
-  const _UnspeccedGetAtmosphereExploreTabInput({final  List<String>? langs, this.countryCode, this.regionCode, final  Map<String, dynamic>? $unknown}): _langs = langs,_$unknown = $unknown;
+  const _UnspeccedGetAtmosphereExploreTabInput({final  List<String>? langs, final  Map<String, dynamic>? $unknown}): _langs = langs,_$unknown = $unknown;
   factory _UnspeccedGetAtmosphereExploreTabInput.fromJson(Map<String, dynamic> json) => _$UnspeccedGetAtmosphereExploreTabInputFromJson(json);
 
  final  List<String>? _langs;
@@ -226,10 +222,6 @@ class _UnspeccedGetAtmosphereExploreTabInput implements UnspeccedGetAtmosphereEx
   return EqualUnmodifiableListView(value);
 }
 
-/// The ISO 3166-1 alpha-2 country code used to select curated content.
-@override final  String? countryCode;
-/// The ISO 3166-2 region code used to select curated content.
-@override final  String? regionCode;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -253,16 +245,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetAtmosphereExploreTabInput&&const DeepCollectionEquality().equals(other._langs, _langs)&&(identical(other.countryCode, countryCode) || other.countryCode == countryCode)&&(identical(other.regionCode, regionCode) || other.regionCode == regionCode)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnspeccedGetAtmosphereExploreTabInput&&const DeepCollectionEquality().equals(other._langs, _langs)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_langs),countryCode,regionCode,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_langs),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'UnspeccedGetAtmosphereExploreTabInput(langs: $langs, countryCode: $countryCode, regionCode: $regionCode, \$unknown: ${$unknown})';
+  return 'UnspeccedGetAtmosphereExploreTabInput(langs: $langs, \$unknown: ${$unknown})';
 }
 
 
@@ -273,7 +265,7 @@ abstract mixin class _$UnspeccedGetAtmosphereExploreTabInputCopyWith<$Res> imple
   factory _$UnspeccedGetAtmosphereExploreTabInputCopyWith(_UnspeccedGetAtmosphereExploreTabInput value, $Res Function(_UnspeccedGetAtmosphereExploreTabInput) _then) = __$UnspeccedGetAtmosphereExploreTabInputCopyWithImpl;
 @override @useResult
 $Res call({
- List<String>? langs, String? countryCode, String? regionCode, Map<String, dynamic>? $unknown
+ List<String>? langs, Map<String, dynamic>? $unknown
 });
 
 
@@ -290,12 +282,10 @@ class __$UnspeccedGetAtmosphereExploreTabInputCopyWithImpl<$Res>
 
 /// Create a copy of UnspeccedGetAtmosphereExploreTabInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? langs = freezed,Object? countryCode = freezed,Object? regionCode = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? langs = freezed,Object? $unknown = freezed,}) {
   return _then(_UnspeccedGetAtmosphereExploreTabInput(
 langs: freezed == langs ? _self._langs : langs // ignore: cast_nullable_to_non_nullable
-as List<String>?,countryCode: freezed == countryCode ? _self.countryCode : countryCode // ignore: cast_nullable_to_non_nullable
-as String?,regionCode: freezed == regionCode ? _self.regionCode : regionCode // ignore: cast_nullable_to_non_nullable
-as String?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as List<String>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

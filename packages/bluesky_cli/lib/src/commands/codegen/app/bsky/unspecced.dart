@@ -12,8 +12,16 @@ import 'package:args/command_runner.dart';
 
 // Project imports:
 import 'unspecced/get_age_assurance_state.dart';
+import 'unspecced/get_atmosphere_activity_recommendations.dart';
+import 'unspecced/get_atmosphere_apps.dart';
 import 'unspecced/get_atmosphere_explore_article_recommendations.dart';
+import 'unspecced/get_atmosphere_explore_gallery_recommendations.dart';
 import 'unspecced/get_atmosphere_explore_tab.dart';
+import 'unspecced/get_atmosphere_recommended_activity.dart';
+import 'unspecced/get_atmosphere_record_view.dart';
+import 'unspecced/get_atmosphere_record_views.dart';
+import 'unspecced/get_atmosphere_timeline.dart';
+import 'unspecced/get_atmosphere_timeline_v2.dart';
 import 'unspecced/get_config.dart';
 import 'unspecced/get_onboarding_suggested_starter_packs.dart';
 import 'unspecced/get_onboarding_suggested_starter_packs_skeleton.dart';
@@ -51,8 +59,16 @@ import 'unspecced/search_starter_packs_skeleton.dart';
 final class AppBskyUnspeccedCommand extends Command<void> {
   AppBskyUnspeccedCommand() {
     addSubcommand(GetAgeAssuranceStateCommand());
+    addSubcommand(GetAtmosphereActivityRecommendationsCommand());
+    addSubcommand(GetAtmosphereAppsCommand());
     addSubcommand(GetAtmosphereExploreArticleRecommendationsCommand());
+    addSubcommand(GetAtmosphereExploreGalleryRecommendationsCommand());
     addSubcommand(GetAtmosphereExploreTabCommand());
+    addSubcommand(GetAtmosphereRecommendedActivityCommand());
+    addSubcommand(GetAtmosphereRecordViewCommand());
+    addSubcommand(GetAtmosphereRecordViewsCommand());
+    addSubcommand(GetAtmosphereTimelineCommand());
+    addSubcommand(GetAtmosphereTimelineV2Command());
     addSubcommand(GetConfigCommand());
     addSubcommand(GetOnboardingSuggestedStarterPacksCommand());
     addSubcommand(GetOnboardingSuggestedStarterPacksSkeletonCommand());

@@ -15,7 +15,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EmbedExternalViewArticlePublication {
 
- String get $type; String get uri; String get title; String get description;@JsonKey(toJson: iso8601) DateTime? get createdAt;@JsonKey(toJson: iso8601) DateTime? get updatedAt;@LabelConverter() List<Label>? get labels;@RepoStrongRefConverter() List<RepoStrongRef>? get associatedRefs;@ProfileViewBasicConverter() List<ProfileViewBasic>? get associatedProfiles; String? get logo; String? get image;@EmbedExternalViewArticlePublicationThemeConverter() EmbedExternalViewArticlePublicationTheme? get theme; int? get subscriptionCount;@ProfileViewBasicConverter() List<ProfileViewBasic>? get subscribers; Map<String, dynamic>? get $unknown;
+ String get $type;/// Best-effort provider domain for cosmetic attribution, such as pckt.blog. Not verified provenance.
+ String? get providerId; String get uri; String get title; String get description;@JsonKey(toJson: iso8601) DateTime? get createdAt;@JsonKey(toJson: iso8601) DateTime? get updatedAt;@LabelConverter() List<Label>? get labels;@RepoStrongRefConverter() List<RepoStrongRef>? get associatedRefs;@ProfileViewBasicConverter() List<ProfileViewBasic>? get associatedProfiles; String? get logo; String? get image;@EmbedExternalViewArticlePublicationThemeConverter() EmbedExternalViewArticlePublicationTheme? get theme;@EmbedExternalViewArticlePublicationViewerStateConverter() EmbedExternalViewArticlePublicationViewerState? get viewer; int? get subscriptionCount;@ProfileViewBasicConverter() List<ProfileViewBasic>? get subscribers; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedExternalViewArticlePublication
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +29,16 @@ $EmbedExternalViewArticlePublicationCopyWith<EmbedExternalViewArticlePublication
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedExternalViewArticlePublication&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other.labels, labels)&&const DeepCollectionEquality().equals(other.associatedRefs, associatedRefs)&&const DeepCollectionEquality().equals(other.associatedProfiles, associatedProfiles)&&(identical(other.logo, logo) || other.logo == logo)&&(identical(other.image, image) || other.image == image)&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.subscriptionCount, subscriptionCount) || other.subscriptionCount == subscriptionCount)&&const DeepCollectionEquality().equals(other.subscribers, subscribers)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedExternalViewArticlePublication&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.providerId, providerId) || other.providerId == providerId)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other.labels, labels)&&const DeepCollectionEquality().equals(other.associatedRefs, associatedRefs)&&const DeepCollectionEquality().equals(other.associatedProfiles, associatedProfiles)&&(identical(other.logo, logo) || other.logo == logo)&&(identical(other.image, image) || other.image == image)&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.viewer, viewer) || other.viewer == viewer)&&(identical(other.subscriptionCount, subscriptionCount) || other.subscriptionCount == subscriptionCount)&&const DeepCollectionEquality().equals(other.subscribers, subscribers)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,title,description,createdAt,updatedAt,const DeepCollectionEquality().hash(labels),const DeepCollectionEquality().hash(associatedRefs),const DeepCollectionEquality().hash(associatedProfiles),logo,image,theme,subscriptionCount,const DeepCollectionEquality().hash(subscribers),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,providerId,uri,title,description,createdAt,updatedAt,const DeepCollectionEquality().hash(labels),const DeepCollectionEquality().hash(associatedRefs),const DeepCollectionEquality().hash(associatedProfiles),logo,image,theme,viewer,subscriptionCount,const DeepCollectionEquality().hash(subscribers),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'EmbedExternalViewArticlePublication(\$type: ${$type}, uri: $uri, title: $title, description: $description, createdAt: $createdAt, updatedAt: $updatedAt, labels: $labels, associatedRefs: $associatedRefs, associatedProfiles: $associatedProfiles, logo: $logo, image: $image, theme: $theme, subscriptionCount: $subscriptionCount, subscribers: $subscribers, \$unknown: ${$unknown})';
+  return 'EmbedExternalViewArticlePublication(\$type: ${$type}, providerId: $providerId, uri: $uri, title: $title, description: $description, createdAt: $createdAt, updatedAt: $updatedAt, labels: $labels, associatedRefs: $associatedRefs, associatedProfiles: $associatedProfiles, logo: $logo, image: $image, theme: $theme, viewer: $viewer, subscriptionCount: $subscriptionCount, subscribers: $subscribers, \$unknown: ${$unknown})';
 }
 
 
@@ -48,11 +49,11 @@ abstract mixin class $EmbedExternalViewArticlePublicationCopyWith<$Res>  {
   factory $EmbedExternalViewArticlePublicationCopyWith(EmbedExternalViewArticlePublication value, $Res Function(EmbedExternalViewArticlePublication) _then) = _$EmbedExternalViewArticlePublicationCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, String title, String description,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,@ProfileViewBasicConverter() List<ProfileViewBasic>? associatedProfiles, String? logo, String? image,@EmbedExternalViewArticlePublicationThemeConverter() EmbedExternalViewArticlePublicationTheme? theme, int? subscriptionCount,@ProfileViewBasicConverter() List<ProfileViewBasic>? subscribers, Map<String, dynamic>? $unknown
+ String $type, String? providerId, String uri, String title, String description,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,@ProfileViewBasicConverter() List<ProfileViewBasic>? associatedProfiles, String? logo, String? image,@EmbedExternalViewArticlePublicationThemeConverter() EmbedExternalViewArticlePublicationTheme? theme,@EmbedExternalViewArticlePublicationViewerStateConverter() EmbedExternalViewArticlePublicationViewerState? viewer, int? subscriptionCount,@ProfileViewBasicConverter() List<ProfileViewBasic>? subscribers, Map<String, dynamic>? $unknown
 });
 
 
-$EmbedExternalViewArticlePublicationThemeCopyWith<$Res>? get theme;
+$EmbedExternalViewArticlePublicationThemeCopyWith<$Res>? get theme;$EmbedExternalViewArticlePublicationViewerStateCopyWith<$Res>? get viewer;
 
 }
 /// @nodoc
@@ -65,10 +66,11 @@ class _$EmbedExternalViewArticlePublicationCopyWithImpl<$Res>
 
 /// Create a copy of EmbedExternalViewArticlePublication
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? title = null,Object? description = null,Object? createdAt = freezed,Object? updatedAt = freezed,Object? labels = freezed,Object? associatedRefs = freezed,Object? associatedProfiles = freezed,Object? logo = freezed,Object? image = freezed,Object? theme = freezed,Object? subscriptionCount = freezed,Object? subscribers = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? providerId = freezed,Object? uri = null,Object? title = null,Object? description = null,Object? createdAt = freezed,Object? updatedAt = freezed,Object? labels = freezed,Object? associatedRefs = freezed,Object? associatedProfiles = freezed,Object? logo = freezed,Object? image = freezed,Object? theme = freezed,Object? viewer = freezed,Object? subscriptionCount = freezed,Object? subscribers = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
+as String,providerId: freezed == providerId ? _self.providerId : providerId // ignore: cast_nullable_to_non_nullable
+as String?,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
@@ -79,7 +81,8 @@ as List<RepoStrongRef>?,associatedProfiles: freezed == associatedProfiles ? _sel
 as List<ProfileViewBasic>?,logo: freezed == logo ? _self.logo : logo // ignore: cast_nullable_to_non_nullable
 as String?,image: freezed == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
 as String?,theme: freezed == theme ? _self.theme : theme // ignore: cast_nullable_to_non_nullable
-as EmbedExternalViewArticlePublicationTheme?,subscriptionCount: freezed == subscriptionCount ? _self.subscriptionCount : subscriptionCount // ignore: cast_nullable_to_non_nullable
+as EmbedExternalViewArticlePublicationTheme?,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
+as EmbedExternalViewArticlePublicationViewerState?,subscriptionCount: freezed == subscriptionCount ? _self.subscriptionCount : subscriptionCount // ignore: cast_nullable_to_non_nullable
 as int?,subscribers: freezed == subscribers ? _self.subscribers : subscribers // ignore: cast_nullable_to_non_nullable
 as List<ProfileViewBasic>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -96,6 +99,18 @@ $EmbedExternalViewArticlePublicationThemeCopyWith<$Res>? get theme {
 
   return $EmbedExternalViewArticlePublicationThemeCopyWith<$Res>(_self.theme!, (value) {
     return _then(_self.copyWith(theme: value));
+  });
+}/// Create a copy of EmbedExternalViewArticlePublication
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EmbedExternalViewArticlePublicationViewerStateCopyWith<$Res>? get viewer {
+    if (_self.viewer == null) {
+    return null;
+  }
+
+  return $EmbedExternalViewArticlePublicationViewerStateCopyWith<$Res>(_self.viewer!, (value) {
+    return _then(_self.copyWith(viewer: value));
   });
 }
 }
@@ -179,10 +194,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles,  String? logo,  String? image, @EmbedExternalViewArticlePublicationThemeConverter()  EmbedExternalViewArticlePublicationTheme? theme,  int? subscriptionCount, @ProfileViewBasicConverter()  List<ProfileViewBasic>? subscribers,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? providerId,  String uri,  String title,  String description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles,  String? logo,  String? image, @EmbedExternalViewArticlePublicationThemeConverter()  EmbedExternalViewArticlePublicationTheme? theme, @EmbedExternalViewArticlePublicationViewerStateConverter()  EmbedExternalViewArticlePublicationViewerState? viewer,  int? subscriptionCount, @ProfileViewBasicConverter()  List<ProfileViewBasic>? subscribers,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewArticlePublication() when $default != null:
-return $default(_that.$type,_that.uri,_that.title,_that.description,_that.createdAt,_that.updatedAt,_that.labels,_that.associatedRefs,_that.associatedProfiles,_that.logo,_that.image,_that.theme,_that.subscriptionCount,_that.subscribers,_that.$unknown);case _:
+return $default(_that.$type,_that.providerId,_that.uri,_that.title,_that.description,_that.createdAt,_that.updatedAt,_that.labels,_that.associatedRefs,_that.associatedProfiles,_that.logo,_that.image,_that.theme,_that.viewer,_that.subscriptionCount,_that.subscribers,_that.$unknown);case _:
   return orElse();
 
 }
@@ -200,10 +215,10 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.create
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles,  String? logo,  String? image, @EmbedExternalViewArticlePublicationThemeConverter()  EmbedExternalViewArticlePublicationTheme? theme,  int? subscriptionCount, @ProfileViewBasicConverter()  List<ProfileViewBasic>? subscribers,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? providerId,  String uri,  String title,  String description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles,  String? logo,  String? image, @EmbedExternalViewArticlePublicationThemeConverter()  EmbedExternalViewArticlePublicationTheme? theme, @EmbedExternalViewArticlePublicationViewerStateConverter()  EmbedExternalViewArticlePublicationViewerState? viewer,  int? subscriptionCount, @ProfileViewBasicConverter()  List<ProfileViewBasic>? subscribers,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewArticlePublication():
-return $default(_that.$type,_that.uri,_that.title,_that.description,_that.createdAt,_that.updatedAt,_that.labels,_that.associatedRefs,_that.associatedProfiles,_that.logo,_that.image,_that.theme,_that.subscriptionCount,_that.subscribers,_that.$unknown);case _:
+return $default(_that.$type,_that.providerId,_that.uri,_that.title,_that.description,_that.createdAt,_that.updatedAt,_that.labels,_that.associatedRefs,_that.associatedProfiles,_that.logo,_that.image,_that.theme,_that.viewer,_that.subscriptionCount,_that.subscribers,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -220,10 +235,10 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.create
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String title,  String description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles,  String? logo,  String? image, @EmbedExternalViewArticlePublicationThemeConverter()  EmbedExternalViewArticlePublicationTheme? theme,  int? subscriptionCount, @ProfileViewBasicConverter()  List<ProfileViewBasic>? subscribers,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? providerId,  String uri,  String title,  String description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles,  String? logo,  String? image, @EmbedExternalViewArticlePublicationThemeConverter()  EmbedExternalViewArticlePublicationTheme? theme, @EmbedExternalViewArticlePublicationViewerStateConverter()  EmbedExternalViewArticlePublicationViewerState? viewer,  int? subscriptionCount, @ProfileViewBasicConverter()  List<ProfileViewBasic>? subscribers,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewArticlePublication() when $default != null:
-return $default(_that.$type,_that.uri,_that.title,_that.description,_that.createdAt,_that.updatedAt,_that.labels,_that.associatedRefs,_that.associatedProfiles,_that.logo,_that.image,_that.theme,_that.subscriptionCount,_that.subscribers,_that.$unknown);case _:
+return $default(_that.$type,_that.providerId,_that.uri,_that.title,_that.description,_that.createdAt,_that.updatedAt,_that.labels,_that.associatedRefs,_that.associatedProfiles,_that.logo,_that.image,_that.theme,_that.viewer,_that.subscriptionCount,_that.subscribers,_that.$unknown);case _:
   return null;
 
 }
@@ -235,10 +250,12 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.create
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedExternalViewArticlePublication implements EmbedExternalViewArticlePublication {
-  const _EmbedExternalViewArticlePublication({this.$type = 'app.bsky.embed.external#viewArticlePublication', required this.uri, required this.title, required this.description, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @LabelConverter() final  List<Label>? labels, @RepoStrongRefConverter() final  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? associatedProfiles, this.logo, this.image, @EmbedExternalViewArticlePublicationThemeConverter() this.theme, this.subscriptionCount, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? subscribers, final  Map<String, dynamic>? $unknown}): _labels = labels,_associatedRefs = associatedRefs,_associatedProfiles = associatedProfiles,_subscribers = subscribers,_$unknown = $unknown;
+  const _EmbedExternalViewArticlePublication({this.$type = 'app.bsky.embed.external#viewArticlePublication', this.providerId, required this.uri, required this.title, required this.description, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @LabelConverter() final  List<Label>? labels, @RepoStrongRefConverter() final  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? associatedProfiles, this.logo, this.image, @EmbedExternalViewArticlePublicationThemeConverter() this.theme, @EmbedExternalViewArticlePublicationViewerStateConverter() this.viewer, this.subscriptionCount, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? subscribers, final  Map<String, dynamic>? $unknown}): _labels = labels,_associatedRefs = associatedRefs,_associatedProfiles = associatedProfiles,_subscribers = subscribers,_$unknown = $unknown;
   factory _EmbedExternalViewArticlePublication.fromJson(Map<String, dynamic> json) => _$EmbedExternalViewArticlePublicationFromJson(json);
 
 @override@JsonKey() final  String $type;
+/// Best-effort provider domain for cosmetic attribution, such as pckt.blog. Not verified provenance.
+@override final  String? providerId;
 @override final  String uri;
 @override final  String title;
 @override final  String description;
@@ -274,6 +291,7 @@ class _EmbedExternalViewArticlePublication implements EmbedExternalViewArticlePu
 @override final  String? logo;
 @override final  String? image;
 @override@EmbedExternalViewArticlePublicationThemeConverter() final  EmbedExternalViewArticlePublicationTheme? theme;
+@override@EmbedExternalViewArticlePublicationViewerStateConverter() final  EmbedExternalViewArticlePublicationViewerState? viewer;
 @override final  int? subscriptionCount;
  final  List<ProfileViewBasic>? _subscribers;
 @override@ProfileViewBasicConverter() List<ProfileViewBasic>? get subscribers {
@@ -307,16 +325,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedExternalViewArticlePublication&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other._labels, _labels)&&const DeepCollectionEquality().equals(other._associatedRefs, _associatedRefs)&&const DeepCollectionEquality().equals(other._associatedProfiles, _associatedProfiles)&&(identical(other.logo, logo) || other.logo == logo)&&(identical(other.image, image) || other.image == image)&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.subscriptionCount, subscriptionCount) || other.subscriptionCount == subscriptionCount)&&const DeepCollectionEquality().equals(other._subscribers, _subscribers)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedExternalViewArticlePublication&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.providerId, providerId) || other.providerId == providerId)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other._labels, _labels)&&const DeepCollectionEquality().equals(other._associatedRefs, _associatedRefs)&&const DeepCollectionEquality().equals(other._associatedProfiles, _associatedProfiles)&&(identical(other.logo, logo) || other.logo == logo)&&(identical(other.image, image) || other.image == image)&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.viewer, viewer) || other.viewer == viewer)&&(identical(other.subscriptionCount, subscriptionCount) || other.subscriptionCount == subscriptionCount)&&const DeepCollectionEquality().equals(other._subscribers, _subscribers)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,title,description,createdAt,updatedAt,const DeepCollectionEquality().hash(_labels),const DeepCollectionEquality().hash(_associatedRefs),const DeepCollectionEquality().hash(_associatedProfiles),logo,image,theme,subscriptionCount,const DeepCollectionEquality().hash(_subscribers),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,providerId,uri,title,description,createdAt,updatedAt,const DeepCollectionEquality().hash(_labels),const DeepCollectionEquality().hash(_associatedRefs),const DeepCollectionEquality().hash(_associatedProfiles),logo,image,theme,viewer,subscriptionCount,const DeepCollectionEquality().hash(_subscribers),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'EmbedExternalViewArticlePublication(\$type: ${$type}, uri: $uri, title: $title, description: $description, createdAt: $createdAt, updatedAt: $updatedAt, labels: $labels, associatedRefs: $associatedRefs, associatedProfiles: $associatedProfiles, logo: $logo, image: $image, theme: $theme, subscriptionCount: $subscriptionCount, subscribers: $subscribers, \$unknown: ${$unknown})';
+  return 'EmbedExternalViewArticlePublication(\$type: ${$type}, providerId: $providerId, uri: $uri, title: $title, description: $description, createdAt: $createdAt, updatedAt: $updatedAt, labels: $labels, associatedRefs: $associatedRefs, associatedProfiles: $associatedProfiles, logo: $logo, image: $image, theme: $theme, viewer: $viewer, subscriptionCount: $subscriptionCount, subscribers: $subscribers, \$unknown: ${$unknown})';
 }
 
 
@@ -327,11 +345,11 @@ abstract mixin class _$EmbedExternalViewArticlePublicationCopyWith<$Res> impleme
   factory _$EmbedExternalViewArticlePublicationCopyWith(_EmbedExternalViewArticlePublication value, $Res Function(_EmbedExternalViewArticlePublication) _then) = __$EmbedExternalViewArticlePublicationCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, String title, String description,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,@ProfileViewBasicConverter() List<ProfileViewBasic>? associatedProfiles, String? logo, String? image,@EmbedExternalViewArticlePublicationThemeConverter() EmbedExternalViewArticlePublicationTheme? theme, int? subscriptionCount,@ProfileViewBasicConverter() List<ProfileViewBasic>? subscribers, Map<String, dynamic>? $unknown
+ String $type, String? providerId, String uri, String title, String description,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,@ProfileViewBasicConverter() List<ProfileViewBasic>? associatedProfiles, String? logo, String? image,@EmbedExternalViewArticlePublicationThemeConverter() EmbedExternalViewArticlePublicationTheme? theme,@EmbedExternalViewArticlePublicationViewerStateConverter() EmbedExternalViewArticlePublicationViewerState? viewer, int? subscriptionCount,@ProfileViewBasicConverter() List<ProfileViewBasic>? subscribers, Map<String, dynamic>? $unknown
 });
 
 
-@override $EmbedExternalViewArticlePublicationThemeCopyWith<$Res>? get theme;
+@override $EmbedExternalViewArticlePublicationThemeCopyWith<$Res>? get theme;@override $EmbedExternalViewArticlePublicationViewerStateCopyWith<$Res>? get viewer;
 
 }
 /// @nodoc
@@ -344,10 +362,11 @@ class __$EmbedExternalViewArticlePublicationCopyWithImpl<$Res>
 
 /// Create a copy of EmbedExternalViewArticlePublication
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? uri = null,Object? title = null,Object? description = null,Object? createdAt = freezed,Object? updatedAt = freezed,Object? labels = freezed,Object? associatedRefs = freezed,Object? associatedProfiles = freezed,Object? logo = freezed,Object? image = freezed,Object? theme = freezed,Object? subscriptionCount = freezed,Object? subscribers = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? providerId = freezed,Object? uri = null,Object? title = null,Object? description = null,Object? createdAt = freezed,Object? updatedAt = freezed,Object? labels = freezed,Object? associatedRefs = freezed,Object? associatedProfiles = freezed,Object? logo = freezed,Object? image = freezed,Object? theme = freezed,Object? viewer = freezed,Object? subscriptionCount = freezed,Object? subscribers = freezed,Object? $unknown = freezed,}) {
   return _then(_EmbedExternalViewArticlePublication(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
+as String,providerId: freezed == providerId ? _self.providerId : providerId // ignore: cast_nullable_to_non_nullable
+as String?,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
@@ -358,7 +377,8 @@ as List<RepoStrongRef>?,associatedProfiles: freezed == associatedProfiles ? _sel
 as List<ProfileViewBasic>?,logo: freezed == logo ? _self.logo : logo // ignore: cast_nullable_to_non_nullable
 as String?,image: freezed == image ? _self.image : image // ignore: cast_nullable_to_non_nullable
 as String?,theme: freezed == theme ? _self.theme : theme // ignore: cast_nullable_to_non_nullable
-as EmbedExternalViewArticlePublicationTheme?,subscriptionCount: freezed == subscriptionCount ? _self.subscriptionCount : subscriptionCount // ignore: cast_nullable_to_non_nullable
+as EmbedExternalViewArticlePublicationTheme?,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
+as EmbedExternalViewArticlePublicationViewerState?,subscriptionCount: freezed == subscriptionCount ? _self.subscriptionCount : subscriptionCount // ignore: cast_nullable_to_non_nullable
 as int?,subscribers: freezed == subscribers ? _self._subscribers : subscribers // ignore: cast_nullable_to_non_nullable
 as List<ProfileViewBasic>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -376,6 +396,18 @@ $EmbedExternalViewArticlePublicationThemeCopyWith<$Res>? get theme {
 
   return $EmbedExternalViewArticlePublicationThemeCopyWith<$Res>(_self.theme!, (value) {
     return _then(_self.copyWith(theme: value));
+  });
+}/// Create a copy of EmbedExternalViewArticlePublication
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EmbedExternalViewArticlePublicationViewerStateCopyWith<$Res>? get viewer {
+    if (_self.viewer == null) {
+    return null;
+  }
+
+  return $EmbedExternalViewArticlePublicationViewerStateCopyWith<$Res>(_self.viewer!, (value) {
+    return _then(_self.copyWith(viewer: value));
   });
 }
 }

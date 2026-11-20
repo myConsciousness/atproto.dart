@@ -83,6 +83,7 @@ RGB color definition, inspired by site.standard.theme.color#rgb
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **providerId** | string | - | ❌ | Best-effort provider domain for cosmetic attribution, such as pckt.blog. Not verified provenance. |
 | **uri** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
 | **title** | string | - | ✅ | - |
 | **description** | string | - | ✅ | - |
@@ -94,13 +95,23 @@ RGB color definition, inspired by site.standard.theme.color#rgb
 | **image** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **publisher** | [#viewArticlePublication](#viewarticlepublication) | - | ❌ | - |
 | **readingTime** | integer | - | ❌ | - |
+| **viewer** | [#viewArticleViewerState](#viewarticleviewerstate) | - | ❌ | - |
 | **likeCount** | integer | - | ❌ | - |
 | **likers** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Available profile previews. Selected deterministically by DID; not a ranking. |
+
+## #viewArticleViewerState
+
+Metadata about the requesting account's relationship with the subject article. Only has meaningful content for authed requests.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **like** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | The requesting account's site.standard.graph.recommend record for this article, if recommended. |
 
 ## #viewArticlePublication
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **providerId** | string | - | ❌ | Best-effort provider domain for cosmetic attribution, such as pckt.blog. Not verified provenance. |
 | **uri** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
 | **title** | string | - | ✅ | - |
 | **description** | string | - | ✅ | - |
@@ -112,8 +123,17 @@ RGB color definition, inspired by site.standard.theme.color#rgb
 | **logo** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **image** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **theme** | [#viewArticlePublicationTheme](#viewarticlepublicationtheme) | - | ❌ | - |
+| **viewer** | [#viewArticlePublicationViewerState](#viewarticlepublicationviewerstate) | - | ❌ | - |
 | **subscriptionCount** | integer | - | ❌ | - |
 | **subscribers** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Available profile previews. Selected deterministically by DID; not a ranking. |
+
+## #viewArticlePublicationViewerState
+
+Metadata about the requesting account's relationship with the subject publication. Only has meaningful content for authed requests.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **subscription** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | The requesting account's site.standard.graph.subscription record for this publication, if subscribed. |
 
 ## #viewArticlePublicationTheme
 
@@ -128,6 +148,7 @@ RGB color definition, inspired by site.standard.theme.color#rgb
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **providerId** | string | - | ❌ | Best-effort provider domain for cosmetic attribution, such as grain.social. Not verified provenance. |
 | **uri** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
 | **title** | string | - | ✅ | - |
 | **description** | string | - | ✅ | - |
@@ -137,8 +158,18 @@ RGB color definition, inspired by site.standard.theme.color#rgb
 | **associatedRefs** | array of [com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ❌ | - |
 | **associatedProfiles** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | - |
 | **items** | array of union<br/>[#viewGalleryImage](#viewgalleryimage) | - | ✅ | The media items in the gallery. Each item may be of a different type, but all types must be supported by the client. |
+| **photoCount** | integer | - | ❌ | Total number of gallery item backlinks, independent of the items included in this view. |
+| **viewer** | [#viewGalleryViewerState](#viewgalleryviewerstate) | - | ❌ | - |
 | **likeCount** | integer | - | ❌ | - |
 | **likers** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Available profile previews. Selected deterministically by DID; not a ranking. |
+
+## #viewGalleryViewerState
+
+Metadata about the requesting account's relationship with the subject gallery. Only has meaningful content for authed requests.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **like** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | The requesting account's social.grain.favorite record for this gallery, if favorited. |
 
 ## #viewGalleryImage
 
@@ -153,6 +184,7 @@ RGB color definition, inspired by site.standard.theme.color#rgb
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **providerId** | string | - | ❌ | Best-effort provider domain for cosmetic attribution, such as stream.place. Not verified provenance. |
 | **uri** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
 | **title** | string | - | ✅ | - |
 | **description** | string | - | ✅ | - |
@@ -165,3 +197,4 @@ RGB color definition, inspired by site.standard.theme.color#rgb
 | **active** | boolean | - | ✅ | True if the livestream is currently active at the time this view is served, false if it has ended. |
 | **startedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **endedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **lastSeenAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | When the livestream last reported that it was live. A livestream without endedAt is considered active until two minutes after its last heartbeat; clients can apply the same window to tell whether a cached view is still live. |

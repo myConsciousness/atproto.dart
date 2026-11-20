@@ -17,7 +17,6 @@ _GalleryItem _$GalleryItemFromJson(Map json) =>
               v as String? ??
               'app.bsky.unspecced.getAtmosphereExploreTab#galleryItem',
         ),
-        featured: $checkedConvert('featured', (v) => v as bool),
         view: $checkedConvert(
           'view',
           (v) => const EmbedExternalViewGalleryConverter().fromJson(
@@ -35,7 +34,6 @@ _GalleryItem _$GalleryItemFromJson(Map json) =>
 Map<String, dynamic> _$GalleryItemToJson(_GalleryItem instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'featured': instance.featured,
       'view': const EmbedExternalViewGalleryConverter().toJson(instance.view),
       r'$unknown': ?instance.$unknown,
     };

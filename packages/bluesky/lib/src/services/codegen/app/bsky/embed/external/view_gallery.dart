@@ -16,6 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 import './union_view_gallery_items.dart';
+import './view_gallery_viewer_state.dart';
 
 part 'view_gallery.freezed.dart';
 part 'view_gallery.g.dart';
@@ -27,6 +28,7 @@ part 'view_gallery.g.dart';
 @freezed
 abstract class EmbedExternalViewGallery with _$EmbedExternalViewGallery {
   static const knownProps = <String>[
+    'providerId',
     'uri',
     'title',
     'description',
@@ -36,6 +38,8 @@ abstract class EmbedExternalViewGallery with _$EmbedExternalViewGallery {
     'associatedRefs',
     'associatedProfiles',
     'items',
+    'photoCount',
+    'viewer',
     'likeCount',
     'likers',
   ];
@@ -43,6 +47,9 @@ abstract class EmbedExternalViewGallery with _$EmbedExternalViewGallery {
   @JsonSerializable(includeIfNull: false)
   const factory EmbedExternalViewGallery({
     @Default('app.bsky.embed.external#viewGallery') String $type,
+
+    /// Best-effort provider domain for cosmetic attribution, such as grain.social. Not verified provenance.
+    String? providerId,
     required String uri,
     required String title,
     required String description,
@@ -53,6 +60,11 @@ abstract class EmbedExternalViewGallery with _$EmbedExternalViewGallery {
     @ProfileViewBasicConverter() List<ProfileViewBasic>? associatedProfiles,
     @UEmbedExternalViewGalleryItemsConverter()
     required List<UEmbedExternalViewGalleryItems> items,
+
+    /// Total number of gallery item backlinks, independent of the items included in this view.
+    int? photoCount,
+    @EmbedExternalViewGalleryViewerStateConverter()
+    EmbedExternalViewGalleryViewerState? viewer,
     int? likeCount,
     @ProfileViewBasicConverter() List<ProfileViewBasic>? likers,
 
@@ -69,10 +81,16 @@ abstract class EmbedExternalViewGallery with _$EmbedExternalViewGallery {
 }
 
 extension EmbedExternalViewGalleryExtension on EmbedExternalViewGallery {
+  bool get hasProviderId => providerId != null;
+  bool get hasNotProviderId => !hasProviderId;
   bool get hasCreatedAt => createdAt != null;
   bool get hasNotCreatedAt => !hasCreatedAt;
   bool get hasUpdatedAt => updatedAt != null;
   bool get hasNotUpdatedAt => !hasUpdatedAt;
+  bool get hasPhotoCount => photoCount != null;
+  bool get hasNotPhotoCount => !hasPhotoCount;
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
   bool get hasLikeCount => likeCount != null;
   bool get hasNotLikeCount => !hasLikeCount;
 }

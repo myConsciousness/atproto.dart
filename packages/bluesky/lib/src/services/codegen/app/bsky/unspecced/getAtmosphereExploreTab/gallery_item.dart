@@ -23,13 +23,12 @@ part 'gallery_item.g.dart';
 
 @freezed
 abstract class GalleryItem with _$GalleryItem {
-  static const knownProps = <String>['featured', 'view'];
+  static const knownProps = <String>['view'];
 
   @JsonSerializable(includeIfNull: false)
   const factory GalleryItem({
     @Default('app.bsky.unspecced.getAtmosphereExploreTab#galleryItem')
     String $type,
-    required bool featured,
     @EmbedExternalViewGalleryConverter() required EmbedExternalViewGallery view,
 
     Map<String, dynamic>? $unknown,
@@ -43,11 +42,6 @@ abstract class GalleryItem with _$GalleryItem {
     return object['\$type'] ==
         'app.bsky.unspecced.getAtmosphereExploreTab#galleryItem';
   }
-}
-
-extension GalleryItemExtension on GalleryItem {
-  bool get isFeatured => featured;
-  bool get isNotFeatured => !isFeatured;
 }
 
 final class GalleryItemConverter

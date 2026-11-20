@@ -23,13 +23,12 @@ part 'publication_item.g.dart';
 
 @freezed
 abstract class PublicationItem with _$PublicationItem {
-  static const knownProps = <String>['featured', 'view'];
+  static const knownProps = <String>['view'];
 
   @JsonSerializable(includeIfNull: false)
   const factory PublicationItem({
     @Default('app.bsky.unspecced.getAtmosphereExploreTab#publicationItem')
     String $type,
-    required bool featured,
     @EmbedExternalViewArticlePublicationConverter()
     required EmbedExternalViewArticlePublication view,
 
@@ -44,11 +43,6 @@ abstract class PublicationItem with _$PublicationItem {
     return object['\$type'] ==
         'app.bsky.unspecced.getAtmosphereExploreTab#publicationItem';
   }
-}
-
-extension PublicationItemExtension on PublicationItem {
-  bool get isFeatured => featured;
-  bool get isNotFeatured => !isFeatured;
 }
 
 final class PublicationItemConverter

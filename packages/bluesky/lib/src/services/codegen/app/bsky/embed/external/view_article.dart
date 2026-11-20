@@ -16,6 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 import './view_article_publication.dart';
+import './view_article_viewer_state.dart';
 
 part 'view_article.freezed.dart';
 part 'view_article.g.dart';
@@ -27,6 +28,7 @@ part 'view_article.g.dart';
 @freezed
 abstract class EmbedExternalViewArticle with _$EmbedExternalViewArticle {
   static const knownProps = <String>[
+    'providerId',
     'uri',
     'title',
     'description',
@@ -38,6 +40,7 @@ abstract class EmbedExternalViewArticle with _$EmbedExternalViewArticle {
     'image',
     'publisher',
     'readingTime',
+    'viewer',
     'likeCount',
     'likers',
   ];
@@ -45,6 +48,9 @@ abstract class EmbedExternalViewArticle with _$EmbedExternalViewArticle {
   @JsonSerializable(includeIfNull: false)
   const factory EmbedExternalViewArticle({
     @Default('app.bsky.embed.external#viewArticle') String $type,
+
+    /// Best-effort provider domain for cosmetic attribution, such as pckt.blog. Not verified provenance.
+    String? providerId,
     required String uri,
     required String title,
     required String description,
@@ -57,6 +63,8 @@ abstract class EmbedExternalViewArticle with _$EmbedExternalViewArticle {
     @EmbedExternalViewArticlePublicationConverter()
     EmbedExternalViewArticlePublication? publisher,
     int? readingTime,
+    @EmbedExternalViewArticleViewerStateConverter()
+    EmbedExternalViewArticleViewerState? viewer,
     int? likeCount,
     @ProfileViewBasicConverter() List<ProfileViewBasic>? likers,
 
@@ -73,6 +81,8 @@ abstract class EmbedExternalViewArticle with _$EmbedExternalViewArticle {
 }
 
 extension EmbedExternalViewArticleExtension on EmbedExternalViewArticle {
+  bool get hasProviderId => providerId != null;
+  bool get hasNotProviderId => !hasProviderId;
   bool get hasCreatedAt => createdAt != null;
   bool get hasNotCreatedAt => !hasCreatedAt;
   bool get hasUpdatedAt => updatedAt != null;
@@ -83,6 +93,8 @@ extension EmbedExternalViewArticleExtension on EmbedExternalViewArticle {
   bool get hasNotPublisher => !hasPublisher;
   bool get hasReadingTime => readingTime != null;
   bool get hasNotReadingTime => !hasReadingTime;
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
   bool get hasLikeCount => likeCount != null;
   bool get hasNotLikeCount => !hasLikeCount;
 }

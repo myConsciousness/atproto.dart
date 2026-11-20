@@ -26,6 +26,7 @@ part 'view_livestream.g.dart';
 @freezed
 abstract class EmbedExternalViewLivestream with _$EmbedExternalViewLivestream {
   static const knownProps = <String>[
+    'providerId',
     'uri',
     'title',
     'description',
@@ -38,11 +39,15 @@ abstract class EmbedExternalViewLivestream with _$EmbedExternalViewLivestream {
     'active',
     'startedAt',
     'endedAt',
+    'lastSeenAt',
   ];
 
   @JsonSerializable(includeIfNull: false)
   const factory EmbedExternalViewLivestream({
     @Default('app.bsky.embed.external#viewLivestream') String $type,
+
+    /// Best-effort provider domain for cosmetic attribution, such as stream.place. Not verified provenance.
+    String? providerId,
     required String uri,
     required String title,
     required String description,
@@ -58,6 +63,9 @@ abstract class EmbedExternalViewLivestream with _$EmbedExternalViewLivestream {
     @JsonKey(toJson: iso8601) DateTime? startedAt,
     @JsonKey(toJson: iso8601) DateTime? endedAt,
 
+    /// When the livestream last reported that it was live. A livestream without endedAt is considered active until two minutes after its last heartbeat; clients can apply the same window to tell whether a cached view is still live.
+    @JsonKey(toJson: iso8601) DateTime? lastSeenAt,
+
     Map<String, dynamic>? $unknown,
   }) = _EmbedExternalViewLivestream;
 
@@ -71,6 +79,8 @@ abstract class EmbedExternalViewLivestream with _$EmbedExternalViewLivestream {
 }
 
 extension EmbedExternalViewLivestreamExtension on EmbedExternalViewLivestream {
+  bool get hasProviderId => providerId != null;
+  bool get hasNotProviderId => !hasProviderId;
   bool get hasCreatedAt => createdAt != null;
   bool get hasNotCreatedAt => !hasCreatedAt;
   bool get hasUpdatedAt => updatedAt != null;
@@ -83,6 +93,8 @@ extension EmbedExternalViewLivestreamExtension on EmbedExternalViewLivestream {
   bool get hasNotStartedAt => !hasStartedAt;
   bool get hasEndedAt => endedAt != null;
   bool get hasNotEndedAt => !hasEndedAt;
+  bool get hasLastSeenAt => lastSeenAt != null;
+  bool get hasNotLastSeenAt => !hasLastSeenAt;
 }
 
 final class EmbedExternalViewLivestreamConverter

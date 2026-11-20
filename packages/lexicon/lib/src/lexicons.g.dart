@@ -2610,6 +2610,12 @@ const appBskyEmbedExternal = <String, dynamic>{
       "type": "object",
       "required": ["uri", "title", "description"],
       "properties": {
+        "providerId": {
+          "type": "string",
+          "description":
+              "Best-effort provider domain for cosmetic attribution, such as pckt.blog. Not verified provenance.",
+          "maxLength": 128,
+        },
         "uri": {"type": "string", "format": "uri"},
         "title": {"type": "string"},
         "description": {"type": "string"},
@@ -2633,6 +2639,7 @@ const appBskyEmbedExternal = <String, dynamic>{
         "image": {"type": "string", "format": "uri"},
         "publisher": {"type": "ref", "ref": "#viewArticlePublication"},
         "readingTime": {"type": "integer", "minimum": 1},
+        "viewer": {"type": "ref", "ref": "#viewArticleViewerState"},
         "likeCount": {"type": "integer", "minimum": 0},
         "likers": {
           "type": "array",
@@ -2646,10 +2653,29 @@ const appBskyEmbedExternal = <String, dynamic>{
         },
       },
     },
+    "viewArticleViewerState": {
+      "type": "object",
+      "description":
+          "Metadata about the requesting account's relationship with the subject article. Only has meaningful content for authed requests.",
+      "properties": {
+        "like": {
+          "type": "string",
+          "format": "at-uri",
+          "description":
+              "The requesting account's site.standard.graph.recommend record for this article, if recommended.",
+        },
+      },
+    },
     "viewArticlePublication": {
       "type": "object",
       "required": ["uri", "title", "description"],
       "properties": {
+        "providerId": {
+          "type": "string",
+          "description":
+              "Best-effort provider domain for cosmetic attribution, such as pckt.blog. Not verified provenance.",
+          "maxLength": 128,
+        },
         "uri": {"type": "string", "format": "uri"},
         "title": {"type": "string"},
         "description": {"type": "string"},
@@ -2673,6 +2699,7 @@ const appBskyEmbedExternal = <String, dynamic>{
         "logo": {"type": "string", "format": "uri"},
         "image": {"type": "string", "format": "uri"},
         "theme": {"type": "ref", "ref": "#viewArticlePublicationTheme"},
+        "viewer": {"type": "ref", "ref": "#viewArticlePublicationViewerState"},
         "subscriptionCount": {"type": "integer", "minimum": 0},
         "subscribers": {
           "type": "array",
@@ -2683,6 +2710,19 @@ const appBskyEmbedExternal = <String, dynamic>{
             "ref": "app.bsky.actor.defs#profileViewBasic",
           },
           "maxLength": 3,
+        },
+      },
+    },
+    "viewArticlePublicationViewerState": {
+      "type": "object",
+      "description":
+          "Metadata about the requesting account's relationship with the subject publication. Only has meaningful content for authed requests.",
+      "properties": {
+        "subscription": {
+          "type": "string",
+          "format": "at-uri",
+          "description":
+              "The requesting account's site.standard.graph.subscription record for this publication, if subscribed.",
         },
       },
     },
@@ -2711,6 +2751,12 @@ const appBskyEmbedExternal = <String, dynamic>{
       "type": "object",
       "required": ["uri", "title", "description", "items"],
       "properties": {
+        "providerId": {
+          "type": "string",
+          "description":
+              "Best-effort provider domain for cosmetic attribution, such as grain.social. Not verified provenance.",
+          "maxLength": 128,
+        },
         "uri": {"type": "string", "format": "uri"},
         "title": {"type": "string"},
         "description": {"type": "string"},
@@ -2740,6 +2786,13 @@ const appBskyEmbedExternal = <String, dynamic>{
             "refs": ["#viewGalleryImage"],
           },
         },
+        "photoCount": {
+          "type": "integer",
+          "description":
+              "Total number of gallery item backlinks, independent of the items included in this view.",
+          "minimum": 0,
+        },
+        "viewer": {"type": "ref", "ref": "#viewGalleryViewerState"},
         "likeCount": {"type": "integer", "minimum": 0},
         "likers": {
           "type": "array",
@@ -2750,6 +2803,19 @@ const appBskyEmbedExternal = <String, dynamic>{
             "ref": "app.bsky.actor.defs#profileViewBasic",
           },
           "maxLength": 3,
+        },
+      },
+    },
+    "viewGalleryViewerState": {
+      "type": "object",
+      "description":
+          "Metadata about the requesting account's relationship with the subject gallery. Only has meaningful content for authed requests.",
+      "properties": {
+        "like": {
+          "type": "string",
+          "format": "at-uri",
+          "description":
+              "The requesting account's social.grain.favorite record for this gallery, if favorited.",
         },
       },
     },
@@ -2784,6 +2850,12 @@ const appBskyEmbedExternal = <String, dynamic>{
       "type": "object",
       "required": ["uri", "title", "description", "active"],
       "properties": {
+        "providerId": {
+          "type": "string",
+          "description":
+              "Best-effort provider domain for cosmetic attribution, such as stream.place. Not verified provenance.",
+          "maxLength": 128,
+        },
         "uri": {"type": "string", "format": "uri"},
         "title": {"type": "string"},
         "description": {"type": "string"},
@@ -2812,6 +2884,12 @@ const appBskyEmbedExternal = <String, dynamic>{
         },
         "startedAt": {"type": "string", "format": "datetime"},
         "endedAt": {"type": "string", "format": "datetime"},
+        "lastSeenAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "When the livestream last reported that it was live. A livestream without endedAt is considered active until two minutes after its last heartbeat; clients can apply the same window to tell whether a cached view is still live.",
+        },
       },
     },
   },
@@ -8192,6 +8270,130 @@ const appBskyUnspeccedGetAgeAssuranceState = <String, dynamic>{
   },
 };
 
+/// `app.bsky.unspecced.getAtmosphereActivityRecommendations`
+const appBskyUnspeccedGetAtmosphereActivityRecommendations = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getAtmosphereActivityRecommendations",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get an ordered skeleton of recommended Standard.site articles and Grain galleries. Intended to be called and hydrated by app.bsky.unspecced.getAtmosphereRecommendedActivity.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request. Omitted for unauthenticated requests.",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 100,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["items", "recIdStr"],
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#item"},
+              "maxLength": 100,
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
+          },
+        },
+      },
+    },
+    "item": {
+      "type": "object",
+      "required": ["uri"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getAtmosphereApps`
+const appBskyUnspeccedGetAtmosphereApps = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getAtmosphereApps",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get curated Atmosphere apps. Authentication is optional; authenticated requests include viewer-specific profile state and known followers.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description":
+                "Only return apps with this category (exact match). Omit to return all apps.",
+            "maxLength": 100,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["apps"],
+          "properties": {
+            "apps": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#appCard"},
+              "maxLength": 100,
+            },
+          },
+        },
+      },
+    },
+    "appCard": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string", "maxLength": 4096},
+        "title": {"type": "string", "maxLength": 4096},
+        "description": {"type": "string", "maxLength": 4096},
+        "logo": {
+          "type": "string",
+          "format": "uri",
+          "description":
+              "The app's logo, using its account avatar when available.",
+          "maxLength": 4096,
+        },
+        "banner": {
+          "type": "string",
+          "format": "uri",
+          "description":
+              "The app's banner, using its account banner when available.",
+          "maxLength": 4096,
+        },
+        "url": {"type": "string", "format": "uri", "maxLength": 4096},
+        "category": {"type": "string", "maxLength": 100},
+        "profile": {
+          "type": "ref",
+          "description":
+              "The app's optional Bluesky account profile. Omitted when no profile is configured or the profile is unavailable.",
+          "ref": "app.bsky.actor.defs#profileViewDetailed",
+        },
+      },
+    },
+  },
+};
+
 /// `app.bsky.unspecced.getAtmosphereExploreArticleRecommendations`
 const appBskyUnspeccedGetAtmosphereExploreArticleRecommendations = <String, dynamic>{
   "lexicon": 1,
@@ -8248,6 +8450,62 @@ const appBskyUnspeccedGetAtmosphereExploreArticleRecommendations = <String, dyna
   },
 };
 
+/// `app.bsky.unspecced.getAtmosphereExploreGalleryRecommendations`
+const appBskyUnspeccedGetAtmosphereExploreGalleryRecommendations = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getAtmosphereExploreGalleryRecommendations",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a skeleton of recommended Atmosphere Explore Grain galleries. Intended to be called and hydrated by app.bsky.unspecced.getAtmosphereExploreTab.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "viewer": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "DID of the account making the request (not included for public/unauthenticated queries).",
+          },
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 100,
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["galleries", "recIdStr"],
+          "properties": {
+            "galleries": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#gallery"},
+              "maxLength": 100,
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
+          },
+        },
+      },
+    },
+    "gallery": {
+      "type": "object",
+      "required": ["uri"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+      },
+    },
+  },
+};
+
 /// `app.bsky.unspecced.getAtmosphereExploreTab`
 const appBskyUnspeccedGetAtmosphereExploreTab = <String, dynamic>{
   "lexicon": 1,
@@ -8256,25 +8514,15 @@ const appBskyUnspeccedGetAtmosphereExploreTab = <String, dynamic>{
     "main": {
       "type": "query",
       "description":
-          "Get Atmosphere Explore content. Articles are recommended when algorithmic recommendations are enabled for the request, and curated otherwise; other sections are curated. Authentication is optional; authenticated requests include viewer-specific profile state.",
+          "Get Atmosphere Explore content. Articles and photo galleries are recommended when their algorithmic recommendations are enabled for the request, and curated otherwise; other sections are curated. Curated content is selected using the x-atproto-bsky-geo-country, x-atproto-bsky-geo-region, and x-atproto-bsky-topics request headers. Authentication is optional; authenticated requests include viewer-specific profile state.",
       "parameters": {
         "type": "params",
         "properties": {
           "langs": {
             "type": "array",
             "description":
-                "Preferred languages for article recommendations when algorithmic recommendations are enabled. Ignored otherwise.",
+                "Preferred languages for article and photo gallery recommendations when their algorithmic recommendations are enabled. Ignored otherwise.",
             "items": {"type": "string", "format": "language"},
-          },
-          "countryCode": {
-            "type": "string",
-            "description":
-                "The ISO 3166-1 alpha-2 country code used to select curated content.",
-          },
-          "regionCode": {
-            "type": "string",
-            "description":
-                "The ISO 3166-2 region code used to select curated content.",
           },
         },
       },
@@ -8368,7 +8616,23 @@ const appBskyUnspeccedGetAtmosphereExploreTab = <String, dynamic>{
       "type": "object",
       "required": ["featured", "view"],
       "properties": {
-        "featured": {"type": "boolean"},
+        "featured": {
+          "type": "boolean",
+          "description":
+              "Deprecated. Retained for compatibility; always false.",
+        },
+        "bskyPostRef": {
+          "type": "ref",
+          "description":
+              "The Bluesky post associated with the article, as declared by its author. The referenced post may not be available.",
+          "ref": "com.atproto.repo.strongRef",
+        },
+        "viewBskyPost": {
+          "type": "ref",
+          "description":
+              "The hydrated Bluesky post associated with the article, as declared by its author. Omitted when the post is unavailable to the viewer.",
+          "ref": "app.bsky.feed.defs#postView",
+        },
         "view": {"type": "ref", "ref": "app.bsky.embed.external#viewArticle"},
       },
     },
@@ -8376,7 +8640,11 @@ const appBskyUnspeccedGetAtmosphereExploreTab = <String, dynamic>{
       "type": "object",
       "required": ["featured", "view"],
       "properties": {
-        "featured": {"type": "boolean"},
+        "featured": {
+          "type": "boolean",
+          "description":
+              "Deprecated. Retained for compatibility; always false.",
+        },
         "view": {
           "type": "ref",
           "ref": "app.bsky.embed.external#viewArticlePublication",
@@ -8387,7 +8655,11 @@ const appBskyUnspeccedGetAtmosphereExploreTab = <String, dynamic>{
       "type": "object",
       "required": ["featured", "view"],
       "properties": {
-        "featured": {"type": "boolean"},
+        "featured": {
+          "type": "boolean",
+          "description":
+              "Deprecated. Retained for compatibility; always false.",
+        },
         "view": {"type": "ref", "ref": "app.bsky.embed.external#viewGallery"},
       },
     },
@@ -8395,7 +8667,23 @@ const appBskyUnspeccedGetAtmosphereExploreTab = <String, dynamic>{
       "type": "object",
       "required": ["featured", "view"],
       "properties": {
-        "featured": {"type": "boolean"},
+        "featured": {
+          "type": "boolean",
+          "description":
+              "Deprecated. Retained for compatibility; always false.",
+        },
+        "bskyPostRef": {
+          "type": "ref",
+          "description":
+              "The Bluesky post that announced the livestream, as declared by its author. The referenced post may not be available.",
+          "ref": "com.atproto.repo.strongRef",
+        },
+        "viewBskyPost": {
+          "type": "ref",
+          "description":
+              "The hydrated Bluesky post that announced the livestream, as declared by its author. Omitted when the post is unavailable to the viewer.",
+          "ref": "app.bsky.feed.defs#postView",
+        },
         "view": {
           "type": "ref",
           "ref": "app.bsky.embed.external#viewLivestream",
@@ -8420,16 +8708,673 @@ const appBskyUnspeccedGetAtmosphereExploreTab = <String, dynamic>{
         "id": {"type": "string", "maxLength": 4096},
         "title": {"type": "string", "maxLength": 4096},
         "description": {"type": "string", "maxLength": 4096},
-        "logo": {"type": "string", "format": "uri", "maxLength": 4096},
+        "logo": {
+          "type": "string",
+          "format": "uri",
+          "description":
+              "The profile avatar when available, otherwise the editorial logo.",
+          "maxLength": 4096,
+        },
         "backgroundImage": {
           "type": "string",
           "format": "uri",
+          "description":
+              "The profile banner when available, otherwise the editorial background image.",
           "maxLength": 4096,
         },
-        "overlayColor": {"type": "string", "maxLength": 4096},
-        "textColor": {"type": "string", "maxLength": 4096},
+        "overlayColor": {
+          "type": "string",
+          "description": "Deprecated. Retained for compatibility.",
+          "maxLength": 4096,
+        },
+        "textColor": {
+          "type": "string",
+          "description": "Deprecated. Retained for compatibility.",
+          "maxLength": 4096,
+        },
         "url": {"type": "string", "format": "uri", "maxLength": 4096},
         "category": {"type": "string", "maxLength": 4096},
+        "profile": {
+          "type": "ref",
+          "description":
+              "The app's optional Bluesky account profile. Omitted when no profile is configured or the profile is unavailable.",
+          "ref": "app.bsky.actor.defs#profileViewDetailed",
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getAtmosphereRecommendedActivity`
+const appBskyUnspeccedGetAtmosphereRecommendedActivity = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getAtmosphereRecommendedActivity",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get recommended Standard.site articles and Grain galleries for Atmosphere Activity in recommendation order. Authentication is optional. Unavailable items are omitted, so the response may contain fewer than the requested limit.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "default": 25,
+            "minimum": 1,
+            "maximum": 100,
+          },
+          "langs": {
+            "type": "array",
+            "description":
+                "Preferred languages for article recommendations. Overrides the Accept-Language header when nonempty.",
+            "items": {"type": "string", "format": "language"},
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["items", "recIdStr"],
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "#item"},
+              "maxLength": 100,
+            },
+            "recIdStr": {
+              "type": "string",
+              "description":
+                  "Snowflake for this recommendation, use when submitting recommendation events.",
+            },
+          },
+        },
+      },
+    },
+    "item": {
+      "type": "object",
+      "required": ["view"],
+      "properties": {
+        "view": {
+          "type": "union",
+          "refs": [
+            "app.bsky.embed.external#viewArticle",
+            "app.bsky.embed.external#viewGallery",
+          ],
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getAtmosphereRecordView`
+const appBskyUnspeccedGetAtmosphereRecordView = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getAtmosphereRecordView",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get a hydrated view of one Atmosphere record. Requires authentication. Without `cid` the latest version of the record is returned; with `cid` exactly that version is returned, never another. Dependencies of the record are always latest. Returns an empty object when the record is missing or not visible. When the record is visible but cannot produce a view, only the associations are returned.",
+      "parameters": {
+        "type": "params",
+        "required": ["uri"],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "at-uri",
+            "description":
+                "Complete DID-based AT-URI of the record, including collection and record key.",
+          },
+          "cid": {
+            "type": "string",
+            "format": "cid",
+            "description":
+                "Optional CID pinning the exact record version at `uri`.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "view": {
+              "type": "union",
+              "description":
+                  "Hydrated view of the record. Present only when the records supply enough information to populate the required fields.",
+              "refs": [
+                "app.bsky.embed.external#viewArticle",
+                "app.bsky.embed.external#viewArticlePublication",
+                "app.bsky.embed.external#viewGallery",
+                "app.bsky.embed.external#viewLivestream",
+              ],
+            },
+            "associatedRefs": {
+              "type": "array",
+              "description":
+                  "StrongRefs (URI+CID) of the record itself, followed by the dependency records selected for its collection (a document's publication; a gallery's items and photos). Index-aligned with `associatedRecords`.",
+              "items": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+            },
+            "associatedRecords": {
+              "type": "array",
+              "items": {
+                "type": "unknown",
+                "description":
+                    "The raw record data, index-aligned with `associatedRefs`.",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getAtmosphereRecordViews`
+const appBskyUnspeccedGetAtmosphereRecordViews = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getAtmosphereRecordViews",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Get hydrated views and raw associations for multiple Atmosphere records. Requires authentication. Roots may be latest or pinned to exact CIDs; dependencies are always latest.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["records"],
+          "properties": {
+            "records": {
+              "type": "array",
+              "description":
+                  "Records to fetch. Results preserve this order, including duplicates.",
+              "items": {"type": "ref", "ref": "#recordRef"},
+              "minLength": 1,
+              "maxLength": 25,
+            },
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["views"],
+          "properties": {
+            "views": {
+              "type": "array",
+              "description":
+                  "Index-aligned with the input records. Missing or invisible roots produce empty objects. Visible roots without a supported view still return raw associations. Each result includes only its own dependencies.",
+              "items": {"type": "ref", "ref": "#recordView"},
+              "maxLength": 25,
+            },
+          },
+        },
+      },
+    },
+    "recordRef": {
+      "type": "object",
+      "required": ["uri"],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "at-uri",
+          "description":
+              "Complete DID-based AT-URI of the record, including collection and record key.",
+        },
+        "cid": {
+          "type": "string",
+          "format": "cid",
+          "description":
+              "Optional CID pinning the exact record version. Omit to fetch the latest version. Unavailable pins never fall back to latest.",
+        },
+      },
+    },
+    "recordView": {
+      "type": "object",
+      "properties": {
+        "view": {
+          "type": "union",
+          "description":
+              "Hydrated view, present only when the records supply enough information to populate the required fields.",
+          "refs": [
+            "app.bsky.embed.external#viewArticle",
+            "app.bsky.embed.external#viewArticlePublication",
+            "app.bsky.embed.external#viewGallery",
+            "app.bsky.embed.external#viewLivestream",
+          ],
+        },
+        "associatedRefs": {
+          "type": "array",
+          "description":
+              "The selected root followed by its visible latest dependencies: a document's publication or a gallery's items and photos. Index-aligned with associatedRecords.",
+          "items": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        },
+        "associatedRecords": {
+          "type": "array",
+          "description": "Raw record data, index-aligned with associatedRefs.",
+          "items": {"type": "unknown"},
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getAtmosphereTimeline`
+const appBskyUnspeccedGetAtmosphereTimeline = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getAtmosphereTimeline",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get the authenticated viewer's Atmosphere activity timeline. Groups contain visible activities from the returned page.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feed"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "feed": {
+              "type": "array",
+              "items": {
+                "type": "union",
+                "refs": [
+                  "#activityItem",
+                  "#activityActorGroup",
+                  "#activitySubjectGroup",
+                ],
+              },
+            },
+          },
+        },
+      },
+    },
+    "activityRecord": {
+      "type": "object",
+      "required": ["uri", "cid", "indexedAt"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "cid": {"type": "string", "format": "cid"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "viewerState": {
+      "type": "object",
+      "required": ["subscribed"],
+      "properties": {
+        "subscribed": {"type": "boolean"},
+      },
+    },
+    "activityItem": {
+      "type": "object",
+      "required": ["record", "collection", "viewerState"],
+      "properties": {
+        "record": {"type": "ref", "ref": "#activityRecord"},
+        "collection": {"type": "string", "format": "nsid"},
+        "viewerState": {"type": "ref", "ref": "#viewerState"},
+        "relatedActivity": {
+          "type": "array",
+          "description":
+              "Collection-specific activity references targeting this item's record. Article creations with related activity remain standalone; only the parent item's view is hydrated.",
+          "items": {"type": "ref", "ref": "#activityRelatedGroup"},
+        },
+        "bskyPostRef": {
+          "type": "ref",
+          "description":
+              "The Bluesky post associated with the rendered article or livestream, as declared by its author. The referenced post may not be available.",
+          "ref": "com.atproto.repo.strongRef",
+        },
+        "viewBskyPost": {
+          "type": "ref",
+          "description":
+              "The hydrated Bluesky post associated with the rendered article or livestream, as declared by its author. Omitted when the post is unavailable to the viewer.",
+          "ref": "app.bsky.feed.defs#postView",
+        },
+        "view": {
+          "type": "union",
+          "refs": [
+            "app.bsky.embed.external#viewArticle",
+            "app.bsky.embed.external#viewArticlePublication",
+            "app.bsky.embed.external#viewGallery",
+            "app.bsky.embed.external#viewLivestream",
+            "app.bsky.feed.defs#postView",
+          ],
+        },
+      },
+    },
+    "activityActorGroup": {
+      "type": "object",
+      "description":
+          "Activities by one actor in one collection, positioned at the newest group item. Only the newest item is hydrated. Article creations with related activity remain standalone.",
+      "required": ["id", "collection", "indexedAt", "actor", "item", "uris"],
+      "properties": {
+        "id": {"type": "string"},
+        "collection": {"type": "string", "format": "nsid"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "actor": {"type": "string", "format": "did"},
+        "item": {"type": "ref", "ref": "#activityItem"},
+        "uris": {
+          "type": "array",
+          "description":
+              "All visible group item URIs, including the hydrated item, in newest-first timeline order.",
+          "items": {"type": "string", "format": "at-uri"},
+          "minLength": 2,
+        },
+      },
+    },
+    "activitySubject": {
+      "type": "object",
+      "description":
+          "The shared target of grouped activities, not an activity itself.",
+      "required": ["uri", "viewerState", "view"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"},
+        "viewerState": {"type": "ref", "ref": "#viewerState"},
+        "bskyPostRef": {
+          "type": "ref",
+          "description":
+              "The author's declared Bluesky post for the target. The post may be unavailable.",
+          "ref": "com.atproto.repo.strongRef",
+        },
+        "viewBskyPost": {
+          "type": "ref",
+          "description":
+              "The hydrated Bluesky post declared by the target's author. Omitted when the post is unavailable to the viewer.",
+          "ref": "app.bsky.feed.defs#postView",
+        },
+        "view": {
+          "type": "union",
+          "refs": [
+            "app.bsky.embed.external#viewArticle",
+            "app.bsky.embed.external#viewArticlePublication",
+            "app.bsky.embed.external#viewGallery",
+          ],
+        },
+      },
+    },
+    "activityGroupItem": {
+      "type": "object",
+      "description":
+          "An unhydrated group item. Its actor DID is the authority of its record URI.",
+      "required": ["record", "collection"],
+      "properties": {
+        "record": {"type": "ref", "ref": "#activityRecord"},
+        "collection": {"type": "string", "format": "nsid"},
+      },
+    },
+    "activityRelatedGroup": {
+      "type": "object",
+      "description":
+          "Visible activities in one collection targeting the parent item's record, without a time window. Contains references and profiles only, not a shared subject or hydrated action views. Buckets follow newest-first first appearance.",
+      "required": ["collection", "activities", "actors"],
+      "properties": {
+        "collection": {"type": "string", "format": "nsid"},
+        "activities": {
+          "type": "array",
+          "description":
+              "Visible activity references in newest-first timeline order. Every activity has the bucket's collection.",
+          "items": {"type": "ref", "ref": "#activityGroupItem"},
+          "minLength": 1,
+        },
+        "actors": {
+          "type": "array",
+          "description":
+              "Unique actors in first-appearance order among the bucket's activities.",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic",
+          },
+          "minLength": 1,
+        },
+      },
+    },
+    "activitySubjectGroup": {
+      "type": "object",
+      "description":
+          "Activities in one collection sharing a target, by at least two distinct actors, positioned at the newest group item. Article recommendations and shares group separately across the returned page without a time window. Article creations are not subject-group items. Publication subscriptions and gallery favorites retain age-based grouping windows.",
+      "required": [
+        "id",
+        "collection",
+        "indexedAt",
+        "subject",
+        "activities",
+        "actors",
+      ],
+      "properties": {
+        "id": {"type": "string"},
+        "collection": {"type": "string", "format": "nsid"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "subject": {"type": "ref", "ref": "#activitySubject"},
+        "activities": {
+          "type": "array",
+          "description":
+              "Visible group items in newest-first timeline order. Every activity has the group's collection.",
+          "items": {"type": "ref", "ref": "#activityGroupItem"},
+          "minLength": 2,
+        },
+        "actors": {
+          "type": "array",
+          "description":
+              "Unique actors in first-appearance order among group items. At least two distinct actors are required.",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic",
+          },
+          "minLength": 2,
+        },
+      },
+    },
+  },
+};
+
+/// `app.bsky.unspecced.getAtmosphereTimelineV2`
+const appBskyUnspeccedGetAtmosphereTimelineV2 = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.unspecced.getAtmosphereTimelineV2",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get the requesting account's Atmosphere activity timeline, pre-grouped for rendering. Requires auth.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "cursor": {"type": "string"},
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["feed", "relatedViews"],
+          "properties": {
+            "cursor": {"type": "string"},
+            "feed": {
+              "type": "array",
+              "description":
+                  "Activities and activity groups, sorted newest first by indexedAt. Groups and relatedActivity only contain activities from the same page of results. Activities by actors unavailable to the viewer are omitted before grouping. Clients should ignore entry types they do not recognize.",
+              "items": {
+                "type": "union",
+                "refs": [
+                  "#activityItem",
+                  "#activityActorGroup",
+                  "#activitySubjectGroup",
+                ],
+              },
+            },
+            "relatedViews": {
+              "type": "array",
+              "description":
+                  "Reusable views referenced by feed entries. Views shared across entries appear once to avoid duplication. Always includes the profile of the actor of every activityItem and activityActorGroup, plus the profiles of at most the newest 3 distinct actors in each activitySubjectGroup and in each collection of an activityItem's relatedActivity. Ex: for a subject group of 12 recommendations, only the profiles of the 3 newest recommenders are included; clients can fetch the rest with app.bsky.actor.getProfiles.",
+              "items": {
+                "type": "union",
+                "refs": ["app.bsky.actor.defs#profileViewBasic"],
+              },
+            },
+          },
+        },
+      },
+    },
+    "activityItem": {
+      "type": "object",
+      "description":
+          "A single activity with its hydrated subject. An activity that creates content, such as publishing an article, is always a standalone item when other activities on the same page target that content; those activities are attached as relatedActivity. Activities whose subject is unavailable to the viewer are omitted from the timeline.",
+      "required": ["ref", "collection", "indexedAt", "actor", "subject"],
+      "properties": {
+        "ref": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        "collection": {
+          "type": "string",
+          "format": "nsid",
+          "description":
+              "The collection of the activity record. Ex: site.standard.graph.recommend.",
+        },
+        "indexedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "When the activity was indexed. Determines the item's position in the feed, even when relatedActivity contains newer activities.",
+        },
+        "actor": {"type": "string", "format": "did"},
+        "subject": {"type": "ref", "ref": "#activitySubject"},
+        "relatedActivity": {
+          "type": "array",
+          "description":
+              "All available activities on the same page that target content created by this activity, newest first. Ex: recommendations of a newly published article. Only present on activities that create content. Activities targeting content created on an earlier page appear as their own feed entries instead.",
+          "items": {"type": "ref", "ref": "#activityItemRelatedActivity"},
+        },
+      },
+    },
+    "activityItemRelatedActivity": {
+      "type": "object",
+      "required": ["ref", "collection", "indexedAt", "actor"],
+      "properties": {
+        "ref": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        "collection": {"type": "string", "format": "nsid"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "actor": {"type": "string", "format": "did"},
+      },
+    },
+    "activitySubject": {
+      "type": "object",
+      "description":
+          "The hydrated content an activity targets. For activities that create content, such as publishing an article, the subject is the created record itself.",
+      "required": ["ref", "view"],
+      "properties": {
+        "ref": {
+          "type": "ref",
+          "description":
+              "The record backing the view. Ex: the site.standard.document of an article.",
+          "ref": "com.atproto.repo.strongRef",
+        },
+        "view": {
+          "type": "union",
+          "refs": [
+            "app.bsky.embed.external#viewArticle",
+            "app.bsky.embed.external#viewArticlePublication",
+            "app.bsky.embed.external#viewGallery",
+            "app.bsky.embed.external#viewLivestream",
+          ],
+        },
+        "bskyPostRef": {
+          "type": "ref",
+          "description":
+              "The Bluesky post associated with the subject, as declared by its author. The referenced post may not be available.",
+          "ref": "com.atproto.repo.strongRef",
+        },
+        "bskyPostView": {
+          "type": "ref",
+          "description":
+              "The hydrated Bluesky post associated with the subject. Omitted when the post is unavailable to the viewer. May reflect a newer version of the post than the CID in bskyPostRef.",
+          "ref": "app.bsky.feed.defs#postView",
+        },
+      },
+    },
+    "activityActorGroup": {
+      "type": "object",
+      "description":
+          "Activities by one actor in one collection close together in time, such as several articles published by the same author. Activities that create content with relatedActivity are never grouped. Positioned in the feed at its newest activity.",
+      "required": [
+        "collection",
+        "indexedAt",
+        "actor",
+        "subjects",
+        "activities",
+      ],
+      "properties": {
+        "collection": {"type": "string", "format": "nsid"},
+        "indexedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the group's newest activity was indexed.",
+        },
+        "actor": {"type": "string", "format": "did"},
+        "subjects": {
+          "type": "array",
+          "description":
+              "Hydrated subjects of the group's activities, newest first. Currently only the newest subject is included; clients can hydrate the rest from the subject URIs in activities.",
+          "items": {"type": "ref", "ref": "#activitySubject"},
+          "minLength": 1,
+        },
+        "activities": {
+          "type": "array",
+          "description": "All activities in the group, newest first.",
+          "items": {"type": "ref", "ref": "#activityActorGroupItem"},
+          "minLength": 2,
+        },
+      },
+    },
+    "activityActorGroupItem": {
+      "type": "object",
+      "required": ["ref", "indexedAt", "subject"],
+      "properties": {
+        "ref": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "subject": {
+          "type": "string",
+          "format": "at-uri",
+          "description":
+              "The content the activity targets. Matches ref.uri for activities that create content.",
+        },
+      },
+    },
+    "activitySubjectGroup": {
+      "type": "object",
+      "description":
+          "Activities by at least two actors in one collection targeting the same subject, such as several recommendations of an article published on an earlier page. Positioned in the feed at its newest activity.",
+      "required": ["collection", "indexedAt", "subject", "activities"],
+      "properties": {
+        "collection": {"type": "string", "format": "nsid"},
+        "indexedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "When the group's newest activity was indexed.",
+        },
+        "subject": {"type": "ref", "ref": "#activitySubject"},
+        "activities": {
+          "type": "array",
+          "description": "All activities in the group, newest first.",
+          "items": {"type": "ref", "ref": "#activitySubjectGroupItem"},
+          "minLength": 2,
+        },
+      },
+    },
+    "activitySubjectGroupItem": {
+      "type": "object",
+      "required": ["ref", "indexedAt", "actor"],
+      "properties": {
+        "ref": {"type": "ref", "ref": "com.atproto.repo.strongRef"},
+        "indexedAt": {"type": "string", "format": "datetime"},
+        "actor": {"type": "string", "format": "did"},
       },
     },
   },
@@ -25944,6 +26889,128 @@ const toolsOzoneReportGetReport = <String, dynamic>{
   },
 };
 
+/// `tools.ozone.report.getStatGroupDetails`
+const toolsOzoneReportGetStatGroupDetails = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.report.getStatGroupDetails",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get additional details for a stat group. Omit all group selectors for aggregate details.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "queueId": {
+            "type": "integer",
+            "description":
+                "Queue stat group. Use -1 for unqueued reports; otherwise use a positive queue ID. Requires queue access.",
+            "minimum": -1,
+          },
+          "moderatorDid": {
+            "type": "string",
+            "format": "did",
+            "description":
+                "Moderator stat group, based on current report assignment. Requires administrator access.",
+          },
+          "reportTypes": {
+            "type": "array",
+            "description":
+                "Report-type stat group. Counts only the specified reasons.",
+            "items": {"type": "string"},
+            "minLength": 1,
+            "maxLength": 100,
+          },
+          "startDate": {
+            "type": "string",
+            "format": "datetime",
+            "description":
+                "First UTC calendar day to include, inclusive. Defaults to today. The range must not exceed 120 calendar days.",
+          },
+          "endDate": {
+            "type": "string",
+            "format": "datetime",
+            "description":
+                "Last UTC calendar day to include, inclusive. Defaults to today.",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [
+            "computedAt",
+            "startDate",
+            "endDate",
+            "reportTypeBreakdown",
+          ],
+          "properties": {
+            "computedAt": {
+              "type": "string",
+              "format": "datetime",
+              "description": "When the live query started.",
+            },
+            "startDate": {
+              "type": "string",
+              "format": "datetime",
+              "description": "First included UTC calendar day, at midnight.",
+            },
+            "endDate": {
+              "type": "string",
+              "format": "datetime",
+              "description": "Last included UTC calendar day, at midnight.",
+            },
+            "reportTypeBreakdown": {
+              "type": "ref",
+              "ref": "#reportTypeBreakdown",
+            },
+          },
+        },
+      },
+      "errors": [
+        {
+          "name": "QueueNotFound",
+          "description": "Queue does not exist or is not accessible.",
+        },
+      ],
+    },
+    "reportTypeStats": {
+      "type": "object",
+      "required": ["reportType", "inboundCount"],
+      "properties": {
+        "reportType": {
+          "type": "string",
+          "description": "Fully qualified report reason.",
+        },
+        "inboundCount": {
+          "type": "integer",
+          "description":
+              "Unmuted reports received during the requested UTC calendar days.",
+          "minimum": 0,
+        },
+      },
+    },
+    "reportTypeBreakdown": {
+      "type": "object",
+      "description":
+          "Unmuted inbound reports by actual reason, across all statuses, within the selected stat group and UTC date range.",
+      "required": ["totalCount", "stats"],
+      "properties": {
+        "totalCount": {
+          "type": "integer",
+          "description": "Total unmuted inbound reports in this breakdown.",
+          "minimum": 0,
+        },
+        "stats": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#reportTypeStats"},
+        },
+      },
+    },
+  },
+};
+
 /// `tools.ozone.report.listActivities`
 const toolsOzoneReportListActivities = <String, dynamic>{
   "lexicon": 1,
@@ -28320,8 +29387,16 @@ const lexicons = <Map<String, dynamic>>[
   appBskyRichtextFacet,
   appBskyUnspeccedDefs,
   appBskyUnspeccedGetAgeAssuranceState,
+  appBskyUnspeccedGetAtmosphereActivityRecommendations,
+  appBskyUnspeccedGetAtmosphereApps,
   appBskyUnspeccedGetAtmosphereExploreArticleRecommendations,
+  appBskyUnspeccedGetAtmosphereExploreGalleryRecommendations,
   appBskyUnspeccedGetAtmosphereExploreTab,
+  appBskyUnspeccedGetAtmosphereRecommendedActivity,
+  appBskyUnspeccedGetAtmosphereRecordView,
+  appBskyUnspeccedGetAtmosphereRecordViews,
+  appBskyUnspeccedGetAtmosphereTimeline,
+  appBskyUnspeccedGetAtmosphereTimelineV2,
   appBskyUnspeccedGetConfig,
   appBskyUnspeccedGetOnboardingSuggestedStarterPacks,
   appBskyUnspeccedGetOnboardingSuggestedStarterPacksSkeleton,
@@ -28588,6 +29663,7 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneReportGetLatestReport,
   toolsOzoneReportGetLiveStats,
   toolsOzoneReportGetReport,
+  toolsOzoneReportGetStatGroupDetails,
   toolsOzoneReportListActivities,
   toolsOzoneReportQueryActivities,
   toolsOzoneReportQueryModeratorActivity,
