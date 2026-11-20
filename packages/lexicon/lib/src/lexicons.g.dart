@@ -20970,12 +20970,62 @@ const toolsOzoneInboxGetReport = <String, dynamic>{
           "description":
               "Raw record JSON for the subject, when the subject is a record and the record is available.",
         },
+        "accountStatus": {
+          "type": "ref",
+          "description":
+              "Current status of the reported account or record owner, independent of the report's resolution.",
+          "ref": "#accountStatus",
+        },
+        "subjectStatus": {
+          "type": "ref",
+          "description": "Current status of a reported record, when known.",
+          "ref": "#recordStatus",
+        },
         "status": {
           "type": "string",
           "knownValues": ["pending", "resolved"],
         },
         "createdAt": {"type": "string", "format": "datetime"},
         "updatedAt": {"type": "string", "format": "datetime"},
+      },
+    },
+    "accountStatus": {
+      "type": "object",
+      "required": ["enforcement"],
+      "properties": {
+        "enforcement": {
+          "type": "string",
+          "description": "Current enforcement by this moderation service.",
+          "knownValues": ["none", "suspended", "takendown"],
+        },
+        "hosting": {
+          "type": "string",
+          "description":
+              "Last known account hosting state, omitted when unknown.",
+          "knownValues": [
+            "active",
+            "deleted",
+            "deactivated",
+            "suspended",
+            "takendown",
+          ],
+        },
+      },
+    },
+    "recordStatus": {
+      "type": "object",
+      "required": ["takendown"],
+      "properties": {
+        "takendown": {
+          "type": "boolean",
+          "description":
+              "Whether this moderation service has taken down the record.",
+        },
+        "deleted": {
+          "type": "boolean",
+          "description":
+              "Whether the record has been deleted by its repository, omitted when unknown.",
+        },
       },
     },
     "resolutionView": {

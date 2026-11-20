@@ -2004,6 +2004,14 @@ const toolsOzoneInboxGetPushPreference = 'tools.ozone.inbox.getPushPreference';
 /// `tools.ozone.inbox.getReport`
 const toolsOzoneInboxGetReport = 'tools.ozone.inbox.getReport';
 
+/// `tools.ozone.inbox.getReport#accountStatus`
+const toolsOzoneInboxGetReportAccountStatus =
+    'tools.ozone.inbox.getReport#accountStatus';
+
+/// `tools.ozone.inbox.getReport#recordStatus`
+const toolsOzoneInboxGetReportRecordStatus =
+    'tools.ozone.inbox.getReport#recordStatus';
+
 /// `tools.ozone.inbox.getReport#reportView`
 const toolsOzoneInboxGetReportReportView =
     'tools.ozone.inbox.getReport#reportView';

@@ -35,9 +35,25 @@ Get a moderation report submitted by the authenticated account to this moderatio
 | **reason** | string | - | ❌ | - |
 | **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main)<br/>[chat.bsky.convo.defs#messageRef](../../../../lexicons/chat/bsky/convo/defs.md#messageref)<br/>[chat.bsky.convo.defs#convoRef](../../../../lexicons/chat/bsky/convo/defs.md#convoref) | - | ✅ | - |
 | **record** | unknown | - | ❌ | Raw record JSON for the subject, when the subject is a record and the record is available. |
+| **accountStatus** | [#accountStatus](#accountstatus) | - | ❌ | - |
+| **subjectStatus** | [#recordStatus](#recordstatus) | - | ❌ | - |
 | **status** | string | pending<br/>resolved | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **updatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+
+## #accountStatus
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **enforcement** | string | none<br/>suspended<br/>takendown | ✅ | Current enforcement by this moderation service. |
+| **hosting** | string | active<br/>deleted<br/>deactivated<br/>suspended<br/>takendown | ❌ | Last known account hosting state, omitted when unknown. |
+
+## #recordStatus
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **takendown** | boolean | - | ✅ | Whether this moderation service has taken down the record. |
+| **deleted** | boolean | - | ❌ | Whether the record has been deleted by its repository, omitted when unknown. |
 
 ## #resolutionView
 
