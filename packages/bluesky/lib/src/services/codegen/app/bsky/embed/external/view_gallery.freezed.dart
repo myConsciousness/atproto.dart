@@ -15,7 +15,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EmbedExternalViewGallery {
 
- String get $type; String get uri; String get title; String get description;@JsonKey(toJson: iso8601) DateTime? get createdAt;@JsonKey(toJson: iso8601) DateTime? get updatedAt;@LabelConverter() List<Label>? get labels;@RepoStrongRefConverter() List<RepoStrongRef>? get associatedRefs;@ProfileViewBasicConverter() List<ProfileViewBasic>? get associatedProfiles;@UEmbedExternalViewGalleryItemsConverter() List<UEmbedExternalViewGalleryItems> get items; int? get likeCount;@ProfileViewBasicConverter() List<ProfileViewBasic>? get likers; Map<String, dynamic>? get $unknown;
+ String get $type;/// Best-effort provider domain for cosmetic attribution, such as grain.social. Not verified provenance.
+ String? get providerId; String get uri; String get title; String get description;@JsonKey(toJson: iso8601) DateTime? get createdAt;@JsonKey(toJson: iso8601) DateTime? get updatedAt;@LabelConverter() List<Label>? get labels;@RepoStrongRefConverter() List<RepoStrongRef>? get associatedRefs;@ProfileViewBasicConverter() List<ProfileViewBasic>? get associatedProfiles;@UEmbedExternalViewGalleryItemsConverter() List<UEmbedExternalViewGalleryItems> get items;/// Total number of gallery item backlinks, independent of the items included in this view.
+ int? get photoCount;@EmbedExternalViewGalleryViewerStateConverter() EmbedExternalViewGalleryViewerState? get viewer; int? get likeCount;@ProfileViewBasicConverter() List<ProfileViewBasic>? get likers; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedExternalViewGallery
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +30,16 @@ $EmbedExternalViewGalleryCopyWith<EmbedExternalViewGallery> get copyWith => _$Em
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedExternalViewGallery&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other.labels, labels)&&const DeepCollectionEquality().equals(other.associatedRefs, associatedRefs)&&const DeepCollectionEquality().equals(other.associatedProfiles, associatedProfiles)&&const DeepCollectionEquality().equals(other.items, items)&&(identical(other.likeCount, likeCount) || other.likeCount == likeCount)&&const DeepCollectionEquality().equals(other.likers, likers)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedExternalViewGallery&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.providerId, providerId) || other.providerId == providerId)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other.labels, labels)&&const DeepCollectionEquality().equals(other.associatedRefs, associatedRefs)&&const DeepCollectionEquality().equals(other.associatedProfiles, associatedProfiles)&&const DeepCollectionEquality().equals(other.items, items)&&(identical(other.photoCount, photoCount) || other.photoCount == photoCount)&&(identical(other.viewer, viewer) || other.viewer == viewer)&&(identical(other.likeCount, likeCount) || other.likeCount == likeCount)&&const DeepCollectionEquality().equals(other.likers, likers)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,title,description,createdAt,updatedAt,const DeepCollectionEquality().hash(labels),const DeepCollectionEquality().hash(associatedRefs),const DeepCollectionEquality().hash(associatedProfiles),const DeepCollectionEquality().hash(items),likeCount,const DeepCollectionEquality().hash(likers),const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,providerId,uri,title,description,createdAt,updatedAt,const DeepCollectionEquality().hash(labels),const DeepCollectionEquality().hash(associatedRefs),const DeepCollectionEquality().hash(associatedProfiles),const DeepCollectionEquality().hash(items),photoCount,viewer,likeCount,const DeepCollectionEquality().hash(likers),const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'EmbedExternalViewGallery(\$type: ${$type}, uri: $uri, title: $title, description: $description, createdAt: $createdAt, updatedAt: $updatedAt, labels: $labels, associatedRefs: $associatedRefs, associatedProfiles: $associatedProfiles, items: $items, likeCount: $likeCount, likers: $likers, \$unknown: ${$unknown})';
+  return 'EmbedExternalViewGallery(\$type: ${$type}, providerId: $providerId, uri: $uri, title: $title, description: $description, createdAt: $createdAt, updatedAt: $updatedAt, labels: $labels, associatedRefs: $associatedRefs, associatedProfiles: $associatedProfiles, items: $items, photoCount: $photoCount, viewer: $viewer, likeCount: $likeCount, likers: $likers, \$unknown: ${$unknown})';
 }
 
 
@@ -48,11 +50,11 @@ abstract mixin class $EmbedExternalViewGalleryCopyWith<$Res>  {
   factory $EmbedExternalViewGalleryCopyWith(EmbedExternalViewGallery value, $Res Function(EmbedExternalViewGallery) _then) = _$EmbedExternalViewGalleryCopyWithImpl;
 @useResult
 $Res call({
- String $type, String uri, String title, String description,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,@ProfileViewBasicConverter() List<ProfileViewBasic>? associatedProfiles,@UEmbedExternalViewGalleryItemsConverter() List<UEmbedExternalViewGalleryItems> items, int? likeCount,@ProfileViewBasicConverter() List<ProfileViewBasic>? likers, Map<String, dynamic>? $unknown
+ String $type, String? providerId, String uri, String title, String description,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,@ProfileViewBasicConverter() List<ProfileViewBasic>? associatedProfiles,@UEmbedExternalViewGalleryItemsConverter() List<UEmbedExternalViewGalleryItems> items, int? photoCount,@EmbedExternalViewGalleryViewerStateConverter() EmbedExternalViewGalleryViewerState? viewer, int? likeCount,@ProfileViewBasicConverter() List<ProfileViewBasic>? likers, Map<String, dynamic>? $unknown
 });
 
 
-
+$EmbedExternalViewGalleryViewerStateCopyWith<$Res>? get viewer;
 
 }
 /// @nodoc
@@ -65,10 +67,11 @@ class _$EmbedExternalViewGalleryCopyWithImpl<$Res>
 
 /// Create a copy of EmbedExternalViewGallery
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? title = null,Object? description = null,Object? createdAt = freezed,Object? updatedAt = freezed,Object? labels = freezed,Object? associatedRefs = freezed,Object? associatedProfiles = freezed,Object? items = null,Object? likeCount = freezed,Object? likers = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? providerId = freezed,Object? uri = null,Object? title = null,Object? description = null,Object? createdAt = freezed,Object? updatedAt = freezed,Object? labels = freezed,Object? associatedRefs = freezed,Object? associatedProfiles = freezed,Object? items = null,Object? photoCount = freezed,Object? viewer = freezed,Object? likeCount = freezed,Object? likers = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
+as String,providerId: freezed == providerId ? _self.providerId : providerId // ignore: cast_nullable_to_non_nullable
+as String?,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
@@ -77,13 +80,27 @@ as DateTime?,labels: freezed == labels ? _self.labels : labels // ignore: cast_n
 as List<Label>?,associatedRefs: freezed == associatedRefs ? _self.associatedRefs : associatedRefs // ignore: cast_nullable_to_non_nullable
 as List<RepoStrongRef>?,associatedProfiles: freezed == associatedProfiles ? _self.associatedProfiles : associatedProfiles // ignore: cast_nullable_to_non_nullable
 as List<ProfileViewBasic>?,items: null == items ? _self.items : items // ignore: cast_nullable_to_non_nullable
-as List<UEmbedExternalViewGalleryItems>,likeCount: freezed == likeCount ? _self.likeCount : likeCount // ignore: cast_nullable_to_non_nullable
+as List<UEmbedExternalViewGalleryItems>,photoCount: freezed == photoCount ? _self.photoCount : photoCount // ignore: cast_nullable_to_non_nullable
+as int?,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
+as EmbedExternalViewGalleryViewerState?,likeCount: freezed == likeCount ? _self.likeCount : likeCount // ignore: cast_nullable_to_non_nullable
 as int?,likers: freezed == likers ? _self.likers : likers // ignore: cast_nullable_to_non_nullable
 as List<ProfileViewBasic>?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
+/// Create a copy of EmbedExternalViewGallery
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EmbedExternalViewGalleryViewerStateCopyWith<$Res>? get viewer {
+    if (_self.viewer == null) {
+    return null;
+  }
 
+  return $EmbedExternalViewGalleryViewerStateCopyWith<$Res>(_self.viewer!, (value) {
+    return _then(_self.copyWith(viewer: value));
+  });
+}
 }
 
 
@@ -165,10 +182,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles, @UEmbedExternalViewGalleryItemsConverter()  List<UEmbedExternalViewGalleryItems> items,  int? likeCount, @ProfileViewBasicConverter()  List<ProfileViewBasic>? likers,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  String? providerId,  String uri,  String title,  String description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles, @UEmbedExternalViewGalleryItemsConverter()  List<UEmbedExternalViewGalleryItems> items,  int? photoCount, @EmbedExternalViewGalleryViewerStateConverter()  EmbedExternalViewGalleryViewerState? viewer,  int? likeCount, @ProfileViewBasicConverter()  List<ProfileViewBasic>? likers,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewGallery() when $default != null:
-return $default(_that.$type,_that.uri,_that.title,_that.description,_that.createdAt,_that.updatedAt,_that.labels,_that.associatedRefs,_that.associatedProfiles,_that.items,_that.likeCount,_that.likers,_that.$unknown);case _:
+return $default(_that.$type,_that.providerId,_that.uri,_that.title,_that.description,_that.createdAt,_that.updatedAt,_that.labels,_that.associatedRefs,_that.associatedProfiles,_that.items,_that.photoCount,_that.viewer,_that.likeCount,_that.likers,_that.$unknown);case _:
   return orElse();
 
 }
@@ -186,10 +203,10 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.create
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String uri,  String title,  String description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles, @UEmbedExternalViewGalleryItemsConverter()  List<UEmbedExternalViewGalleryItems> items,  int? likeCount, @ProfileViewBasicConverter()  List<ProfileViewBasic>? likers,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  String? providerId,  String uri,  String title,  String description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles, @UEmbedExternalViewGalleryItemsConverter()  List<UEmbedExternalViewGalleryItems> items,  int? photoCount, @EmbedExternalViewGalleryViewerStateConverter()  EmbedExternalViewGalleryViewerState? viewer,  int? likeCount, @ProfileViewBasicConverter()  List<ProfileViewBasic>? likers,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewGallery():
-return $default(_that.$type,_that.uri,_that.title,_that.description,_that.createdAt,_that.updatedAt,_that.labels,_that.associatedRefs,_that.associatedProfiles,_that.items,_that.likeCount,_that.likers,_that.$unknown);case _:
+return $default(_that.$type,_that.providerId,_that.uri,_that.title,_that.description,_that.createdAt,_that.updatedAt,_that.labels,_that.associatedRefs,_that.associatedProfiles,_that.items,_that.photoCount,_that.viewer,_that.likeCount,_that.likers,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -206,10 +223,10 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.create
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String uri,  String title,  String description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles, @UEmbedExternalViewGalleryItemsConverter()  List<UEmbedExternalViewGalleryItems> items,  int? likeCount, @ProfileViewBasicConverter()  List<ProfileViewBasic>? likers,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  String? providerId,  String uri,  String title,  String description, @JsonKey(toJson: iso8601)  DateTime? createdAt, @JsonKey(toJson: iso8601)  DateTime? updatedAt, @LabelConverter()  List<Label>? labels, @RepoStrongRefConverter()  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter()  List<ProfileViewBasic>? associatedProfiles, @UEmbedExternalViewGalleryItemsConverter()  List<UEmbedExternalViewGalleryItems> items,  int? photoCount, @EmbedExternalViewGalleryViewerStateConverter()  EmbedExternalViewGalleryViewerState? viewer,  int? likeCount, @ProfileViewBasicConverter()  List<ProfileViewBasic>? likers,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewGallery() when $default != null:
-return $default(_that.$type,_that.uri,_that.title,_that.description,_that.createdAt,_that.updatedAt,_that.labels,_that.associatedRefs,_that.associatedProfiles,_that.items,_that.likeCount,_that.likers,_that.$unknown);case _:
+return $default(_that.$type,_that.providerId,_that.uri,_that.title,_that.description,_that.createdAt,_that.updatedAt,_that.labels,_that.associatedRefs,_that.associatedProfiles,_that.items,_that.photoCount,_that.viewer,_that.likeCount,_that.likers,_that.$unknown);case _:
   return null;
 
 }
@@ -221,10 +238,12 @@ return $default(_that.$type,_that.uri,_that.title,_that.description,_that.create
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedExternalViewGallery implements EmbedExternalViewGallery {
-  const _EmbedExternalViewGallery({this.$type = 'app.bsky.embed.external#viewGallery', required this.uri, required this.title, required this.description, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @LabelConverter() final  List<Label>? labels, @RepoStrongRefConverter() final  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? associatedProfiles, @UEmbedExternalViewGalleryItemsConverter() required final  List<UEmbedExternalViewGalleryItems> items, this.likeCount, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? likers, final  Map<String, dynamic>? $unknown}): _labels = labels,_associatedRefs = associatedRefs,_associatedProfiles = associatedProfiles,_items = items,_likers = likers,_$unknown = $unknown;
+  const _EmbedExternalViewGallery({this.$type = 'app.bsky.embed.external#viewGallery', this.providerId, required this.uri, required this.title, required this.description, @JsonKey(toJson: iso8601) this.createdAt, @JsonKey(toJson: iso8601) this.updatedAt, @LabelConverter() final  List<Label>? labels, @RepoStrongRefConverter() final  List<RepoStrongRef>? associatedRefs, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? associatedProfiles, @UEmbedExternalViewGalleryItemsConverter() required final  List<UEmbedExternalViewGalleryItems> items, this.photoCount, @EmbedExternalViewGalleryViewerStateConverter() this.viewer, this.likeCount, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? likers, final  Map<String, dynamic>? $unknown}): _labels = labels,_associatedRefs = associatedRefs,_associatedProfiles = associatedProfiles,_items = items,_likers = likers,_$unknown = $unknown;
   factory _EmbedExternalViewGallery.fromJson(Map<String, dynamic> json) => _$EmbedExternalViewGalleryFromJson(json);
 
 @override@JsonKey() final  String $type;
+/// Best-effort provider domain for cosmetic attribution, such as grain.social. Not verified provenance.
+@override final  String? providerId;
 @override final  String uri;
 @override final  String title;
 @override final  String description;
@@ -264,6 +283,9 @@ class _EmbedExternalViewGallery implements EmbedExternalViewGallery {
   return EqualUnmodifiableListView(_items);
 }
 
+/// Total number of gallery item backlinks, independent of the items included in this view.
+@override final  int? photoCount;
+@override@EmbedExternalViewGalleryViewerStateConverter() final  EmbedExternalViewGalleryViewerState? viewer;
 @override final  int? likeCount;
  final  List<ProfileViewBasic>? _likers;
 @override@ProfileViewBasicConverter() List<ProfileViewBasic>? get likers {
@@ -297,16 +319,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedExternalViewGallery&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other._labels, _labels)&&const DeepCollectionEquality().equals(other._associatedRefs, _associatedRefs)&&const DeepCollectionEquality().equals(other._associatedProfiles, _associatedProfiles)&&const DeepCollectionEquality().equals(other._items, _items)&&(identical(other.likeCount, likeCount) || other.likeCount == likeCount)&&const DeepCollectionEquality().equals(other._likers, _likers)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedExternalViewGallery&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.providerId, providerId) || other.providerId == providerId)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt)&&const DeepCollectionEquality().equals(other._labels, _labels)&&const DeepCollectionEquality().equals(other._associatedRefs, _associatedRefs)&&const DeepCollectionEquality().equals(other._associatedProfiles, _associatedProfiles)&&const DeepCollectionEquality().equals(other._items, _items)&&(identical(other.photoCount, photoCount) || other.photoCount == photoCount)&&(identical(other.viewer, viewer) || other.viewer == viewer)&&(identical(other.likeCount, likeCount) || other.likeCount == likeCount)&&const DeepCollectionEquality().equals(other._likers, _likers)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,title,description,createdAt,updatedAt,const DeepCollectionEquality().hash(_labels),const DeepCollectionEquality().hash(_associatedRefs),const DeepCollectionEquality().hash(_associatedProfiles),const DeepCollectionEquality().hash(_items),likeCount,const DeepCollectionEquality().hash(_likers),const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,providerId,uri,title,description,createdAt,updatedAt,const DeepCollectionEquality().hash(_labels),const DeepCollectionEquality().hash(_associatedRefs),const DeepCollectionEquality().hash(_associatedProfiles),const DeepCollectionEquality().hash(_items),photoCount,viewer,likeCount,const DeepCollectionEquality().hash(_likers),const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'EmbedExternalViewGallery(\$type: ${$type}, uri: $uri, title: $title, description: $description, createdAt: $createdAt, updatedAt: $updatedAt, labels: $labels, associatedRefs: $associatedRefs, associatedProfiles: $associatedProfiles, items: $items, likeCount: $likeCount, likers: $likers, \$unknown: ${$unknown})';
+  return 'EmbedExternalViewGallery(\$type: ${$type}, providerId: $providerId, uri: $uri, title: $title, description: $description, createdAt: $createdAt, updatedAt: $updatedAt, labels: $labels, associatedRefs: $associatedRefs, associatedProfiles: $associatedProfiles, items: $items, photoCount: $photoCount, viewer: $viewer, likeCount: $likeCount, likers: $likers, \$unknown: ${$unknown})';
 }
 
 
@@ -317,11 +339,11 @@ abstract mixin class _$EmbedExternalViewGalleryCopyWith<$Res> implements $EmbedE
   factory _$EmbedExternalViewGalleryCopyWith(_EmbedExternalViewGallery value, $Res Function(_EmbedExternalViewGallery) _then) = __$EmbedExternalViewGalleryCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, String uri, String title, String description,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,@ProfileViewBasicConverter() List<ProfileViewBasic>? associatedProfiles,@UEmbedExternalViewGalleryItemsConverter() List<UEmbedExternalViewGalleryItems> items, int? likeCount,@ProfileViewBasicConverter() List<ProfileViewBasic>? likers, Map<String, dynamic>? $unknown
+ String $type, String? providerId, String uri, String title, String description,@JsonKey(toJson: iso8601) DateTime? createdAt,@JsonKey(toJson: iso8601) DateTime? updatedAt,@LabelConverter() List<Label>? labels,@RepoStrongRefConverter() List<RepoStrongRef>? associatedRefs,@ProfileViewBasicConverter() List<ProfileViewBasic>? associatedProfiles,@UEmbedExternalViewGalleryItemsConverter() List<UEmbedExternalViewGalleryItems> items, int? photoCount,@EmbedExternalViewGalleryViewerStateConverter() EmbedExternalViewGalleryViewerState? viewer, int? likeCount,@ProfileViewBasicConverter() List<ProfileViewBasic>? likers, Map<String, dynamic>? $unknown
 });
 
 
-
+@override $EmbedExternalViewGalleryViewerStateCopyWith<$Res>? get viewer;
 
 }
 /// @nodoc
@@ -334,10 +356,11 @@ class __$EmbedExternalViewGalleryCopyWithImpl<$Res>
 
 /// Create a copy of EmbedExternalViewGallery
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? uri = null,Object? title = null,Object? description = null,Object? createdAt = freezed,Object? updatedAt = freezed,Object? labels = freezed,Object? associatedRefs = freezed,Object? associatedProfiles = freezed,Object? items = null,Object? likeCount = freezed,Object? likers = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? providerId = freezed,Object? uri = null,Object? title = null,Object? description = null,Object? createdAt = freezed,Object? updatedAt = freezed,Object? labels = freezed,Object? associatedRefs = freezed,Object? associatedProfiles = freezed,Object? items = null,Object? photoCount = freezed,Object? viewer = freezed,Object? likeCount = freezed,Object? likers = freezed,Object? $unknown = freezed,}) {
   return _then(_EmbedExternalViewGallery(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
+as String,providerId: freezed == providerId ? _self.providerId : providerId // ignore: cast_nullable_to_non_nullable
+as String?,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
@@ -346,14 +369,28 @@ as DateTime?,labels: freezed == labels ? _self._labels : labels // ignore: cast_
 as List<Label>?,associatedRefs: freezed == associatedRefs ? _self._associatedRefs : associatedRefs // ignore: cast_nullable_to_non_nullable
 as List<RepoStrongRef>?,associatedProfiles: freezed == associatedProfiles ? _self._associatedProfiles : associatedProfiles // ignore: cast_nullable_to_non_nullable
 as List<ProfileViewBasic>?,items: null == items ? _self._items : items // ignore: cast_nullable_to_non_nullable
-as List<UEmbedExternalViewGalleryItems>,likeCount: freezed == likeCount ? _self.likeCount : likeCount // ignore: cast_nullable_to_non_nullable
+as List<UEmbedExternalViewGalleryItems>,photoCount: freezed == photoCount ? _self.photoCount : photoCount // ignore: cast_nullable_to_non_nullable
+as int?,viewer: freezed == viewer ? _self.viewer : viewer // ignore: cast_nullable_to_non_nullable
+as EmbedExternalViewGalleryViewerState?,likeCount: freezed == likeCount ? _self.likeCount : likeCount // ignore: cast_nullable_to_non_nullable
 as int?,likers: freezed == likers ? _self._likers : likers // ignore: cast_nullable_to_non_nullable
 as List<ProfileViewBasic>?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
+/// Create a copy of EmbedExternalViewGallery
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EmbedExternalViewGalleryViewerStateCopyWith<$Res>? get viewer {
+    if (_self.viewer == null) {
+    return null;
+  }
 
+  return $EmbedExternalViewGalleryViewerStateCopyWith<$Res>(_self.viewer!, (value) {
+    return _then(_self.copyWith(viewer: value));
+  });
+}
 }
 
 // dart format on

@@ -19,6 +19,7 @@ _$EmbedExternalViewArticlePublicationFromJson(
       r'$type',
       (v) => v as String? ?? 'app.bsky.embed.external#viewArticlePublication',
     ),
+    providerId: $checkedConvert('providerId', (v) => v as String?),
     uri: $checkedConvert('uri', (v) => v as String),
     title: $checkedConvert('title', (v) => v as String),
     description: $checkedConvert('description', (v) => v as String),
@@ -71,6 +72,18 @@ _$EmbedExternalViewArticlePublicationFromJson(
             const EmbedExternalViewArticlePublicationThemeConverter().fromJson,
           ),
     ),
+    viewer: $checkedConvert(
+      'viewer',
+      (v) =>
+          _$JsonConverterFromJson<
+            Map<String, dynamic>,
+            EmbedExternalViewArticlePublicationViewerState
+          >(
+            v,
+            const EmbedExternalViewArticlePublicationViewerStateConverter()
+                .fromJson,
+          ),
+    ),
     subscriptionCount: $checkedConvert(
       'subscriptionCount',
       (v) => (v as num?)?.toInt(),
@@ -97,6 +110,7 @@ Map<String, dynamic> _$EmbedExternalViewArticlePublicationToJson(
   _EmbedExternalViewArticlePublication instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
+  'providerId': ?instance.providerId,
   'uri': instance.uri,
   'title': instance.title,
   'description': instance.description,
@@ -118,6 +132,14 @@ Map<String, dynamic> _$EmbedExternalViewArticlePublicationToJson(
       >(
         instance.theme,
         const EmbedExternalViewArticlePublicationThemeConverter().toJson,
+      ),
+  'viewer':
+      ?_$JsonConverterToJson<
+        Map<String, dynamic>,
+        EmbedExternalViewArticlePublicationViewerState
+      >(
+        instance.viewer,
+        const EmbedExternalViewArticlePublicationViewerStateConverter().toJson,
       ),
   'subscriptionCount': ?instance.subscriptionCount,
   'subscribers': ?instance.subscribers

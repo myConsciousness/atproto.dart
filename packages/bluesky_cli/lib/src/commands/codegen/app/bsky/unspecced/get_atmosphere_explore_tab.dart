@@ -16,21 +16,11 @@ import '../../../../query_command.dart';
 
 final class GetAtmosphereExploreTabCommand extends QueryCommand {
   GetAtmosphereExploreTabCommand() {
-    argParser
-      ..addMultiOption(
-        "langs",
-        help:
-            r"Preferred languages for article recommendations when algorithmic recommendations are enabled. Ignored otherwise.",
-      )
-      ..addOption(
-        "countryCode",
-        help:
-            r"The ISO 3166-1 alpha-2 country code used to select curated content.",
-      )
-      ..addOption(
-        "regionCode",
-        help: r"The ISO 3166-2 region code used to select curated content.",
-      );
+    argParser..addMultiOption(
+      "langs",
+      help:
+          r"Preferred languages for article and photo gallery recommendations when their algorithmic recommendations are enabled. Ignored otherwise.",
+    );
   }
 
   @override
@@ -38,11 +28,11 @@ final class GetAtmosphereExploreTabCommand extends QueryCommand {
 
   @override
   final String description =
-      "Get Atmosphere Explore content. Articles are recommended when algorithmic recommendations are enabled for the request, and curated otherwise; other sections are curated. Authentication is optional; authenticated requests include viewer-specific profile state.";
+      "Get Atmosphere Explore content. Articles and photo galleries are recommended when their algorithmic recommendations are enabled for the request, and curated otherwise; other sections are curated. Curated content is selected using the x-atproto-bsky-geo-country, x-atproto-bsky-geo-region, and x-atproto-bsky-topics request headers. Authentication is optional; authenticated requests include viewer-specific profile state.";
 
   @override
   final String invocation =
-      "bsky app-bsky-unspecced get-atmosphere-explore-tab [--langs=<value>...] [--countryCode=<value>] [--regionCode=<value>]";
+      "bsky app-bsky-unspecced get-atmosphere-explore-tab [--langs=<value>...]";
 
   @override
   String get methodId => "app.bsky.unspecced.getAtmosphereExploreTab";
@@ -50,9 +40,5 @@ final class GetAtmosphereExploreTabCommand extends QueryCommand {
   @override
   Map<String, dynamic>? get parameters => {
     if (argResults!.wasParsed("langs")) "langs": argResults!["langs"],
-    if (argResults!.wasParsed("countryCode"))
-      "countryCode": argResults!["countryCode"],
-    if (argResults!.wasParsed("regionCode"))
-      "regionCode": argResults!["regionCode"],
   };
 }

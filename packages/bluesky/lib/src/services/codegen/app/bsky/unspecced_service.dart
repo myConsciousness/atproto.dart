@@ -14,8 +14,17 @@ import 'package:atproto_core/internals.dart' show protected;
 // Project imports:
 import '../../../../nsids.g.dart' as ns;
 import 'unspecced/defs/age_assurance_state.dart';
+import 'unspecced/getAtmosphereActivityRecommendations/output.dart';
+import 'unspecced/getAtmosphereApps/output.dart';
 import 'unspecced/getAtmosphereExploreArticleRecommendations/output.dart';
+import 'unspecced/getAtmosphereExploreGalleryRecommendations/output.dart';
 import 'unspecced/getAtmosphereExploreTab/output.dart';
+import 'unspecced/getAtmosphereRecommendedActivity/output.dart';
+import 'unspecced/getAtmosphereRecordView/output.dart';
+import 'unspecced/getAtmosphereRecordViews/output.dart';
+import 'unspecced/getAtmosphereRecordViews/record_ref.dart';
+import 'unspecced/getAtmosphereTimeline/output.dart';
+import 'unspecced/getAtmosphereTimelineV2/output.dart';
 import 'unspecced/getConfig/output.dart';
 import 'unspecced/getOnboardingSuggestedStarterPacks/output.dart';
 import 'unspecced/getOnboardingSuggestedStarterPacksSkeleton/output.dart';
@@ -65,6 +74,44 @@ Future<XRPCResponse<AgeAssuranceState>> appBskyUnspeccedGetAgeAssuranceState({
   to: const AgeAssuranceStateConverter().fromJson,
 );
 
+/// Get an ordered skeleton of recommended Standard.site articles and Grain galleries. Intended to be called and hydrated by app.bsky.unspecced.getAtmosphereRecommendedActivity.
+Future<XRPCResponse<UnspeccedGetAtmosphereActivityRecommendationsOutput>>
+appBskyUnspeccedGetAtmosphereActivityRecommendations({
+  String? viewer,
+  int? limit,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetAtmosphereActivityRecommendations,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (viewer != null) 'viewer': viewer,
+    if (limit != null) 'limit': limit,
+  },
+  to: const UnspeccedGetAtmosphereActivityRecommendationsOutputConverter()
+      .fromJson,
+);
+
+/// Get curated Atmosphere apps. Authentication is optional; authenticated requests include viewer-specific profile state and known followers.
+Future<XRPCResponse<UnspeccedGetAtmosphereAppsOutput>>
+appBskyUnspeccedGetAtmosphereApps({
+  String? category,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetAtmosphereApps,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown, if (category != null) 'category': category},
+  to: const UnspeccedGetAtmosphereAppsOutputConverter().fromJson,
+);
+
 /// Get a skeleton of recommended Atmosphere Explore articles. Intended to be called and hydrated by app.bsky.unspecced.getAtmosphereExploreTab
 Future<XRPCResponse<UnspeccedGetAtmosphereExploreArticleRecommendationsOutput>>
 appBskyUnspeccedGetAtmosphereExploreArticleRecommendations({
@@ -87,12 +134,32 @@ appBskyUnspeccedGetAtmosphereExploreArticleRecommendations({
       .fromJson,
 );
 
-/// Get Atmosphere Explore content. Articles are recommended when algorithmic recommendations are enabled for the request, and curated otherwise; other sections are curated. Authentication is optional; authenticated requests include viewer-specific profile state.
+/// Get a skeleton of recommended Atmosphere Explore Grain galleries. Intended to be called and hydrated by app.bsky.unspecced.getAtmosphereExploreTab.
+Future<XRPCResponse<UnspeccedGetAtmosphereExploreGalleryRecommendationsOutput>>
+appBskyUnspeccedGetAtmosphereExploreGalleryRecommendations({
+  String? viewer,
+  int? limit,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetAtmosphereExploreGalleryRecommendations,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    if (viewer != null) 'viewer': viewer,
+    if (limit != null) 'limit': limit,
+  },
+  to: const UnspeccedGetAtmosphereExploreGalleryRecommendationsOutputConverter()
+      .fromJson,
+);
+
+/// Get Atmosphere Explore content. Articles and photo galleries are recommended when their algorithmic recommendations are enabled for the request, and curated otherwise; other sections are curated. Curated content is selected using the x-atproto-bsky-geo-country, x-atproto-bsky-geo-region, and x-atproto-bsky-topics request headers. Authentication is optional; authenticated requests include viewer-specific profile state.
 Future<XRPCResponse<UnspeccedGetAtmosphereExploreTabOutput>>
 appBskyUnspeccedGetAtmosphereExploreTab({
   List<String>? langs,
-  String? countryCode,
-  String? regionCode,
   required ServiceContext $ctx,
   String? $service,
   Map<String, String>? $headers,
@@ -101,13 +168,103 @@ appBskyUnspeccedGetAtmosphereExploreTab({
   ns.appBskyUnspeccedGetAtmosphereExploreTab,
   service: $service,
   headers: $headers,
+  parameters: {...?$unknown, if (langs != null) 'langs': langs},
+  to: const UnspeccedGetAtmosphereExploreTabOutputConverter().fromJson,
+);
+
+/// Get recommended Standard.site articles and Grain galleries for Atmosphere Activity in recommendation order. Authentication is optional. Unavailable items are omitted, so the response may contain fewer than the requested limit.
+Future<XRPCResponse<UnspeccedGetAtmosphereRecommendedActivityOutput>>
+appBskyUnspeccedGetAtmosphereRecommendedActivity({
+  int? limit,
+  List<String>? langs,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetAtmosphereRecommendedActivity,
+  service: $service,
+  headers: $headers,
   parameters: {
     ...?$unknown,
+    if (limit != null) 'limit': limit,
     if (langs != null) 'langs': langs,
-    if (countryCode != null) 'countryCode': countryCode,
-    if (regionCode != null) 'regionCode': regionCode,
   },
-  to: const UnspeccedGetAtmosphereExploreTabOutputConverter().fromJson,
+  to: const UnspeccedGetAtmosphereRecommendedActivityOutputConverter().fromJson,
+);
+
+/// Get a hydrated view of one Atmosphere record. Requires authentication. Without `cid` the latest version of the record is returned; with `cid` exactly that version is returned, never another. Dependencies of the record are always latest. Returns an empty object when the record is missing or not visible. When the record is visible but cannot produce a view, only the associations are returned.
+Future<XRPCResponse<UnspeccedGetAtmosphereRecordViewOutput>>
+appBskyUnspeccedGetAtmosphereRecordView({
+  required AtUri uri,
+  String? cid,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetAtmosphereRecordView,
+  service: $service,
+  headers: $headers,
+  parameters: {
+    ...?$unknown,
+    'uri': uri.toString(),
+    if (cid != null) 'cid': cid,
+  },
+  to: const UnspeccedGetAtmosphereRecordViewOutputConverter().fromJson,
+);
+
+/// Get hydrated views and raw associations for multiple Atmosphere records. Requires authentication. Roots may be latest or pinned to exact CIDs; dependencies are always latest.
+Future<XRPCResponse<UnspeccedGetAtmosphereRecordViewsOutput>>
+appBskyUnspeccedGetAtmosphereRecordViews({
+  required List<RecordRef> records,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.post(
+  ns.appBskyUnspeccedGetAtmosphereRecordViews,
+  service: $service,
+  headers: {'Content-type': 'application/json', ...?$headers},
+  body: {
+    ...?$unknown,
+    'records': records
+        .map((e) => const RecordRefConverter().toJson(e))
+        .toList(),
+  },
+  to: const UnspeccedGetAtmosphereRecordViewsOutputConverter().fromJson,
+);
+
+/// Get the authenticated viewer's Atmosphere activity timeline. Groups contain visible activities from the returned page.
+Future<XRPCResponse<UnspeccedGetAtmosphereTimelineOutput>>
+appBskyUnspeccedGetAtmosphereTimeline({
+  String? cursor,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetAtmosphereTimeline,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown, if (cursor != null) 'cursor': cursor},
+  to: const UnspeccedGetAtmosphereTimelineOutputConverter().fromJson,
+);
+
+/// Get the requesting account's Atmosphere activity timeline, pre-grouped for rendering. Requires auth.
+Future<XRPCResponse<UnspeccedGetAtmosphereTimelineV2Output>>
+appBskyUnspeccedGetAtmosphereTimelineV2({
+  String? cursor,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyUnspeccedGetAtmosphereTimelineV2,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown, if (cursor != null) 'cursor': cursor},
+  to: const UnspeccedGetAtmosphereTimelineV2OutputConverter().fromJson,
 );
 
 /// Get miscellaneous runtime configuration.
@@ -753,6 +910,37 @@ base class UnspeccedService {
     $unknown: $unknown,
   );
 
+  /// Get an ordered skeleton of recommended Standard.site articles and Grain galleries. Intended to be called and hydrated by app.bsky.unspecced.getAtmosphereRecommendedActivity.
+  Future<XRPCResponse<UnspeccedGetAtmosphereActivityRecommendationsOutput>>
+  getAtmosphereActivityRecommendations({
+    String? viewer,
+    int? limit,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetAtmosphereActivityRecommendations(
+    viewer: viewer,
+    limit: limit,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get curated Atmosphere apps. Authentication is optional; authenticated requests include viewer-specific profile state and known followers.
+  Future<XRPCResponse<UnspeccedGetAtmosphereAppsOutput>> getAtmosphereApps({
+    String? category,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetAtmosphereApps(
+    category: category,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
   /// Get a skeleton of recommended Atmosphere Explore articles. Intended to be called and hydrated by app.bsky.unspecced.getAtmosphereExploreTab
   Future<
     XRPCResponse<UnspeccedGetAtmosphereExploreArticleRecommendationsOutput>
@@ -772,19 +960,113 @@ base class UnspeccedService {
     $unknown: $unknown,
   );
 
-  /// Get Atmosphere Explore content. Articles are recommended when algorithmic recommendations are enabled for the request, and curated otherwise; other sections are curated. Authentication is optional; authenticated requests include viewer-specific profile state.
+  /// Get a skeleton of recommended Atmosphere Explore Grain galleries. Intended to be called and hydrated by app.bsky.unspecced.getAtmosphereExploreTab.
+  Future<
+    XRPCResponse<UnspeccedGetAtmosphereExploreGalleryRecommendationsOutput>
+  >
+  getAtmosphereExploreGalleryRecommendations({
+    String? viewer,
+    int? limit,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetAtmosphereExploreGalleryRecommendations(
+    viewer: viewer,
+    limit: limit,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get Atmosphere Explore content. Articles and photo galleries are recommended when their algorithmic recommendations are enabled for the request, and curated otherwise; other sections are curated. Curated content is selected using the x-atproto-bsky-geo-country, x-atproto-bsky-geo-region, and x-atproto-bsky-topics request headers. Authentication is optional; authenticated requests include viewer-specific profile state.
   Future<XRPCResponse<UnspeccedGetAtmosphereExploreTabOutput>>
   getAtmosphereExploreTab({
     List<String>? langs,
-    String? countryCode,
-    String? regionCode,
     String? $service,
     Map<String, String>? $headers,
     Map<String, String>? $unknown,
   }) async => await appBskyUnspeccedGetAtmosphereExploreTab(
     langs: langs,
-    countryCode: countryCode,
-    regionCode: regionCode,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get recommended Standard.site articles and Grain galleries for Atmosphere Activity in recommendation order. Authentication is optional. Unavailable items are omitted, so the response may contain fewer than the requested limit.
+  Future<XRPCResponse<UnspeccedGetAtmosphereRecommendedActivityOutput>>
+  getAtmosphereRecommendedActivity({
+    int? limit,
+    List<String>? langs,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetAtmosphereRecommendedActivity(
+    limit: limit,
+    langs: langs,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get a hydrated view of one Atmosphere record. Requires authentication. Without `cid` the latest version of the record is returned; with `cid` exactly that version is returned, never another. Dependencies of the record are always latest. Returns an empty object when the record is missing or not visible. When the record is visible but cannot produce a view, only the associations are returned.
+  Future<XRPCResponse<UnspeccedGetAtmosphereRecordViewOutput>>
+  getAtmosphereRecordView({
+    required AtUri uri,
+    String? cid,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetAtmosphereRecordView(
+    uri: uri,
+    cid: cid,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get hydrated views and raw associations for multiple Atmosphere records. Requires authentication. Roots may be latest or pinned to exact CIDs; dependencies are always latest.
+  Future<XRPCResponse<UnspeccedGetAtmosphereRecordViewsOutput>>
+  getAtmosphereRecordViews({
+    required List<RecordRef> records,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetAtmosphereRecordViews(
+    records: records,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get the authenticated viewer's Atmosphere activity timeline. Groups contain visible activities from the returned page.
+  Future<XRPCResponse<UnspeccedGetAtmosphereTimelineOutput>>
+  getAtmosphereTimeline({
+    String? cursor,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetAtmosphereTimeline(
+    cursor: cursor,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get the requesting account's Atmosphere activity timeline, pre-grouped for rendering. Requires auth.
+  Future<XRPCResponse<UnspeccedGetAtmosphereTimelineV2Output>>
+  getAtmosphereTimelineV2({
+    String? cursor,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyUnspeccedGetAtmosphereTimelineV2(
+    cursor: cursor,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

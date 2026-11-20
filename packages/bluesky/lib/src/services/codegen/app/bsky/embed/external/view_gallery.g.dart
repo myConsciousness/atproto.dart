@@ -16,6 +16,7 @@ _EmbedExternalViewGallery _$EmbedExternalViewGalleryFromJson(
       r'$type',
       (v) => v as String? ?? 'app.bsky.embed.external#viewGallery',
     ),
+    providerId: $checkedConvert('providerId', (v) => v as String?),
     uri: $checkedConvert('uri', (v) => v as String),
     title: $checkedConvert('title', (v) => v as String),
     description: $checkedConvert('description', (v) => v as String),
@@ -65,6 +66,15 @@ _EmbedExternalViewGallery _$EmbedExternalViewGalleryFromJson(
           )
           .toList(),
     ),
+    photoCount: $checkedConvert('photoCount', (v) => (v as num?)?.toInt()),
+    viewer: $checkedConvert(
+      'viewer',
+      (v) =>
+          _$JsonConverterFromJson<
+            Map<String, dynamic>,
+            EmbedExternalViewGalleryViewerState
+          >(v, const EmbedExternalViewGalleryViewerStateConverter().fromJson),
+    ),
     likeCount: $checkedConvert('likeCount', (v) => (v as num?)?.toInt()),
     likers: $checkedConvert(
       'likers',
@@ -88,6 +98,7 @@ Map<String, dynamic> _$EmbedExternalViewGalleryToJson(
   _EmbedExternalViewGallery instance,
 ) => <String, dynamic>{
   r'$type': instance.$type,
+  'providerId': ?instance.providerId,
   'uri': instance.uri,
   'title': instance.title,
   'description': instance.description,
@@ -103,9 +114,28 @@ Map<String, dynamic> _$EmbedExternalViewGalleryToJson(
   'items': instance.items
       .map(const UEmbedExternalViewGalleryItemsConverter().toJson)
       .toList(),
+  'photoCount': ?instance.photoCount,
+  'viewer':
+      ?_$JsonConverterToJson<
+        Map<String, dynamic>,
+        EmbedExternalViewGalleryViewerState
+      >(
+        instance.viewer,
+        const EmbedExternalViewGalleryViewerStateConverter().toJson,
+      ),
   'likeCount': ?instance.likeCount,
   'likers': ?instance.likers
       ?.map(const ProfileViewBasicConverter().toJson)
       .toList(),
   r'$unknown': ?instance.$unknown,
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) => json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);

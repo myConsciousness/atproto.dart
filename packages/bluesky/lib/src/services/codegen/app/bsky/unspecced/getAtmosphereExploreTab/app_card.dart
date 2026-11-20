@@ -11,6 +11,9 @@
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import '../../../../app/bsky/actor/defs/profile_view_detailed.dart';
+
 part 'app_card.freezed.dart';
 part 'app_card.g.dart';
 
@@ -26,10 +29,9 @@ abstract class AppCard with _$AppCard {
     'description',
     'logo',
     'backgroundImage',
-    'overlayColor',
-    'textColor',
     'url',
     'category',
+    'profile',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -38,12 +40,17 @@ abstract class AppCard with _$AppCard {
     String? id,
     String? title,
     String? description,
+
+    /// The profile avatar when available, otherwise the editorial logo.
     String? logo,
+
+    /// The profile banner when available, otherwise the editorial background image.
     String? backgroundImage,
-    String? overlayColor,
-    String? textColor,
     String? url,
     String? category,
+
+    /// The app's optional Bluesky account profile. Omitted when no profile is configured or the profile is unavailable.
+    @ProfileViewDetailedConverter() ProfileViewDetailed? profile,
 
     Map<String, dynamic>? $unknown,
   }) = _AppCard;
@@ -69,14 +76,12 @@ extension AppCardExtension on AppCard {
   bool get hasNotLogo => !hasLogo;
   bool get hasBackgroundImage => backgroundImage != null;
   bool get hasNotBackgroundImage => !hasBackgroundImage;
-  bool get hasOverlayColor => overlayColor != null;
-  bool get hasNotOverlayColor => !hasOverlayColor;
-  bool get hasTextColor => textColor != null;
-  bool get hasNotTextColor => !hasTextColor;
   bool get hasUrl => url != null;
   bool get hasNotUrl => !hasUrl;
   bool get hasCategory => category != null;
   bool get hasNotCategory => !hasCategory;
+  bool get hasProfile => profile != null;
+  bool get hasNotProfile => !hasProfile;
 }
 
 final class AppCardConverter

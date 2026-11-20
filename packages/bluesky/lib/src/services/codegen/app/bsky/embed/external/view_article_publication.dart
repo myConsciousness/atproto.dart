@@ -16,6 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // Project imports:
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 import './view_article_publication_theme.dart';
+import './view_article_publication_viewer_state.dart';
 
 part 'view_article_publication.freezed.dart';
 part 'view_article_publication.g.dart';
@@ -28,6 +29,7 @@ part 'view_article_publication.g.dart';
 abstract class EmbedExternalViewArticlePublication
     with _$EmbedExternalViewArticlePublication {
   static const knownProps = <String>[
+    'providerId',
     'uri',
     'title',
     'description',
@@ -39,6 +41,7 @@ abstract class EmbedExternalViewArticlePublication
     'logo',
     'image',
     'theme',
+    'viewer',
     'subscriptionCount',
     'subscribers',
   ];
@@ -46,6 +49,9 @@ abstract class EmbedExternalViewArticlePublication
   @JsonSerializable(includeIfNull: false)
   const factory EmbedExternalViewArticlePublication({
     @Default('app.bsky.embed.external#viewArticlePublication') String $type,
+
+    /// Best-effort provider domain for cosmetic attribution, such as pckt.blog. Not verified provenance.
+    String? providerId,
     required String uri,
     required String title,
     required String description,
@@ -58,6 +64,8 @@ abstract class EmbedExternalViewArticlePublication
     String? image,
     @EmbedExternalViewArticlePublicationThemeConverter()
     EmbedExternalViewArticlePublicationTheme? theme,
+    @EmbedExternalViewArticlePublicationViewerStateConverter()
+    EmbedExternalViewArticlePublicationViewerState? viewer,
     int? subscriptionCount,
     @ProfileViewBasicConverter() List<ProfileViewBasic>? subscribers,
 
@@ -76,6 +84,8 @@ abstract class EmbedExternalViewArticlePublication
 
 extension EmbedExternalViewArticlePublicationExtension
     on EmbedExternalViewArticlePublication {
+  bool get hasProviderId => providerId != null;
+  bool get hasNotProviderId => !hasProviderId;
   bool get hasCreatedAt => createdAt != null;
   bool get hasNotCreatedAt => !hasCreatedAt;
   bool get hasUpdatedAt => updatedAt != null;
@@ -86,6 +96,8 @@ extension EmbedExternalViewArticlePublicationExtension
   bool get hasNotImage => !hasImage;
   bool get hasTheme => theme != null;
   bool get hasNotTheme => !hasTheme;
+  bool get hasViewer => viewer != null;
+  bool get hasNotViewer => !hasViewer;
   bool get hasSubscriptionCount => subscriptionCount != null;
   bool get hasNotSubscriptionCount => !hasSubscriptionCount;
 }

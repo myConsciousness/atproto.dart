@@ -15,7 +15,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LivestreamItem {
 
- String get $type; bool get featured;@EmbedExternalViewLivestreamConverter() EmbedExternalViewLivestream get view; Map<String, dynamic>? get $unknown;
+ String get $type;/// The Bluesky post that announced the livestream, as declared by its author. The referenced post may not be available.
+@RepoStrongRefConverter() RepoStrongRef? get bskyPostRef;/// The hydrated Bluesky post that announced the livestream, as declared by its author. Omitted when the post is unavailable to the viewer.
+@PostViewConverter() PostView? get viewBskyPost;@EmbedExternalViewLivestreamConverter() EmbedExternalViewLivestream get view; Map<String, dynamic>? get $unknown;
 /// Create a copy of LivestreamItem
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +30,16 @@ $LivestreamItemCopyWith<LivestreamItem> get copyWith => _$LivestreamItemCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LivestreamItem&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.featured, featured) || other.featured == featured)&&(identical(other.view, view) || other.view == view)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LivestreamItem&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.bskyPostRef, bskyPostRef) || other.bskyPostRef == bskyPostRef)&&(identical(other.viewBskyPost, viewBskyPost) || other.viewBskyPost == viewBskyPost)&&(identical(other.view, view) || other.view == view)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,featured,view,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,bskyPostRef,viewBskyPost,view,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'LivestreamItem(\$type: ${$type}, featured: $featured, view: $view, \$unknown: ${$unknown})';
+  return 'LivestreamItem(\$type: ${$type}, bskyPostRef: $bskyPostRef, viewBskyPost: $viewBskyPost, view: $view, \$unknown: ${$unknown})';
 }
 
 
@@ -48,11 +50,11 @@ abstract mixin class $LivestreamItemCopyWith<$Res>  {
   factory $LivestreamItemCopyWith(LivestreamItem value, $Res Function(LivestreamItem) _then) = _$LivestreamItemCopyWithImpl;
 @useResult
 $Res call({
- String $type, bool featured,@EmbedExternalViewLivestreamConverter() EmbedExternalViewLivestream view, Map<String, dynamic>? $unknown
+ String $type,@RepoStrongRefConverter() RepoStrongRef? bskyPostRef,@PostViewConverter() PostView? viewBskyPost,@EmbedExternalViewLivestreamConverter() EmbedExternalViewLivestream view, Map<String, dynamic>? $unknown
 });
 
 
-$EmbedExternalViewLivestreamCopyWith<$Res> get view;
+$RepoStrongRefCopyWith<$Res>? get bskyPostRef;$PostViewCopyWith<$Res>? get viewBskyPost;$EmbedExternalViewLivestreamCopyWith<$Res> get view;
 
 }
 /// @nodoc
@@ -65,16 +67,41 @@ class _$LivestreamItemCopyWithImpl<$Res>
 
 /// Create a copy of LivestreamItem
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? featured = null,Object? view = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? bskyPostRef = freezed,Object? viewBskyPost = freezed,Object? view = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,featured: null == featured ? _self.featured : featured // ignore: cast_nullable_to_non_nullable
-as bool,view: null == view ? _self.view : view // ignore: cast_nullable_to_non_nullable
+as String,bskyPostRef: freezed == bskyPostRef ? _self.bskyPostRef : bskyPostRef // ignore: cast_nullable_to_non_nullable
+as RepoStrongRef?,viewBskyPost: freezed == viewBskyPost ? _self.viewBskyPost : viewBskyPost // ignore: cast_nullable_to_non_nullable
+as PostView?,view: null == view ? _self.view : view // ignore: cast_nullable_to_non_nullable
 as EmbedExternalViewLivestream,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 /// Create a copy of LivestreamItem
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RepoStrongRefCopyWith<$Res>? get bskyPostRef {
+    if (_self.bskyPostRef == null) {
+    return null;
+  }
+
+  return $RepoStrongRefCopyWith<$Res>(_self.bskyPostRef!, (value) {
+    return _then(_self.copyWith(bskyPostRef: value));
+  });
+}/// Create a copy of LivestreamItem
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PostViewCopyWith<$Res>? get viewBskyPost {
+    if (_self.viewBskyPost == null) {
+    return null;
+  }
+
+  return $PostViewCopyWith<$Res>(_self.viewBskyPost!, (value) {
+    return _then(_self.copyWith(viewBskyPost: value));
+  });
+}/// Create a copy of LivestreamItem
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -165,10 +192,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  bool featured, @EmbedExternalViewLivestreamConverter()  EmbedExternalViewLivestream view,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @RepoStrongRefConverter()  RepoStrongRef? bskyPostRef, @PostViewConverter()  PostView? viewBskyPost, @EmbedExternalViewLivestreamConverter()  EmbedExternalViewLivestream view,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LivestreamItem() when $default != null:
-return $default(_that.$type,_that.featured,_that.view,_that.$unknown);case _:
+return $default(_that.$type,_that.bskyPostRef,_that.viewBskyPost,_that.view,_that.$unknown);case _:
   return orElse();
 
 }
@@ -186,10 +213,10 @@ return $default(_that.$type,_that.featured,_that.view,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  bool featured, @EmbedExternalViewLivestreamConverter()  EmbedExternalViewLivestream view,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @RepoStrongRefConverter()  RepoStrongRef? bskyPostRef, @PostViewConverter()  PostView? viewBskyPost, @EmbedExternalViewLivestreamConverter()  EmbedExternalViewLivestream view,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _LivestreamItem():
-return $default(_that.$type,_that.featured,_that.view,_that.$unknown);case _:
+return $default(_that.$type,_that.bskyPostRef,_that.viewBskyPost,_that.view,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -206,10 +233,10 @@ return $default(_that.$type,_that.featured,_that.view,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  bool featured, @EmbedExternalViewLivestreamConverter()  EmbedExternalViewLivestream view,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @RepoStrongRefConverter()  RepoStrongRef? bskyPostRef, @PostViewConverter()  PostView? viewBskyPost, @EmbedExternalViewLivestreamConverter()  EmbedExternalViewLivestream view,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _LivestreamItem() when $default != null:
-return $default(_that.$type,_that.featured,_that.view,_that.$unknown);case _:
+return $default(_that.$type,_that.bskyPostRef,_that.viewBskyPost,_that.view,_that.$unknown);case _:
   return null;
 
 }
@@ -221,11 +248,14 @@ return $default(_that.$type,_that.featured,_that.view,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _LivestreamItem implements LivestreamItem {
-  const _LivestreamItem({this.$type = 'app.bsky.unspecced.getAtmosphereExploreTab#livestreamItem', required this.featured, @EmbedExternalViewLivestreamConverter() required this.view, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _LivestreamItem({this.$type = 'app.bsky.unspecced.getAtmosphereExploreTab#livestreamItem', @RepoStrongRefConverter() this.bskyPostRef, @PostViewConverter() this.viewBskyPost, @EmbedExternalViewLivestreamConverter() required this.view, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _LivestreamItem.fromJson(Map<String, dynamic> json) => _$LivestreamItemFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  bool featured;
+/// The Bluesky post that announced the livestream, as declared by its author. The referenced post may not be available.
+@override@RepoStrongRefConverter() final  RepoStrongRef? bskyPostRef;
+/// The hydrated Bluesky post that announced the livestream, as declared by its author. Omitted when the post is unavailable to the viewer.
+@override@PostViewConverter() final  PostView? viewBskyPost;
 @override@EmbedExternalViewLivestreamConverter() final  EmbedExternalViewLivestream view;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -250,16 +280,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LivestreamItem&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.featured, featured) || other.featured == featured)&&(identical(other.view, view) || other.view == view)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LivestreamItem&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.bskyPostRef, bskyPostRef) || other.bskyPostRef == bskyPostRef)&&(identical(other.viewBskyPost, viewBskyPost) || other.viewBskyPost == viewBskyPost)&&(identical(other.view, view) || other.view == view)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,featured,view,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,bskyPostRef,viewBskyPost,view,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'LivestreamItem(\$type: ${$type}, featured: $featured, view: $view, \$unknown: ${$unknown})';
+  return 'LivestreamItem(\$type: ${$type}, bskyPostRef: $bskyPostRef, viewBskyPost: $viewBskyPost, view: $view, \$unknown: ${$unknown})';
 }
 
 
@@ -270,11 +300,11 @@ abstract mixin class _$LivestreamItemCopyWith<$Res> implements $LivestreamItemCo
   factory _$LivestreamItemCopyWith(_LivestreamItem value, $Res Function(_LivestreamItem) _then) = __$LivestreamItemCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, bool featured,@EmbedExternalViewLivestreamConverter() EmbedExternalViewLivestream view, Map<String, dynamic>? $unknown
+ String $type,@RepoStrongRefConverter() RepoStrongRef? bskyPostRef,@PostViewConverter() PostView? viewBskyPost,@EmbedExternalViewLivestreamConverter() EmbedExternalViewLivestream view, Map<String, dynamic>? $unknown
 });
 
 
-@override $EmbedExternalViewLivestreamCopyWith<$Res> get view;
+@override $RepoStrongRefCopyWith<$Res>? get bskyPostRef;@override $PostViewCopyWith<$Res>? get viewBskyPost;@override $EmbedExternalViewLivestreamCopyWith<$Res> get view;
 
 }
 /// @nodoc
@@ -287,17 +317,42 @@ class __$LivestreamItemCopyWithImpl<$Res>
 
 /// Create a copy of LivestreamItem
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? featured = null,Object? view = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? bskyPostRef = freezed,Object? viewBskyPost = freezed,Object? view = null,Object? $unknown = freezed,}) {
   return _then(_LivestreamItem(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,featured: null == featured ? _self.featured : featured // ignore: cast_nullable_to_non_nullable
-as bool,view: null == view ? _self.view : view // ignore: cast_nullable_to_non_nullable
+as String,bskyPostRef: freezed == bskyPostRef ? _self.bskyPostRef : bskyPostRef // ignore: cast_nullable_to_non_nullable
+as RepoStrongRef?,viewBskyPost: freezed == viewBskyPost ? _self.viewBskyPost : viewBskyPost // ignore: cast_nullable_to_non_nullable
+as PostView?,view: null == view ? _self.view : view // ignore: cast_nullable_to_non_nullable
 as EmbedExternalViewLivestream,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
 
 /// Create a copy of LivestreamItem
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$RepoStrongRefCopyWith<$Res>? get bskyPostRef {
+    if (_self.bskyPostRef == null) {
+    return null;
+  }
+
+  return $RepoStrongRefCopyWith<$Res>(_self.bskyPostRef!, (value) {
+    return _then(_self.copyWith(bskyPostRef: value));
+  });
+}/// Create a copy of LivestreamItem
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PostViewCopyWith<$Res>? get viewBskyPost {
+    if (_self.viewBskyPost == null) {
+    return null;
+  }
+
+  return $PostViewCopyWith<$Res>(_self.viewBskyPost!, (value) {
+    return _then(_self.copyWith(viewBskyPost: value));
+  });
+}/// Create a copy of LivestreamItem
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')

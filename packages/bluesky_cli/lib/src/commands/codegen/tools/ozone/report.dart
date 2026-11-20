@@ -19,6 +19,7 @@ import 'report/get_historical_stats.dart';
 import 'report/get_latest_report.dart';
 import 'report/get_live_stats.dart';
 import 'report/get_report.dart';
+import 'report/get_stat_group_details.dart';
 import 'report/list_activities.dart';
 import 'report/query_activities.dart';
 import 'report/query_moderator_activity.dart';
@@ -41,6 +42,7 @@ final class ToolsOzoneReportCommand extends Command<void> {
     addSubcommand(GetLatestReportCommand());
     addSubcommand(GetLiveStatsCommand());
     addSubcommand(GetReportCommand());
+    addSubcommand(GetStatGroupDetailsCommand());
     addSubcommand(ListActivitiesCommand());
     addSubcommand(QueryActivitiesCommand());
     addSubcommand(QueryModeratorActivityCommand());

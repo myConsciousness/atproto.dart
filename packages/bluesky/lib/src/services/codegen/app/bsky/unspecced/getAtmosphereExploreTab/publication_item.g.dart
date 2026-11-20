@@ -17,7 +17,6 @@ _PublicationItem _$PublicationItemFromJson(Map json) =>
               v as String? ??
               'app.bsky.unspecced.getAtmosphereExploreTab#publicationItem',
         ),
-        featured: $checkedConvert('featured', (v) => v as bool),
         view: $checkedConvert(
           'view',
           (v) => const EmbedExternalViewArticlePublicationConverter().fromJson(
@@ -35,7 +34,6 @@ _PublicationItem _$PublicationItemFromJson(Map json) =>
 Map<String, dynamic> _$PublicationItemToJson(_PublicationItem instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'featured': instance.featured,
       'view': const EmbedExternalViewArticlePublicationConverter().toJson(
         instance.view,
       ),

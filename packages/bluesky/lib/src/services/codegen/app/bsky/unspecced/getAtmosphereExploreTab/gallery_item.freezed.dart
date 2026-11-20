@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GalleryItem {
 
- String get $type; bool get featured;@EmbedExternalViewGalleryConverter() EmbedExternalViewGallery get view; Map<String, dynamic>? get $unknown;
+ String get $type;@EmbedExternalViewGalleryConverter() EmbedExternalViewGallery get view; Map<String, dynamic>? get $unknown;
 /// Create a copy of GalleryItem
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $GalleryItemCopyWith<GalleryItem> get copyWith => _$GalleryItemCopyWithImpl<Gall
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GalleryItem&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.featured, featured) || other.featured == featured)&&(identical(other.view, view) || other.view == view)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GalleryItem&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.view, view) || other.view == view)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,featured,view,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,view,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'GalleryItem(\$type: ${$type}, featured: $featured, view: $view, \$unknown: ${$unknown})';
+  return 'GalleryItem(\$type: ${$type}, view: $view, \$unknown: ${$unknown})';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $GalleryItemCopyWith<$Res>  {
   factory $GalleryItemCopyWith(GalleryItem value, $Res Function(GalleryItem) _then) = _$GalleryItemCopyWithImpl;
 @useResult
 $Res call({
- String $type, bool featured,@EmbedExternalViewGalleryConverter() EmbedExternalViewGallery view, Map<String, dynamic>? $unknown
+ String $type,@EmbedExternalViewGalleryConverter() EmbedExternalViewGallery view, Map<String, dynamic>? $unknown
 });
 
 
@@ -65,11 +65,10 @@ class _$GalleryItemCopyWithImpl<$Res>
 
 /// Create a copy of GalleryItem
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? featured = null,Object? view = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? view = null,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,featured: null == featured ? _self.featured : featured // ignore: cast_nullable_to_non_nullable
-as bool,view: null == view ? _self.view : view // ignore: cast_nullable_to_non_nullable
+as String,view: null == view ? _self.view : view // ignore: cast_nullable_to_non_nullable
 as EmbedExternalViewGallery,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -165,10 +164,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type,  bool featured, @EmbedExternalViewGalleryConverter()  EmbedExternalViewGallery view,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @EmbedExternalViewGalleryConverter()  EmbedExternalViewGallery view,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GalleryItem() when $default != null:
-return $default(_that.$type,_that.featured,_that.view,_that.$unknown);case _:
+return $default(_that.$type,_that.view,_that.$unknown);case _:
   return orElse();
 
 }
@@ -186,10 +185,10 @@ return $default(_that.$type,_that.featured,_that.view,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type,  bool featured, @EmbedExternalViewGalleryConverter()  EmbedExternalViewGallery view,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @EmbedExternalViewGalleryConverter()  EmbedExternalViewGallery view,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _GalleryItem():
-return $default(_that.$type,_that.featured,_that.view,_that.$unknown);case _:
+return $default(_that.$type,_that.view,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -206,10 +205,10 @@ return $default(_that.$type,_that.featured,_that.view,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type,  bool featured, @EmbedExternalViewGalleryConverter()  EmbedExternalViewGallery view,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @EmbedExternalViewGalleryConverter()  EmbedExternalViewGallery view,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _GalleryItem() when $default != null:
-return $default(_that.$type,_that.featured,_that.view,_that.$unknown);case _:
+return $default(_that.$type,_that.view,_that.$unknown);case _:
   return null;
 
 }
@@ -221,11 +220,10 @@ return $default(_that.$type,_that.featured,_that.view,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _GalleryItem implements GalleryItem {
-  const _GalleryItem({this.$type = 'app.bsky.unspecced.getAtmosphereExploreTab#galleryItem', required this.featured, @EmbedExternalViewGalleryConverter() required this.view, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _GalleryItem({this.$type = 'app.bsky.unspecced.getAtmosphereExploreTab#galleryItem', @EmbedExternalViewGalleryConverter() required this.view, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
   factory _GalleryItem.fromJson(Map<String, dynamic> json) => _$GalleryItemFromJson(json);
 
 @override@JsonKey() final  String $type;
-@override final  bool featured;
 @override@EmbedExternalViewGalleryConverter() final  EmbedExternalViewGallery view;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
@@ -250,16 +248,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GalleryItem&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.featured, featured) || other.featured == featured)&&(identical(other.view, view) || other.view == view)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GalleryItem&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.view, view) || other.view == view)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,featured,view,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,view,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'GalleryItem(\$type: ${$type}, featured: $featured, view: $view, \$unknown: ${$unknown})';
+  return 'GalleryItem(\$type: ${$type}, view: $view, \$unknown: ${$unknown})';
 }
 
 
@@ -270,7 +268,7 @@ abstract mixin class _$GalleryItemCopyWith<$Res> implements $GalleryItemCopyWith
   factory _$GalleryItemCopyWith(_GalleryItem value, $Res Function(_GalleryItem) _then) = __$GalleryItemCopyWithImpl;
 @override @useResult
 $Res call({
- String $type, bool featured,@EmbedExternalViewGalleryConverter() EmbedExternalViewGallery view, Map<String, dynamic>? $unknown
+ String $type,@EmbedExternalViewGalleryConverter() EmbedExternalViewGallery view, Map<String, dynamic>? $unknown
 });
 
 
@@ -287,11 +285,10 @@ class __$GalleryItemCopyWithImpl<$Res>
 
 /// Create a copy of GalleryItem
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? featured = null,Object? view = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? view = null,Object? $unknown = freezed,}) {
   return _then(_GalleryItem(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
-as String,featured: null == featured ? _self.featured : featured // ignore: cast_nullable_to_non_nullable
-as bool,view: null == view ? _self.view : view // ignore: cast_nullable_to_non_nullable
+as String,view: null == view ? _self.view : view // ignore: cast_nullable_to_non_nullable
 as EmbedExternalViewGallery,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
