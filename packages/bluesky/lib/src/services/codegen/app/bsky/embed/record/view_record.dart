@@ -40,6 +40,7 @@ abstract class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
     'opThreadPostCount',
     'embeds',
     'indexedAt',
+    'editedAt',
   ];
 
   @JsonSerializable(includeIfNull: false)
@@ -63,6 +64,9 @@ abstract class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
     @UEmbedRecordViewRecordEmbedsConverter()
     List<UEmbedRecordViewRecordEmbeds>? embeds,
     @JsonKey(toJson: iso8601) required DateTime indexedAt,
+
+    /// Present if the record has been edited. Timestamp when the current version of the record was indexed. indexedAt is unchanged by edits.
+    @JsonKey(toJson: iso8601) DateTime? editedAt,
 
     Map<String, dynamic>? $unknown,
   }) = _EmbedRecordViewRecord;
@@ -89,6 +93,8 @@ extension EmbedRecordViewRecordExtension on EmbedRecordViewRecord {
   bool get hasNotOpThreadPostIndex => !hasOpThreadPostIndex;
   bool get hasOpThreadPostCount => opThreadPostCount != null;
   bool get hasNotOpThreadPostCount => !hasOpThreadPostCount;
+  bool get hasEditedAt => editedAt != null;
+  bool get hasNotEditedAt => !hasEditedAt;
 }
 
 final class EmbedRecordViewRecordConverter

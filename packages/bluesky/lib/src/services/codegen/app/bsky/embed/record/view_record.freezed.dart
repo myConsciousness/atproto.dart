@@ -17,7 +17,8 @@ mixin _$EmbedRecordViewRecord {
 
  String get $type;@AtUriConverter() AtUri get uri; String get cid;@ProfileViewBasicConverter() ProfileViewBasic get author; Map<String, dynamic> get value;@LabelConverter() List<Label>? get labels; int? get replyCount; int? get repostCount; int? get likeCount; int? get quoteCount;/// The 1-indexed position of this post within the contiguous OP thread. Only present when this post is part of the OP thread.
  int? get opThreadPostIndex;/// The total number of posts in the contiguous OP thread that this post belongs to. Only present when this post is part of the OP thread.
- int? get opThreadPostCount;@UEmbedRecordViewRecordEmbedsConverter() List<UEmbedRecordViewRecordEmbeds>? get embeds;@JsonKey(toJson: iso8601) DateTime get indexedAt; Map<String, dynamic>? get $unknown;
+ int? get opThreadPostCount;@UEmbedRecordViewRecordEmbedsConverter() List<UEmbedRecordViewRecordEmbeds>? get embeds;@JsonKey(toJson: iso8601) DateTime get indexedAt;/// Present if the record has been edited. Timestamp when the current version of the record was indexed. indexedAt is unchanged by edits.
+@JsonKey(toJson: iso8601) DateTime? get editedAt; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedRecordViewRecord
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,16 +31,16 @@ $EmbedRecordViewRecordCopyWith<EmbedRecordViewRecord> get copyWith => _$EmbedRec
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedRecordViewRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.author, author) || other.author == author)&&const DeepCollectionEquality().equals(other.value, value)&&const DeepCollectionEquality().equals(other.labels, labels)&&(identical(other.replyCount, replyCount) || other.replyCount == replyCount)&&(identical(other.repostCount, repostCount) || other.repostCount == repostCount)&&(identical(other.likeCount, likeCount) || other.likeCount == likeCount)&&(identical(other.quoteCount, quoteCount) || other.quoteCount == quoteCount)&&(identical(other.opThreadPostIndex, opThreadPostIndex) || other.opThreadPostIndex == opThreadPostIndex)&&(identical(other.opThreadPostCount, opThreadPostCount) || other.opThreadPostCount == opThreadPostCount)&&const DeepCollectionEquality().equals(other.embeds, embeds)&&(identical(other.indexedAt, indexedAt) || other.indexedAt == indexedAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedRecordViewRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.author, author) || other.author == author)&&const DeepCollectionEquality().equals(other.value, value)&&const DeepCollectionEquality().equals(other.labels, labels)&&(identical(other.replyCount, replyCount) || other.replyCount == replyCount)&&(identical(other.repostCount, repostCount) || other.repostCount == repostCount)&&(identical(other.likeCount, likeCount) || other.likeCount == likeCount)&&(identical(other.quoteCount, quoteCount) || other.quoteCount == quoteCount)&&(identical(other.opThreadPostIndex, opThreadPostIndex) || other.opThreadPostIndex == opThreadPostIndex)&&(identical(other.opThreadPostCount, opThreadPostCount) || other.opThreadPostCount == opThreadPostCount)&&const DeepCollectionEquality().equals(other.embeds, embeds)&&(identical(other.indexedAt, indexedAt) || other.indexedAt == indexedAt)&&(identical(other.editedAt, editedAt) || other.editedAt == editedAt)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,cid,author,const DeepCollectionEquality().hash(value),const DeepCollectionEquality().hash(labels),replyCount,repostCount,likeCount,quoteCount,opThreadPostIndex,opThreadPostCount,const DeepCollectionEquality().hash(embeds),indexedAt,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,uri,cid,author,const DeepCollectionEquality().hash(value),const DeepCollectionEquality().hash(labels),replyCount,repostCount,likeCount,quoteCount,opThreadPostIndex,opThreadPostCount,const DeepCollectionEquality().hash(embeds),indexedAt,editedAt,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'EmbedRecordViewRecord(\$type: ${$type}, uri: $uri, cid: $cid, author: $author, value: $value, labels: $labels, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, quoteCount: $quoteCount, opThreadPostIndex: $opThreadPostIndex, opThreadPostCount: $opThreadPostCount, embeds: $embeds, indexedAt: $indexedAt, \$unknown: ${$unknown})';
+  return 'EmbedRecordViewRecord(\$type: ${$type}, uri: $uri, cid: $cid, author: $author, value: $value, labels: $labels, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, quoteCount: $quoteCount, opThreadPostIndex: $opThreadPostIndex, opThreadPostCount: $opThreadPostCount, embeds: $embeds, indexedAt: $indexedAt, editedAt: $editedAt, \$unknown: ${$unknown})';
 }
 
 
@@ -50,7 +51,7 @@ abstract mixin class $EmbedRecordViewRecordCopyWith<$Res>  {
   factory $EmbedRecordViewRecordCopyWith(EmbedRecordViewRecord value, $Res Function(EmbedRecordViewRecord) _then) = _$EmbedRecordViewRecordCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewBasicConverter() ProfileViewBasic author, Map<String, dynamic> value,@LabelConverter() List<Label>? labels, int? replyCount, int? repostCount, int? likeCount, int? quoteCount, int? opThreadPostIndex, int? opThreadPostCount,@UEmbedRecordViewRecordEmbedsConverter() List<UEmbedRecordViewRecordEmbeds>? embeds,@JsonKey(toJson: iso8601) DateTime indexedAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewBasicConverter() ProfileViewBasic author, Map<String, dynamic> value,@LabelConverter() List<Label>? labels, int? replyCount, int? repostCount, int? likeCount, int? quoteCount, int? opThreadPostIndex, int? opThreadPostCount,@UEmbedRecordViewRecordEmbedsConverter() List<UEmbedRecordViewRecordEmbeds>? embeds,@JsonKey(toJson: iso8601) DateTime indexedAt,@JsonKey(toJson: iso8601) DateTime? editedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -67,7 +68,7 @@ class _$EmbedRecordViewRecordCopyWithImpl<$Res>
 
 /// Create a copy of EmbedRecordViewRecord
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? cid = null,Object? author = null,Object? value = null,Object? labels = freezed,Object? replyCount = freezed,Object? repostCount = freezed,Object? likeCount = freezed,Object? quoteCount = freezed,Object? opThreadPostIndex = freezed,Object? opThreadPostCount = freezed,Object? embeds = freezed,Object? indexedAt = null,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? uri = null,Object? cid = null,Object? author = null,Object? value = null,Object? labels = freezed,Object? replyCount = freezed,Object? repostCount = freezed,Object? likeCount = freezed,Object? quoteCount = freezed,Object? opThreadPostIndex = freezed,Object? opThreadPostCount = freezed,Object? embeds = freezed,Object? indexedAt = null,Object? editedAt = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
@@ -83,7 +84,8 @@ as int?,opThreadPostIndex: freezed == opThreadPostIndex ? _self.opThreadPostInde
 as int?,opThreadPostCount: freezed == opThreadPostCount ? _self.opThreadPostCount : opThreadPostCount // ignore: cast_nullable_to_non_nullable
 as int?,embeds: freezed == embeds ? _self.embeds : embeds // ignore: cast_nullable_to_non_nullable
 as List<UEmbedRecordViewRecordEmbeds>?,indexedAt: null == indexedAt ? _self.indexedAt : indexedAt // ignore: cast_nullable_to_non_nullable
-as DateTime,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as DateTime,editedAt: freezed == editedAt ? _self.editedAt : editedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -178,10 +180,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> value, @LabelConverter()  List<Label>? labels,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount,  int? opThreadPostIndex,  int? opThreadPostCount, @UEmbedRecordViewRecordEmbedsConverter()  List<UEmbedRecordViewRecordEmbeds>? embeds, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> value, @LabelConverter()  List<Label>? labels,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount,  int? opThreadPostIndex,  int? opThreadPostCount, @UEmbedRecordViewRecordEmbedsConverter()  List<UEmbedRecordViewRecordEmbeds>? embeds, @JsonKey(toJson: iso8601)  DateTime indexedAt, @JsonKey(toJson: iso8601)  DateTime? editedAt,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedRecordViewRecord() when $default != null:
-return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.labels,_that.replyCount,_that.repostCount,_that.likeCount,_that.quoteCount,_that.opThreadPostIndex,_that.opThreadPostCount,_that.embeds,_that.indexedAt,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.labels,_that.replyCount,_that.repostCount,_that.likeCount,_that.quoteCount,_that.opThreadPostIndex,_that.opThreadPostCount,_that.embeds,_that.indexedAt,_that.editedAt,_that.$unknown);case _:
   return orElse();
 
 }
@@ -199,10 +201,10 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.l
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> value, @LabelConverter()  List<Label>? labels,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount,  int? opThreadPostIndex,  int? opThreadPostCount, @UEmbedRecordViewRecordEmbedsConverter()  List<UEmbedRecordViewRecordEmbeds>? embeds, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> value, @LabelConverter()  List<Label>? labels,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount,  int? opThreadPostIndex,  int? opThreadPostCount, @UEmbedRecordViewRecordEmbedsConverter()  List<UEmbedRecordViewRecordEmbeds>? embeds, @JsonKey(toJson: iso8601)  DateTime indexedAt, @JsonKey(toJson: iso8601)  DateTime? editedAt,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedRecordViewRecord():
-return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.labels,_that.replyCount,_that.repostCount,_that.likeCount,_that.quoteCount,_that.opThreadPostIndex,_that.opThreadPostCount,_that.embeds,_that.indexedAt,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.labels,_that.replyCount,_that.repostCount,_that.likeCount,_that.quoteCount,_that.opThreadPostIndex,_that.opThreadPostCount,_that.embeds,_that.indexedAt,_that.editedAt,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -219,10 +221,10 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.l
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> value, @LabelConverter()  List<Label>? labels,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount,  int? opThreadPostIndex,  int? opThreadPostCount, @UEmbedRecordViewRecordEmbedsConverter()  List<UEmbedRecordViewRecordEmbeds>? embeds, @JsonKey(toJson: iso8601)  DateTime indexedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri uri,  String cid, @ProfileViewBasicConverter()  ProfileViewBasic author,  Map<String, dynamic> value, @LabelConverter()  List<Label>? labels,  int? replyCount,  int? repostCount,  int? likeCount,  int? quoteCount,  int? opThreadPostIndex,  int? opThreadPostCount, @UEmbedRecordViewRecordEmbedsConverter()  List<UEmbedRecordViewRecordEmbeds>? embeds, @JsonKey(toJson: iso8601)  DateTime indexedAt, @JsonKey(toJson: iso8601)  DateTime? editedAt,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedRecordViewRecord() when $default != null:
-return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.labels,_that.replyCount,_that.repostCount,_that.likeCount,_that.quoteCount,_that.opThreadPostIndex,_that.opThreadPostCount,_that.embeds,_that.indexedAt,_that.$unknown);case _:
+return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.labels,_that.replyCount,_that.repostCount,_that.likeCount,_that.quoteCount,_that.opThreadPostIndex,_that.opThreadPostCount,_that.embeds,_that.indexedAt,_that.editedAt,_that.$unknown);case _:
   return null;
 
 }
@@ -234,7 +236,7 @@ return $default(_that.$type,_that.uri,_that.cid,_that.author,_that.value,_that.l
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedRecordViewRecord implements EmbedRecordViewRecord {
-  const _EmbedRecordViewRecord({this.$type = 'app.bsky.embed.record#viewRecord', @AtUriConverter() required this.uri, required this.cid, @ProfileViewBasicConverter() required this.author, required final  Map<String, dynamic> value, @LabelConverter() final  List<Label>? labels, this.replyCount, this.repostCount, this.likeCount, this.quoteCount, this.opThreadPostIndex, this.opThreadPostCount, @UEmbedRecordViewRecordEmbedsConverter() final  List<UEmbedRecordViewRecordEmbeds>? embeds, @JsonKey(toJson: iso8601) required this.indexedAt, final  Map<String, dynamic>? $unknown}): _value = value,_labels = labels,_embeds = embeds,_$unknown = $unknown;
+  const _EmbedRecordViewRecord({this.$type = 'app.bsky.embed.record#viewRecord', @AtUriConverter() required this.uri, required this.cid, @ProfileViewBasicConverter() required this.author, required final  Map<String, dynamic> value, @LabelConverter() final  List<Label>? labels, this.replyCount, this.repostCount, this.likeCount, this.quoteCount, this.opThreadPostIndex, this.opThreadPostCount, @UEmbedRecordViewRecordEmbedsConverter() final  List<UEmbedRecordViewRecordEmbeds>? embeds, @JsonKey(toJson: iso8601) required this.indexedAt, @JsonKey(toJson: iso8601) this.editedAt, final  Map<String, dynamic>? $unknown}): _value = value,_labels = labels,_embeds = embeds,_$unknown = $unknown;
   factory _EmbedRecordViewRecord.fromJson(Map<String, dynamic> json) => _$EmbedRecordViewRecordFromJson(json);
 
 @override@JsonKey() final  String $type;
@@ -275,6 +277,8 @@ class _EmbedRecordViewRecord implements EmbedRecordViewRecord {
 }
 
 @override@JsonKey(toJson: iso8601) final  DateTime indexedAt;
+/// Present if the record has been edited. Timestamp when the current version of the record was indexed. indexedAt is unchanged by edits.
+@override@JsonKey(toJson: iso8601) final  DateTime? editedAt;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -298,16 +302,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedRecordViewRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.author, author) || other.author == author)&&const DeepCollectionEquality().equals(other._value, _value)&&const DeepCollectionEquality().equals(other._labels, _labels)&&(identical(other.replyCount, replyCount) || other.replyCount == replyCount)&&(identical(other.repostCount, repostCount) || other.repostCount == repostCount)&&(identical(other.likeCount, likeCount) || other.likeCount == likeCount)&&(identical(other.quoteCount, quoteCount) || other.quoteCount == quoteCount)&&(identical(other.opThreadPostIndex, opThreadPostIndex) || other.opThreadPostIndex == opThreadPostIndex)&&(identical(other.opThreadPostCount, opThreadPostCount) || other.opThreadPostCount == opThreadPostCount)&&const DeepCollectionEquality().equals(other._embeds, _embeds)&&(identical(other.indexedAt, indexedAt) || other.indexedAt == indexedAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedRecordViewRecord&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.uri, uri) || other.uri == uri)&&(identical(other.cid, cid) || other.cid == cid)&&(identical(other.author, author) || other.author == author)&&const DeepCollectionEquality().equals(other._value, _value)&&const DeepCollectionEquality().equals(other._labels, _labels)&&(identical(other.replyCount, replyCount) || other.replyCount == replyCount)&&(identical(other.repostCount, repostCount) || other.repostCount == repostCount)&&(identical(other.likeCount, likeCount) || other.likeCount == likeCount)&&(identical(other.quoteCount, quoteCount) || other.quoteCount == quoteCount)&&(identical(other.opThreadPostIndex, opThreadPostIndex) || other.opThreadPostIndex == opThreadPostIndex)&&(identical(other.opThreadPostCount, opThreadPostCount) || other.opThreadPostCount == opThreadPostCount)&&const DeepCollectionEquality().equals(other._embeds, _embeds)&&(identical(other.indexedAt, indexedAt) || other.indexedAt == indexedAt)&&(identical(other.editedAt, editedAt) || other.editedAt == editedAt)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,uri,cid,author,const DeepCollectionEquality().hash(_value),const DeepCollectionEquality().hash(_labels),replyCount,repostCount,likeCount,quoteCount,opThreadPostIndex,opThreadPostCount,const DeepCollectionEquality().hash(_embeds),indexedAt,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,uri,cid,author,const DeepCollectionEquality().hash(_value),const DeepCollectionEquality().hash(_labels),replyCount,repostCount,likeCount,quoteCount,opThreadPostIndex,opThreadPostCount,const DeepCollectionEquality().hash(_embeds),indexedAt,editedAt,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'EmbedRecordViewRecord(\$type: ${$type}, uri: $uri, cid: $cid, author: $author, value: $value, labels: $labels, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, quoteCount: $quoteCount, opThreadPostIndex: $opThreadPostIndex, opThreadPostCount: $opThreadPostCount, embeds: $embeds, indexedAt: $indexedAt, \$unknown: ${$unknown})';
+  return 'EmbedRecordViewRecord(\$type: ${$type}, uri: $uri, cid: $cid, author: $author, value: $value, labels: $labels, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, quoteCount: $quoteCount, opThreadPostIndex: $opThreadPostIndex, opThreadPostCount: $opThreadPostCount, embeds: $embeds, indexedAt: $indexedAt, editedAt: $editedAt, \$unknown: ${$unknown})';
 }
 
 
@@ -318,7 +322,7 @@ abstract mixin class _$EmbedRecordViewRecordCopyWith<$Res> implements $EmbedReco
   factory _$EmbedRecordViewRecordCopyWith(_EmbedRecordViewRecord value, $Res Function(_EmbedRecordViewRecord) _then) = __$EmbedRecordViewRecordCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewBasicConverter() ProfileViewBasic author, Map<String, dynamic> value,@LabelConverter() List<Label>? labels, int? replyCount, int? repostCount, int? likeCount, int? quoteCount, int? opThreadPostIndex, int? opThreadPostCount,@UEmbedRecordViewRecordEmbedsConverter() List<UEmbedRecordViewRecordEmbeds>? embeds,@JsonKey(toJson: iso8601) DateTime indexedAt, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri uri, String cid,@ProfileViewBasicConverter() ProfileViewBasic author, Map<String, dynamic> value,@LabelConverter() List<Label>? labels, int? replyCount, int? repostCount, int? likeCount, int? quoteCount, int? opThreadPostIndex, int? opThreadPostCount,@UEmbedRecordViewRecordEmbedsConverter() List<UEmbedRecordViewRecordEmbeds>? embeds,@JsonKey(toJson: iso8601) DateTime indexedAt,@JsonKey(toJson: iso8601) DateTime? editedAt, Map<String, dynamic>? $unknown
 });
 
 
@@ -335,7 +339,7 @@ class __$EmbedRecordViewRecordCopyWithImpl<$Res>
 
 /// Create a copy of EmbedRecordViewRecord
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? uri = null,Object? cid = null,Object? author = null,Object? value = null,Object? labels = freezed,Object? replyCount = freezed,Object? repostCount = freezed,Object? likeCount = freezed,Object? quoteCount = freezed,Object? opThreadPostIndex = freezed,Object? opThreadPostCount = freezed,Object? embeds = freezed,Object? indexedAt = null,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? uri = null,Object? cid = null,Object? author = null,Object? value = null,Object? labels = freezed,Object? replyCount = freezed,Object? repostCount = freezed,Object? likeCount = freezed,Object? quoteCount = freezed,Object? opThreadPostIndex = freezed,Object? opThreadPostCount = freezed,Object? embeds = freezed,Object? indexedAt = null,Object? editedAt = freezed,Object? $unknown = freezed,}) {
   return _then(_EmbedRecordViewRecord(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,uri: null == uri ? _self.uri : uri // ignore: cast_nullable_to_non_nullable
@@ -351,7 +355,8 @@ as int?,opThreadPostIndex: freezed == opThreadPostIndex ? _self.opThreadPostInde
 as int?,opThreadPostCount: freezed == opThreadPostCount ? _self.opThreadPostCount : opThreadPostCount // ignore: cast_nullable_to_non_nullable
 as int?,embeds: freezed == embeds ? _self._embeds : embeds // ignore: cast_nullable_to_non_nullable
 as List<UEmbedRecordViewRecordEmbeds>?,indexedAt: null == indexedAt ? _self.indexedAt : indexedAt // ignore: cast_nullable_to_non_nullable
-as DateTime,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as DateTime,editedAt: freezed == editedAt ? _self.editedAt : editedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

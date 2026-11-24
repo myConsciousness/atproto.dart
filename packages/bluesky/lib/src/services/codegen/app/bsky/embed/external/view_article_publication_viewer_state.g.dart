@@ -27,6 +27,20 @@ _$EmbedExternalViewArticlePublicationViewerStateFromJson(Map json) =>
             const AtUriConverter().fromJson,
           ),
         ),
+        knownSubscribers: $checkedConvert(
+          'knownSubscribers',
+          (v) => (v as List<dynamic>?)
+              ?.map(
+                (e) => const ProfileViewBasicConverter().fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList(),
+        ),
+        knownSubscriberCount: $checkedConvert(
+          'knownSubscriberCount',
+          (v) => (v as num?)?.toInt(),
+        ),
         $unknown: $checkedConvert(
           r'$unknown',
           (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -43,6 +57,10 @@ Map<String, dynamic> _$EmbedExternalViewArticlePublicationViewerStateToJson(
     instance.subscription,
     const AtUriConverter().toJson,
   ),
+  'knownSubscribers': ?instance.knownSubscribers
+      ?.map(const ProfileViewBasicConverter().toJson)
+      .toList(),
+  'knownSubscriberCount': ?instance.knownSubscriberCount,
   r'$unknown': ?instance.$unknown,
 };
 

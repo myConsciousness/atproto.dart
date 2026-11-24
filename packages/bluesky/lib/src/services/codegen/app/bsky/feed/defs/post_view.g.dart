@@ -47,6 +47,10 @@ _PostView _$PostViewFromJson(Map json) => $checkedCreate('_PostView', json, (
     quoteCount: $checkedConvert('quoteCount', (v) => (v as num?)?.toInt()),
     viewCount: $checkedConvert('viewCount', (v) => (v as num?)?.toInt()),
     indexedAt: $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
+    editedAt: $checkedConvert(
+      'editedAt',
+      (v) => v == null ? null : DateTime.parse(v as String),
+    ),
     viewer: $checkedConvert(
       'viewer',
       (v) => _$JsonConverterFromJson<Map<String, dynamic>, ViewerState>(
@@ -98,6 +102,7 @@ Map<String, dynamic> _$PostViewToJson(_PostView instance) => <String, dynamic>{
   'quoteCount': ?instance.quoteCount,
   'viewCount': ?instance.viewCount,
   'indexedAt': iso8601(instance.indexedAt),
+  'editedAt': iso8601(instance.editedAt),
   'viewer': ?_$JsonConverterToJson<Map<String, dynamic>, ViewerState>(
     instance.viewer,
     const ViewerStateConverter().toJson,

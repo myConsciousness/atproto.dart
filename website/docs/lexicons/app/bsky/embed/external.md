@@ -97,7 +97,7 @@ RGB color definition, inspired by site.standard.theme.color#rgb
 | **readingTime** | integer | - | ❌ | - |
 | **viewer** | [#viewArticleViewerState](#viewarticleviewerstate) | - | ❌ | - |
 | **likeCount** | integer | - | ❌ | - |
-| **likers** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Available profile previews. Selected deterministically by DID; not a ranking. |
+| **likers** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Available profile previews. Selected deterministically by DID; not a ranking. Deprecated: use viewer.knownLikers instead. |
 
 ## #viewArticleViewerState
 
@@ -106,6 +106,8 @@ Metadata about the requesting account's relationship with the subject article. O
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **like** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | The requesting account's site.standard.graph.recommend record for this article, if recommended. |
+| **knownLikers** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Up to 3 accounts the requesting account follows that recommended the subject, newest first. Never includes the requesting account. |
+| **knownLikerCount** | integer | - | ❌ | Total number of accounts the requesting account follows that recommended the subject, including those in knownLikers. |
 
 ## #viewArticlePublication
 
@@ -134,6 +136,8 @@ Metadata about the requesting account's relationship with the subject publicatio
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **subscription** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | The requesting account's site.standard.graph.subscription record for this publication, if subscribed. |
+| **knownSubscribers** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Up to 3 accounts the requesting account follows that subscribed to the subject, newest first. Never includes the requesting account. |
+| **knownSubscriberCount** | integer | - | ❌ | Total number of accounts the requesting account follows that subscribed to the subject, including those in knownSubscribers. |
 
 ## #viewArticlePublicationTheme
 
@@ -161,7 +165,7 @@ Metadata about the requesting account's relationship with the subject publicatio
 | **photoCount** | integer | - | ❌ | Total number of gallery item backlinks, independent of the items included in this view. |
 | **viewer** | [#viewGalleryViewerState](#viewgalleryviewerstate) | - | ❌ | - |
 | **likeCount** | integer | - | ❌ | - |
-| **likers** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Available profile previews. Selected deterministically by DID; not a ranking. |
+| **likers** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Available profile previews. Selected deterministically by DID; not a ranking. Deprecated: use viewer.knownLikers instead. |
 
 ## #viewGalleryViewerState
 
@@ -170,6 +174,8 @@ Metadata about the requesting account's relationship with the subject gallery. O
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **like** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | The requesting account's social.grain.favorite record for this gallery, if favorited. |
+| **knownLikers** | array of [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | Up to 3 accounts the requesting account follows that favorited the subject, newest first. Never includes the requesting account. |
+| **knownLikerCount** | integer | - | ❌ | Total number of accounts the requesting account follows that favorited the subject, including those in knownLikers. |
 
 ## #viewGalleryImage
 

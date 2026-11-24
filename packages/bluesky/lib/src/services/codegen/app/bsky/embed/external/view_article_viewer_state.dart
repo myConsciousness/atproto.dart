@@ -12,6 +12,9 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
+
 part 'view_article_viewer_state.freezed.dart';
 part 'view_article_viewer_state.g.dart';
 
@@ -23,7 +26,7 @@ part 'view_article_viewer_state.g.dart';
 @freezed
 abstract class EmbedExternalViewArticleViewerState
     with _$EmbedExternalViewArticleViewerState {
-  static const knownProps = <String>['like'];
+  static const knownProps = <String>['like', 'knownLikers', 'knownLikerCount'];
 
   @JsonSerializable(includeIfNull: false)
   const factory EmbedExternalViewArticleViewerState({
@@ -31,6 +34,10 @@ abstract class EmbedExternalViewArticleViewerState
 
     /// The requesting account's site.standard.graph.recommend record for this article, if recommended.
     @AtUriConverter() AtUri? like,
+    @ProfileViewBasicConverter() List<ProfileViewBasic>? knownLikers,
+
+    /// Total number of accounts the requesting account follows that recommended the subject, including those in knownLikers.
+    int? knownLikerCount,
 
     Map<String, dynamic>? $unknown,
   }) = _EmbedExternalViewArticleViewerState;
@@ -49,6 +56,8 @@ extension EmbedExternalViewArticleViewerStateExtension
     on EmbedExternalViewArticleViewerState {
   bool get hasLike => like != null;
   bool get hasNotLike => !hasLike;
+  bool get hasKnownLikerCount => knownLikerCount != null;
+  bool get hasNotKnownLikerCount => !hasKnownLikerCount;
 }
 
 final class EmbedExternalViewArticleViewerStateConverter

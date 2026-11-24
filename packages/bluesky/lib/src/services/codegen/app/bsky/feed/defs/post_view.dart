@@ -41,6 +41,7 @@ abstract class PostView with _$PostView {
     'quoteCount',
     'viewCount',
     'indexedAt',
+    'editedAt',
     'viewer',
     'labels',
     'threadgate',
@@ -64,6 +65,9 @@ abstract class PostView with _$PostView {
     /// Approximate number of times the post has been viewed. Only included in authenticated responses to the post's author when eligible to see the count. Counts less than 100 are omitted.
     int? viewCount,
     @JsonKey(toJson: iso8601) required DateTime indexedAt,
+
+    /// Present if the post has been edited. Timestamp when the version of the post in this view was indexed. indexedAt is unchanged by edits.
+    @JsonKey(toJson: iso8601) DateTime? editedAt,
     @ViewerStateConverter() ViewerState? viewer,
     @LabelConverter() List<Label>? labels,
     @ThreadgateViewConverter() ThreadgateView? threadgate,
@@ -96,6 +100,8 @@ extension PostViewExtension on PostView {
   bool get hasNotQuoteCount => !hasQuoteCount;
   bool get hasViewCount => viewCount != null;
   bool get hasNotViewCount => !hasViewCount;
+  bool get hasEditedAt => editedAt != null;
+  bool get hasNotEditedAt => !hasEditedAt;
   bool get hasViewer => viewer != null;
   bool get hasNotViewer => !hasViewer;
   bool get hasThreadgate => threadgate != null;

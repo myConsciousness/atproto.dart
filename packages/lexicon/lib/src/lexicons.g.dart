@@ -2644,7 +2644,7 @@ const appBskyEmbedExternal = <String, dynamic>{
         "likers": {
           "type": "array",
           "description":
-              "Available profile previews. Selected deterministically by DID; not a ranking.",
+              "Available profile previews. Selected deterministically by DID; not a ranking. Deprecated: use viewer.knownLikers instead.",
           "items": {
             "type": "ref",
             "ref": "app.bsky.actor.defs#profileViewBasic",
@@ -2663,6 +2663,22 @@ const appBskyEmbedExternal = <String, dynamic>{
           "format": "at-uri",
           "description":
               "The requesting account's site.standard.graph.recommend record for this article, if recommended.",
+        },
+        "knownLikers": {
+          "type": "array",
+          "description":
+              "Up to 3 accounts the requesting account follows that recommended the subject, newest first. Never includes the requesting account.",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic",
+          },
+          "maxLength": 3,
+        },
+        "knownLikerCount": {
+          "type": "integer",
+          "description":
+              "Total number of accounts the requesting account follows that recommended the subject, including those in knownLikers.",
+          "minimum": 0,
         },
       },
     },
@@ -2723,6 +2739,22 @@ const appBskyEmbedExternal = <String, dynamic>{
           "format": "at-uri",
           "description":
               "The requesting account's site.standard.graph.subscription record for this publication, if subscribed.",
+        },
+        "knownSubscribers": {
+          "type": "array",
+          "description":
+              "Up to 3 accounts the requesting account follows that subscribed to the subject, newest first. Never includes the requesting account.",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic",
+          },
+          "maxLength": 3,
+        },
+        "knownSubscriberCount": {
+          "type": "integer",
+          "description":
+              "Total number of accounts the requesting account follows that subscribed to the subject, including those in knownSubscribers.",
+          "minimum": 0,
         },
       },
     },
@@ -2797,7 +2829,7 @@ const appBskyEmbedExternal = <String, dynamic>{
         "likers": {
           "type": "array",
           "description":
-              "Available profile previews. Selected deterministically by DID; not a ranking.",
+              "Available profile previews. Selected deterministically by DID; not a ranking. Deprecated: use viewer.knownLikers instead.",
           "items": {
             "type": "ref",
             "ref": "app.bsky.actor.defs#profileViewBasic",
@@ -2816,6 +2848,22 @@ const appBskyEmbedExternal = <String, dynamic>{
           "format": "at-uri",
           "description":
               "The requesting account's social.grain.favorite record for this gallery, if favorited.",
+        },
+        "knownLikers": {
+          "type": "array",
+          "description":
+              "Up to 3 accounts the requesting account follows that favorited the subject, newest first. Never includes the requesting account.",
+          "items": {
+            "type": "ref",
+            "ref": "app.bsky.actor.defs#profileViewBasic",
+          },
+          "maxLength": 3,
+        },
+        "knownLikerCount": {
+          "type": "integer",
+          "description":
+              "Total number of accounts the requesting account follows that favorited the subject, including those in knownLikers.",
+          "minimum": 0,
         },
       },
     },
@@ -3231,6 +3279,12 @@ const appBskyEmbedRecord = <String, dynamic>{
           },
         },
         "indexedAt": {"type": "string", "format": "datetime"},
+        "editedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "Present if the record has been edited. Timestamp when the current version of the record was indexed. indexedAt is unchanged by edits.",
+        },
       },
     },
     "viewNotFound": {
@@ -3413,6 +3467,12 @@ const appBskyFeedDefs = <String, dynamic>{
               "Approximate number of times the post has been viewed. Only included in authenticated responses to the post's author when eligible to see the count. Counts less than 100 are omitted.",
         },
         "indexedAt": {"type": "string", "format": "datetime"},
+        "editedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "Present if the post has been edited. Timestamp when the version of the post in this view was indexed. indexedAt is unchanged by edits.",
+        },
         "viewer": {"type": "ref", "ref": "#viewerState"},
         "labels": {
           "type": "array",
@@ -4395,6 +4455,49 @@ const appBskyFeedGetPostThread = <String, dynamic>{
             "threadgate": {
               "type": "ref",
               "ref": "app.bsky.feed.defs#threadgateView",
+            },
+          },
+        },
+      },
+      "errors": [
+        {"name": "NotFound"},
+      ],
+    },
+  },
+};
+
+/// `app.bsky.feed.getPostVersions`
+const appBskyFeedGetPostVersions = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.feed.getPostVersions",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get the version history of a post. Only versions the AppView accepted as valid edits are included.",
+      "parameters": {
+        "type": "params",
+        "required": ["uri"],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Reference (AT-URI) of post record",
+          },
+        },
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["uri", "versions"],
+          "properties": {
+            "uri": {"type": "string", "format": "at-uri"},
+            "versions": {
+              "type": "array",
+              "description":
+                  "Versions of the post, newest first. Includes the current version, so an unedited post has a single entry. Each view describes the version at its CID: counts and viewer state are scoped to that CID, editedAt is when that version was indexed (absent on the original), and indexedAt is the original post's.",
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#postView"},
             },
           },
         },
@@ -29322,6 +29425,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyFeedGetLikes,
   appBskyFeedGetListFeed,
   appBskyFeedGetPostThread,
+  appBskyFeedGetPostVersions,
   appBskyFeedGetPosts,
   appBskyFeedGetQuotes,
   appBskyFeedGetRepostedBy,

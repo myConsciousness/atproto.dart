@@ -21,6 +21,7 @@ description: app.bsky.feed.defs
 | **quoteCount** | integer | - | ❌ | - |
 | **viewCount** | integer | - | ❌ | Approximate number of times the post has been viewed. Only included in authenticated responses to the post's author when eligible to see the count. Counts less than 100 are omitted. |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **editedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Present if the post has been edited. Timestamp when the version of the post in this view was indexed. indexedAt is unchanged by edits. |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **threadgate** | [#threadgateView](#threadgateview) | - | ❌ | - |
