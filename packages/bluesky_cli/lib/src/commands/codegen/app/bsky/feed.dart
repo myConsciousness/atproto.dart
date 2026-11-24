@@ -23,6 +23,7 @@ import 'feed/get_feed_skeleton.dart';
 import 'feed/get_likes.dart';
 import 'feed/get_list_feed.dart';
 import 'feed/get_post_thread.dart';
+import 'feed/get_post_versions.dart';
 import 'feed/get_posts.dart';
 import 'feed/get_quotes.dart';
 import 'feed/get_reposted_by.dart';
@@ -55,6 +56,7 @@ final class AppBskyFeedCommand extends Command<void> {
     addSubcommand(GetLikesCommand());
     addSubcommand(GetListFeedCommand());
     addSubcommand(GetPostThreadCommand());
+    addSubcommand(GetPostVersionsCommand());
     addSubcommand(GetPostsCommand());
     addSubcommand(GetQuotesCommand());
     addSubcommand(GetRepostedByCommand());

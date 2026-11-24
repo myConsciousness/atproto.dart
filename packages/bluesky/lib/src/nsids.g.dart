@@ -295,6 +295,9 @@ const appBskyFeedGetListFeed = NSID(ids.appBskyFeedGetListFeed);
 /// `app.bsky.feed.getPostThread`
 const appBskyFeedGetPostThread = NSID(ids.appBskyFeedGetPostThread);
 
+/// `app.bsky.feed.getPostVersions`
+const appBskyFeedGetPostVersions = NSID(ids.appBskyFeedGetPostVersions);
+
 /// `app.bsky.feed.getPosts`
 const appBskyFeedGetPosts = NSID(ids.appBskyFeedGetPosts);
 

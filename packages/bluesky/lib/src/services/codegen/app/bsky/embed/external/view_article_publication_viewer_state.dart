@@ -12,6 +12,9 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
+
 part 'view_article_publication_viewer_state.freezed.dart';
 part 'view_article_publication_viewer_state.g.dart';
 
@@ -23,7 +26,11 @@ part 'view_article_publication_viewer_state.g.dart';
 @freezed
 abstract class EmbedExternalViewArticlePublicationViewerState
     with _$EmbedExternalViewArticlePublicationViewerState {
-  static const knownProps = <String>['subscription'];
+  static const knownProps = <String>[
+    'subscription',
+    'knownSubscribers',
+    'knownSubscriberCount',
+  ];
 
   @JsonSerializable(includeIfNull: false)
   const factory EmbedExternalViewArticlePublicationViewerState({
@@ -32,6 +39,10 @@ abstract class EmbedExternalViewArticlePublicationViewerState
 
     /// The requesting account's site.standard.graph.subscription record for this publication, if subscribed.
     @AtUriConverter() AtUri? subscription,
+    @ProfileViewBasicConverter() List<ProfileViewBasic>? knownSubscribers,
+
+    /// Total number of accounts the requesting account follows that subscribed to the subject, including those in knownSubscribers.
+    int? knownSubscriberCount,
 
     Map<String, dynamic>? $unknown,
   }) = _EmbedExternalViewArticlePublicationViewerState;
@@ -51,6 +62,8 @@ extension EmbedExternalViewArticlePublicationViewerStateExtension
     on EmbedExternalViewArticlePublicationViewerState {
   bool get hasSubscription => subscription != null;
   bool get hasNotSubscription => !hasSubscription;
+  bool get hasKnownSubscriberCount => knownSubscriberCount != null;
+  bool get hasNotKnownSubscriberCount => !hasKnownSubscriberCount;
 }
 
 final class EmbedExternalViewArticlePublicationViewerStateConverter

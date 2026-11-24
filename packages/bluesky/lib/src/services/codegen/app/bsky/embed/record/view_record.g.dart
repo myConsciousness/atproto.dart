@@ -58,6 +58,10 @@ _EmbedRecordViewRecord _$EmbedRecordViewRecordFromJson(
           .toList(),
     ),
     indexedAt: $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
+    editedAt: $checkedConvert(
+      'editedAt',
+      (v) => v == null ? null : DateTime.parse(v as String),
+    ),
     $unknown: $checkedConvert(
       r'$unknown',
       (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -85,5 +89,6 @@ Map<String, dynamic> _$EmbedRecordViewRecordToJson(
       ?.map(const UEmbedRecordViewRecordEmbedsConverter().toJson)
       .toList(),
   'indexedAt': iso8601(instance.indexedAt),
+  'editedAt': iso8601(instance.editedAt),
   r'$unknown': ?instance.$unknown,
 };

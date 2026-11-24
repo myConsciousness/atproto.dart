@@ -36,6 +36,7 @@ import 'feed/getFeedSkeleton/output.dart';
 import 'feed/getLikes/output.dart';
 import 'feed/getListFeed/output.dart';
 import 'feed/getPostThread/output.dart';
+import 'feed/getPostVersions/output.dart';
 import 'feed/getPosts/output.dart';
 import 'feed/getQuotes/main_sort.dart';
 import 'feed/getQuotes/output.dart';
@@ -293,6 +294,21 @@ Future<XRPCResponse<FeedGetPostThreadOutput>> appBskyFeedGetPostThread({
     if (parentHeight != null) 'parentHeight': parentHeight,
   },
   to: const FeedGetPostThreadOutputConverter().fromJson,
+);
+
+/// Get the version history of a post. Only versions the AppView accepted as valid edits are included.
+Future<XRPCResponse<FeedGetPostVersionsOutput>> appBskyFeedGetPostVersions({
+  required AtUri uri,
+  required ServiceContext $ctx,
+  String? $service,
+  Map<String, String>? $headers,
+  Map<String, String>? $unknown,
+}) async => await $ctx.get(
+  ns.appBskyFeedGetPostVersions,
+  service: $service,
+  headers: $headers,
+  parameters: {...?$unknown, 'uri': uri.toString()},
+  to: const FeedGetPostVersionsOutputConverter().fromJson,
 );
 
 /// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
@@ -752,6 +768,20 @@ base class FeedService {
     uri: uri,
     depth: depth,
     parentHeight: parentHeight,
+    $ctx: ctx,
+    $service: $service,
+    $headers: $headers,
+    $unknown: $unknown,
+  );
+
+  /// Get the version history of a post. Only versions the AppView accepted as valid edits are included.
+  Future<XRPCResponse<FeedGetPostVersionsOutput>> getPostVersions({
+    required AtUri uri,
+    String? $service,
+    Map<String, String>? $headers,
+    Map<String, String>? $unknown,
+  }) async => await appBskyFeedGetPostVersions(
+    uri: uri,
     $ctx: ctx,
     $service: $service,
     $headers: $headers,

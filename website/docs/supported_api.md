@@ -226,6 +226,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.feed.getLikes](https://pub.dev/documentation/bluesky/latest/app_bsky_services/FeedService/getLikes.html)** | [Reference](lexicons/app/bsky/feed/getLikes.md) | ✅ |
 | **[app.bsky.feed.getListFeed](https://pub.dev/documentation/bluesky/latest/app_bsky_services/FeedService/getListFeed.html)** | [Reference](lexicons/app/bsky/feed/getListFeed.md) | ✅ |
 | **[app.bsky.feed.getPostThread](https://pub.dev/documentation/bluesky/latest/app_bsky_services/FeedService/getPostThread.html)** | [Reference](lexicons/app/bsky/feed/getPostThread.md) | ❌ |
+| **[app.bsky.feed.getPostVersions](https://pub.dev/documentation/bluesky/latest/app_bsky_services/FeedService/getPostVersions.html)** | [Reference](lexicons/app/bsky/feed/getPostVersions.md) | ❌ |
 | **[app.bsky.feed.getPosts](https://pub.dev/documentation/bluesky/latest/app_bsky_services/FeedService/getPosts.html)** | [Reference](lexicons/app/bsky/feed/getPosts.md) | ❌ |
 | **[app.bsky.feed.getQuotes](https://pub.dev/documentation/bluesky/latest/app_bsky_services/FeedService/getQuotes.html)** | [Reference](lexicons/app/bsky/feed/getQuotes.md) | ✅ |
 | **[app.bsky.feed.getRepostedBy](https://pub.dev/documentation/bluesky/latest/app_bsky_services/FeedService/getRepostedBy.html)** | [Reference](lexicons/app/bsky/feed/getRepostedBy.md) | ✅ |

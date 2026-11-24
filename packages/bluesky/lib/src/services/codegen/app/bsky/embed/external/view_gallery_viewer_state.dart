@@ -12,6 +12,9 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:atproto_core/internals.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// Project imports:
+import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
+
 part 'view_gallery_viewer_state.freezed.dart';
 part 'view_gallery_viewer_state.g.dart';
 
@@ -23,7 +26,7 @@ part 'view_gallery_viewer_state.g.dart';
 @freezed
 abstract class EmbedExternalViewGalleryViewerState
     with _$EmbedExternalViewGalleryViewerState {
-  static const knownProps = <String>['like'];
+  static const knownProps = <String>['like', 'knownLikers', 'knownLikerCount'];
 
   @JsonSerializable(includeIfNull: false)
   const factory EmbedExternalViewGalleryViewerState({
@@ -31,6 +34,10 @@ abstract class EmbedExternalViewGalleryViewerState
 
     /// The requesting account's social.grain.favorite record for this gallery, if favorited.
     @AtUriConverter() AtUri? like,
+    @ProfileViewBasicConverter() List<ProfileViewBasic>? knownLikers,
+
+    /// Total number of accounts the requesting account follows that favorited the subject, including those in knownLikers.
+    int? knownLikerCount,
 
     Map<String, dynamic>? $unknown,
   }) = _EmbedExternalViewGalleryViewerState;
@@ -49,6 +56,8 @@ extension EmbedExternalViewGalleryViewerStateExtension
     on EmbedExternalViewGalleryViewerState {
   bool get hasLike => like != null;
   bool get hasNotLike => !hasLike;
+  bool get hasKnownLikerCount => knownLikerCount != null;
+  bool get hasNotKnownLikerCount => !hasKnownLikerCount;
 }
 
 final class EmbedExternalViewGalleryViewerStateConverter

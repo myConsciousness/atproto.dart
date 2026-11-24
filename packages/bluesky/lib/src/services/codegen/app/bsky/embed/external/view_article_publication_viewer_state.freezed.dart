@@ -16,7 +16,8 @@ T _$identity<T>(T value) => value;
 mixin _$EmbedExternalViewArticlePublicationViewerState {
 
  String get $type;/// The requesting account's site.standard.graph.subscription record for this publication, if subscribed.
-@AtUriConverter() AtUri? get subscription; Map<String, dynamic>? get $unknown;
+@AtUriConverter() AtUri? get subscription;@ProfileViewBasicConverter() List<ProfileViewBasic>? get knownSubscribers;/// Total number of accounts the requesting account follows that subscribed to the subject, including those in knownSubscribers.
+ int? get knownSubscriberCount; Map<String, dynamic>? get $unknown;
 /// Create a copy of EmbedExternalViewArticlePublicationViewerState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +30,16 @@ $EmbedExternalViewArticlePublicationViewerStateCopyWith<EmbedExternalViewArticle
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedExternalViewArticlePublicationViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.subscription, subscription) || other.subscription == subscription)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmbedExternalViewArticlePublicationViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.subscription, subscription) || other.subscription == subscription)&&const DeepCollectionEquality().equals(other.knownSubscribers, knownSubscribers)&&(identical(other.knownSubscriberCount, knownSubscriberCount) || other.knownSubscriberCount == knownSubscriberCount)&&const DeepCollectionEquality().equals(other.$unknown, $unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,subscription,const DeepCollectionEquality().hash($unknown));
+int get hashCode => Object.hash(runtimeType,$type,subscription,const DeepCollectionEquality().hash(knownSubscribers),knownSubscriberCount,const DeepCollectionEquality().hash($unknown));
 
 @override
 String toString() {
-  return 'EmbedExternalViewArticlePublicationViewerState(\$type: ${$type}, subscription: $subscription, \$unknown: ${$unknown})';
+  return 'EmbedExternalViewArticlePublicationViewerState(\$type: ${$type}, subscription: $subscription, knownSubscribers: $knownSubscribers, knownSubscriberCount: $knownSubscriberCount, \$unknown: ${$unknown})';
 }
 
 
@@ -49,7 +50,7 @@ abstract mixin class $EmbedExternalViewArticlePublicationViewerStateCopyWith<$Re
   factory $EmbedExternalViewArticlePublicationViewerStateCopyWith(EmbedExternalViewArticlePublicationViewerState value, $Res Function(EmbedExternalViewArticlePublicationViewerState) _then) = _$EmbedExternalViewArticlePublicationViewerStateCopyWithImpl;
 @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri? subscription, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? subscription,@ProfileViewBasicConverter() List<ProfileViewBasic>? knownSubscribers, int? knownSubscriberCount, Map<String, dynamic>? $unknown
 });
 
 
@@ -66,11 +67,13 @@ class _$EmbedExternalViewArticlePublicationViewerStateCopyWithImpl<$Res>
 
 /// Create a copy of EmbedExternalViewArticlePublicationViewerState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? subscription = freezed,Object? $unknown = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? $type = null,Object? subscription = freezed,Object? knownSubscribers = freezed,Object? knownSubscriberCount = freezed,Object? $unknown = freezed,}) {
   return _then(_self.copyWith(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,subscription: freezed == subscription ? _self.subscription : subscription // ignore: cast_nullable_to_non_nullable
-as AtUri?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri?,knownSubscribers: freezed == knownSubscribers ? _self.knownSubscribers : knownSubscribers // ignore: cast_nullable_to_non_nullable
+as List<ProfileViewBasic>?,knownSubscriberCount: freezed == knownSubscriberCount ? _self.knownSubscriberCount : knownSubscriberCount // ignore: cast_nullable_to_non_nullable
+as int?,$unknown: freezed == $unknown ? _self.$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }
@@ -156,10 +159,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? subscription,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? subscription, @ProfileViewBasicConverter()  List<ProfileViewBasic>? knownSubscribers,  int? knownSubscriberCount,  Map<String, dynamic>? $unknown)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewArticlePublicationViewerState() when $default != null:
-return $default(_that.$type,_that.subscription,_that.$unknown);case _:
+return $default(_that.$type,_that.subscription,_that.knownSubscribers,_that.knownSubscriberCount,_that.$unknown);case _:
   return orElse();
 
 }
@@ -177,10 +180,10 @@ return $default(_that.$type,_that.subscription,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? subscription,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String $type, @AtUriConverter()  AtUri? subscription, @ProfileViewBasicConverter()  List<ProfileViewBasic>? knownSubscribers,  int? knownSubscriberCount,  Map<String, dynamic>? $unknown)  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewArticlePublicationViewerState():
-return $default(_that.$type,_that.subscription,_that.$unknown);case _:
+return $default(_that.$type,_that.subscription,_that.knownSubscribers,_that.knownSubscriberCount,_that.$unknown);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -197,10 +200,10 @@ return $default(_that.$type,_that.subscription,_that.$unknown);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri? subscription,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String $type, @AtUriConverter()  AtUri? subscription, @ProfileViewBasicConverter()  List<ProfileViewBasic>? knownSubscribers,  int? knownSubscriberCount,  Map<String, dynamic>? $unknown)?  $default,) {final _that = this;
 switch (_that) {
 case _EmbedExternalViewArticlePublicationViewerState() when $default != null:
-return $default(_that.$type,_that.subscription,_that.$unknown);case _:
+return $default(_that.$type,_that.subscription,_that.knownSubscribers,_that.knownSubscriberCount,_that.$unknown);case _:
   return null;
 
 }
@@ -212,12 +215,23 @@ return $default(_that.$type,_that.subscription,_that.$unknown);case _:
 
 @JsonSerializable(includeIfNull: false)
 class _EmbedExternalViewArticlePublicationViewerState implements EmbedExternalViewArticlePublicationViewerState {
-  const _EmbedExternalViewArticlePublicationViewerState({this.$type = 'app.bsky.embed.external#viewArticlePublicationViewerState', @AtUriConverter() this.subscription, final  Map<String, dynamic>? $unknown}): _$unknown = $unknown;
+  const _EmbedExternalViewArticlePublicationViewerState({this.$type = 'app.bsky.embed.external#viewArticlePublicationViewerState', @AtUriConverter() this.subscription, @ProfileViewBasicConverter() final  List<ProfileViewBasic>? knownSubscribers, this.knownSubscriberCount, final  Map<String, dynamic>? $unknown}): _knownSubscribers = knownSubscribers,_$unknown = $unknown;
   factory _EmbedExternalViewArticlePublicationViewerState.fromJson(Map<String, dynamic> json) => _$EmbedExternalViewArticlePublicationViewerStateFromJson(json);
 
 @override@JsonKey() final  String $type;
 /// The requesting account's site.standard.graph.subscription record for this publication, if subscribed.
 @override@AtUriConverter() final  AtUri? subscription;
+ final  List<ProfileViewBasic>? _knownSubscribers;
+@override@ProfileViewBasicConverter() List<ProfileViewBasic>? get knownSubscribers {
+  final value = _knownSubscribers;
+  if (value == null) return null;
+  if (_knownSubscribers is EqualUnmodifiableListView) return _knownSubscribers;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
+/// Total number of accounts the requesting account follows that subscribed to the subject, including those in knownSubscribers.
+@override final  int? knownSubscriberCount;
  final  Map<String, dynamic>? _$unknown;
 @override Map<String, dynamic>? get $unknown {
   final value = _$unknown;
@@ -241,16 +255,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedExternalViewArticlePublicationViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.subscription, subscription) || other.subscription == subscription)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmbedExternalViewArticlePublicationViewerState&&(identical(other.$type, $type) || other.$type == $type)&&(identical(other.subscription, subscription) || other.subscription == subscription)&&const DeepCollectionEquality().equals(other._knownSubscribers, _knownSubscribers)&&(identical(other.knownSubscriberCount, knownSubscriberCount) || other.knownSubscriberCount == knownSubscriberCount)&&const DeepCollectionEquality().equals(other._$unknown, _$unknown));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,$type,subscription,const DeepCollectionEquality().hash(_$unknown));
+int get hashCode => Object.hash(runtimeType,$type,subscription,const DeepCollectionEquality().hash(_knownSubscribers),knownSubscriberCount,const DeepCollectionEquality().hash(_$unknown));
 
 @override
 String toString() {
-  return 'EmbedExternalViewArticlePublicationViewerState(\$type: ${$type}, subscription: $subscription, \$unknown: ${$unknown})';
+  return 'EmbedExternalViewArticlePublicationViewerState(\$type: ${$type}, subscription: $subscription, knownSubscribers: $knownSubscribers, knownSubscriberCount: $knownSubscriberCount, \$unknown: ${$unknown})';
 }
 
 
@@ -261,7 +275,7 @@ abstract mixin class _$EmbedExternalViewArticlePublicationViewerStateCopyWith<$R
   factory _$EmbedExternalViewArticlePublicationViewerStateCopyWith(_EmbedExternalViewArticlePublicationViewerState value, $Res Function(_EmbedExternalViewArticlePublicationViewerState) _then) = __$EmbedExternalViewArticlePublicationViewerStateCopyWithImpl;
 @override @useResult
 $Res call({
- String $type,@AtUriConverter() AtUri? subscription, Map<String, dynamic>? $unknown
+ String $type,@AtUriConverter() AtUri? subscription,@ProfileViewBasicConverter() List<ProfileViewBasic>? knownSubscribers, int? knownSubscriberCount, Map<String, dynamic>? $unknown
 });
 
 
@@ -278,11 +292,13 @@ class __$EmbedExternalViewArticlePublicationViewerStateCopyWithImpl<$Res>
 
 /// Create a copy of EmbedExternalViewArticlePublicationViewerState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? subscription = freezed,Object? $unknown = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? $type = null,Object? subscription = freezed,Object? knownSubscribers = freezed,Object? knownSubscriberCount = freezed,Object? $unknown = freezed,}) {
   return _then(_EmbedExternalViewArticlePublicationViewerState(
 $type: null == $type ? _self.$type : $type // ignore: cast_nullable_to_non_nullable
 as String,subscription: freezed == subscription ? _self.subscription : subscription // ignore: cast_nullable_to_non_nullable
-as AtUri?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
+as AtUri?,knownSubscribers: freezed == knownSubscribers ? _self._knownSubscribers : knownSubscribers // ignore: cast_nullable_to_non_nullable
+as List<ProfileViewBasic>?,knownSubscriberCount: freezed == knownSubscriberCount ? _self.knownSubscriberCount : knownSubscriberCount // ignore: cast_nullable_to_non_nullable
+as int?,$unknown: freezed == $unknown ? _self._$unknown : $unknown // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
 }

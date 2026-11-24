@@ -625,6 +625,9 @@ const appBskyFeedGetListFeed = 'app.bsky.feed.getListFeed';
 /// `app.bsky.feed.getPostThread`
 const appBskyFeedGetPostThread = 'app.bsky.feed.getPostThread';
 
+/// `app.bsky.feed.getPostVersions`
+const appBskyFeedGetPostVersions = 'app.bsky.feed.getPostVersions';
+
 /// `app.bsky.feed.getPosts`
 const appBskyFeedGetPosts = 'app.bsky.feed.getPosts';
 

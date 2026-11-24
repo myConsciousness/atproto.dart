@@ -25,6 +25,20 @@ _$EmbedExternalViewGalleryViewerStateFromJson(Map json) => $checkedCreate(
           const AtUriConverter().fromJson,
         ),
       ),
+      knownLikers: $checkedConvert(
+        'knownLikers',
+        (v) => (v as List<dynamic>?)
+            ?.map(
+              (e) => const ProfileViewBasicConverter().fromJson(
+                e as Map<String, dynamic>,
+              ),
+            )
+            .toList(),
+      ),
+      knownLikerCount: $checkedConvert(
+        'knownLikerCount',
+        (v) => (v as num?)?.toInt(),
+      ),
       $unknown: $checkedConvert(
         r'$unknown',
         (v) => (v as Map?)?.map((k, e) => MapEntry(k as String, e)),
@@ -42,6 +56,10 @@ Map<String, dynamic> _$EmbedExternalViewGalleryViewerStateToJson(
     instance.like,
     const AtUriConverter().toJson,
   ),
+  'knownLikers': ?instance.knownLikers
+      ?.map(const ProfileViewBasicConverter().toJson)
+      .toList(),
+  'knownLikerCount': ?instance.knownLikerCount,
   r'$unknown': ?instance.$unknown,
 };
 

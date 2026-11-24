@@ -1,5 +1,20 @@
 # Release Note
 
+## v2.19.1
+
+- chore: updated `app.bsky.embed.external#viewArticle.likers`
+- feat: added `app.bsky.embed.external#viewArticlePublicationViewerState.knownSubscriberCount`
+- feat: added `app.bsky.embed.external#viewArticlePublicationViewerState.knownSubscribers`
+- feat: added `app.bsky.embed.external#viewArticleViewerState.knownLikerCount`
+- feat: added `app.bsky.embed.external#viewArticleViewerState.knownLikers`
+- chore: updated `app.bsky.embed.external#viewGallery.likers`
+- feat: added `app.bsky.embed.external#viewGalleryViewerState.knownLikerCount`
+- feat: added `app.bsky.embed.external#viewGalleryViewerState.knownLikers`
+- feat: added `app.bsky.embed.record#viewRecord.editedAt`
+- feat: added `app.bsky.feed.defs#postView.editedAt`
+- feat: added `app.bsky.feed.getPostVersions`
+- chore: regenerated from synced lexicons
+
 ## v2.19.0
 
 - feat: added `app.bsky.embed.external#viewArticle.providerId`
